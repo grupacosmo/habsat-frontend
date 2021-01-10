@@ -12,12 +12,12 @@ function PartnersSection()
 {
     const partnersInfo =
     [
-        ["Politechnika Krakowska", pk],
-        ["Katedra Informatyki", ki],
-        ["FutureLab", fl],
-        ["Wydział Informatyki i Telekomunikacji", wiit],
-        ["Botland", bl],
-        ["Baltic Sat Apps", bsa]
+        ["Politechnika Krakowska", pk, "https://www.pk.edu.pl/"],
+        ["Katedra Informatyki", ki, "https://ii.pk.edu.pl/"],
+        ["FutureLab", fl, "http://futurelab.pk.edu.pl/"],
+        ["Wydział Informatyki i Telekomunikacji", wiit, "https://it.pk.edu.pl/"],
+        ["Botland", bl, "https://botland.com.pl/"],
+        ["Baltic Sat Apps", bsa, "https://balticsatapps.pl/"]
     ]
 
     return(
@@ -25,8 +25,7 @@ function PartnersSection()
             className="partnersSection"
             style={{
                 backgroundColor: "#f8f8f8",
-                marginTop: "50px",
-                paddingTop: "50px"
+                padding: "50px 0px"
             }}
         >
             <h1
@@ -44,8 +43,9 @@ function PartnersSection()
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr 1fr",
                     justifyItems: "center"
-            }}>
-                {partnersInfo.map((value) => {return <Partner imgPath={value[1]} altText={value[0]}/>})}
+                }}
+            >
+                {partnersInfo.map((value) => {return <Partner imgPath={value[1]} altText={value[0]} partnerSite={value[2]}/>})}
             </div>
         </div>
     )    

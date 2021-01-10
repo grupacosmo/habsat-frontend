@@ -4,7 +4,13 @@ function Partner(props)
 {
     return(
         <div className="partner-wrapper">
-            <img src={props.imgPath} alt={props.altText}></img>
+            <a 
+                href={props.partnerSite}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <img src={props.imgPath} alt={props.altText}></img>
+            </a>
         </div>
     );
 }
