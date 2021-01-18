@@ -26,13 +26,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c0bff57-b1cb-44a3-8103-c6e7ba63ad0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/component/IconTile/IconTile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/IconTile/IconTile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/IconsSection/IconsSection.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/IconsSection/IconsSection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/geoData/GeoJSON.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/hot-air-balloon-sharp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/container/MapSection/MapSection.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/container/MapSection/MapSection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/container/MapSection/MapView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/container/MapSection/MapView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/IconTile/IconTile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/IconTile/IconTile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/IconsSection/IconsSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/IconsSection/IconsSection.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/LandingPage/LandingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LandingPage/LandingPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -64,7 +68,7 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../aurora-front-react" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -73,13 +77,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets/images" />
-      <recent name="$PROJECT_DIR$/src/component/HeheTitle" />
-      <recent name="$PROJECT_DIR$/src/container/HeheSection" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/view/LandingPage" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Błażej\React\habsat-frontend\src\assets\images" />
+      <recent name="E:\Błażej\React\habsat-frontend\src\container\MapSection" />
+      <recent name="E:\Błażej\React\habsat-frontend\src\container" />
+      <recent name="E:\Błażej\React\habsat-frontend\src\assets" />
+      <recent name="$PROJECT_DIR$/src/assets/images" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -94,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609271985551</updated>
       <workItem from="1609271988323" duration="1333000" />
-      <workItem from="1610988559413" duration="14013000" />
+      <workItem from="1610988559413" duration="21498000" />
     </task>
     <servers />
   </component>
