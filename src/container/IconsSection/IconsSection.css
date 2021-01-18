@@ -1,0 +1,11 @@
+.IconsSection{
+    padding: 2em 0;
+    text-align: center;
+    width: 100vw;
+    height: 70vh;
+    background: #fff;
+    overflow-x: hidden;
+}
+#title{
+    font-size: 3em;
+}
