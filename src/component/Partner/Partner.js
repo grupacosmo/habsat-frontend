@@ -3,7 +3,7 @@ import { convertLegacyProps } from "antd/lib/button/button";
 function Partner(props)
 {
     return(
-        <div className="partner-wrapper">
+        <div className="partner-element">
             <a 
                 href={props.partnerSite}
                 target="_blank"

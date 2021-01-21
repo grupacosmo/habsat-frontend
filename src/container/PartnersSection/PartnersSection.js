@@ -22,7 +22,7 @@ function PartnersSection()
 
     return(
         <div 
-            className="partnersSection"
+            className="partners-section"
             style={{
                 backgroundColor: "#f8f8f8",
                 padding: "50px 0px"
