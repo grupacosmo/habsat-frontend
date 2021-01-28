@@ -1,9 +1,10 @@
 import { convertLegacyProps } from "antd/lib/button/button";
+import './Partner.css'
 
 function Partner(props)
 {
     return(
-        <div className="partner-element">
+        <div className="PartnerElement">
             <a 
                 href={props.partnerSite}
                 target="_blank"

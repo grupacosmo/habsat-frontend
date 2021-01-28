@@ -1,4 +1,5 @@
 import Partner from "../../component/Partner/Partner";
+
 import './PartnersSection.css';
 
 import pk from "../../assets/images/partners/pk.png"
@@ -21,30 +22,9 @@ function PartnersSection()
     ]
 
     return(
-        <div 
-            className="partners-section"
-            style={{
-                backgroundColor: "#f8f8f8",
-                padding: "50px 0px"
-            }}
-        >
-            <h1
-                style={{
-                    textAlign: "center",
-                    fontSize: "60px",
-                    textTransform: "uppercase",
-                    letterSpacing: "5px"
-            }}>
-                Nasi partnerzy
-            </h1>
-
-            <div className="partner-wrapper"
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr",
-                    justifyItems: "center"
-                }}
-            >
+        <div className="ParentsSection">
+            <h1>Nasi partnerzy</h1>
+            <div className="PartnersWrapper">
                 {partnersInfo.map((value) => {return <Partner imgPath={value[1]} altText={value[0]} partnerSite={value[2]}/>})}
             </div>
         </div>
