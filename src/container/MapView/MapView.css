@@ -1,0 +1,8 @@
+.MapContainer{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: #fff;
+    padding: 1em 1em 5em 1em;
+}
+
