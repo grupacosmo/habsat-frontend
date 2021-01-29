@@ -1,6 +1,7 @@
 import React from "react";
 import './LandingPage.css';
 import {Layout} from "antd";
+import PartnersSection from '../../container/PartnersSection/PartnersSection';
 import HeheSection from "../../container/HeheSection/HeheSection";
 import ContactSection from "../../container/ContactSection/ContactSection";
 import IconsSection from "../../container/IconsSection/IconsSection";
@@ -14,6 +15,7 @@ function LandingPage() {
             <Content>
                 <MapView/>
                 <IconsSection/>
+                <PartnersSection />
                 <ContactSection/>
             </Content>
         </Layout>
