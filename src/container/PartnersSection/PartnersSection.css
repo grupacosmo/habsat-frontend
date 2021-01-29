@@ -12,20 +12,44 @@
     letter-spacing: 5px;
 }
 
-.PartnersWrapper
+.PartnerElement a img
+{
+    margin: auto;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.PartnerElement > a > img
+{
+    max-width: 250px;
+    max-height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}   
+
+.PartnerWrapper
+{
+    margin: auto;
+}
+
+/* Hoover */
+
+.PartnerElement a img:hover
+{
+    opacity: 0.6;
+}
+
+/* Śmieci */
+/* .PartnersWrapper
 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     justify-items: center;
     margin: 0 auto;
 
-}
-.PartnerElement > a > img
-{
-    max-width: 300px;
-}   
-
-@media only screen and (min-width: 1602px)
+} */
+/* @media only screen and (min-width: 1602px)
 {
     .PartnersWrapper
     {
@@ -33,9 +57,9 @@
         grid-template-columns: 1fr 1fr 1fr;
         
     }   
-}
+} */
 
-@media only screen and (max-width: 550px)
+/* @media only screen and (max-width: 550px)
 {
     .PartnerElement > a > img
     {
@@ -47,16 +71,4 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
-}
-
-/* Hoover */
-
-.PartnerElement
-{
-    opacity: 1;
-    transition: 0.3s;
-}
-.PartnerElement:hover
-{
-    opacity: 0.6;
-}
+} */

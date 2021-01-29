@@ -1,4 +1,5 @@
 import Partner from "../../component/Partner/Partner";
+import {Row, Col} from 'antd';
 
 import './PartnersSection.css';
 
@@ -23,9 +24,16 @@ function PartnersSection()
 
     return(
         <div className="ParentsSection">
-            <h1>Nasi partnerzy</h1>
             <div className="PartnersWrapper">
-                {partnersInfo.map((value) => {return <Partner imgPath={value[1]} altText={value[0]} partnerSite={value[2]}/>})}
+                <h1>Nasi partnerzy</h1>
+                <Row justify="center" align="top">
+                    {partnersInfo.map((value) => {
+                        return(
+                            <Col xs={24} sm={12} md={12} lg={8} xl={8}>
+                                <Partner imgPath={value[1]} altText={value[0]} partnerSite={value[2]}/>
+                            </Col>
+                    )})}   
+                </Row>
             </div>
         </div>
     )    
