@@ -1,10 +1,8 @@
-.AboutUsContent
-{
+.AboutUsContent {
     padding: 8vh;
 }
 
-.AboutUsLink
-{
+.AboutUsLink {
     background-position: center;
     height: 100%;
     width: 100%;
@@ -14,20 +12,17 @@
 
     box-shadow: inset 50px 0px 39px -18px #000000;
 }
-@media only screen and (max-width: 991px)
-{
-    .AboutUsContent
-    {
+
+@media only screen and (max-width: 991px) {
+    .AboutUsContent {
         box-shadow: inset 0px -34px 25px -30px rgba(0, 0, 0, 0.377)
     }
-    .AboutUsLink
-    {
+    .AboutUsLink {
         box-shadow: none;
     }
 }
 
-.AboutUsLink a
-{
+.AboutUsLink a {
     color: white;
     border: 0.1rem solid white;
     padding: 0.5rem 1.3rem;
@@ -38,8 +33,7 @@
 }
 
 /* Hoover */
-.AboutUsLink a:hover
-{
+.AboutUsLink a:hover {
     background-color: white;
     color: black;
     font-weight: bold;

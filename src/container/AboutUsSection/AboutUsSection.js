@@ -1,12 +1,10 @@
-import React, { Component } from "react"
 import { Row, Col } from "antd"
 
 import background from "../../assets/images/earth.jpg"
 
 import './AboutUsSection.css'
 
-function AboutUs()
-{
+function AboutUs() {
     return(
         <div className="AboutUsSection">
             <Row>
@@ -32,6 +30,5 @@ function AboutUs()
         </div>
     )
 }
-
 
 export default AboutUs
