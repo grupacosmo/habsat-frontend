@@ -1,0 +1,41 @@
+.AboutUsContent {
+    padding: 8vh;
+}
+
+.AboutUsLink {
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: inset 50px 0px 39px -18px #000000;
+}
+
+@media only screen and (max-width: 991px) {
+    .AboutUsContent {
+        box-shadow: inset 0px -34px 25px -30px rgba(0, 0, 0, 0.377)
+    }
+    .AboutUsLink {
+        box-shadow: none;
+    }
+}
+
+.AboutUsLink a {
+    color: white;
+    border: 0.1rem solid white;
+    padding: 0.5rem 1.3rem;
+    margin: 2rem;
+    border-radius: 5vh;
+    transition: 0.5s;
+    transition-timing-function: ease;
+}
+
+/* Hoover */
+.AboutUsLink a:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.247);
+}
