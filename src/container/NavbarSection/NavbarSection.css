@@ -1,0 +1,22 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.Navbar {
+    z-index: 11;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    width: 100%;
+    height: 48px;
+}
+.ant-layout-header {
+    height: 100%;
+}
+
+.scroll-to-element{
+    opacity: 0%;
+    top: -47px;
+    position: relative;
+    height: 0;
+}
