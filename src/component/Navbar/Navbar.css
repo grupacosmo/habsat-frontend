@@ -1,5 +1,3 @@
-@import '~antd/dist/antd.css';
-
 .site-layout-content {
   min-height: 280px;
   padding: 24px;
@@ -57,16 +55,32 @@
 
 /* Mobile */
 
-.MobileShown > .ant-btn {
+.MobileShown > .HamburgerButton {
   margin: 0;
   position: absolute;
   top: 50%;
   right: 0;
   transform: translate(-50%, -50%);
+  color: white;
+  cursor: pointer;
+}
+
+.MobileShown > .HamburgerButton > div {
+  width: 30px;
+  height: 4px;
+  background-color: rgb(224, 224, 224);
+  margin: 6px 0;
+  transition: 0.2s;
+}
+
+.MobileShown > .HamburgerButton:hover > div {
+  background-color: rgb(255, 255, 255);
 }
 
 .ant-drawer-header {
   background: #141414;
+  height: 48px;
+  border-bottom: 1px solid black;
 }
 
 .ant-drawer-title {

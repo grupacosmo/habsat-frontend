@@ -1,17 +1,11 @@
 import './Navbar.css'
 
 import React, {useState} from "react"
+import { Anchor, Drawer } from "antd"
 
-import { Anchor, Drawer, Button} from "antd"
+import Items from "./Items"
+
 const { Link } = Anchor
-
-const Items = [
-        ["home", "#Home", "Home"],
-        ["map", "#MapView", "Mapa"],
-        ["about", "#AboutUs", "O nas"],
-        ["partners", "#Partners", "Partnerzy"],
-        ["contact", "#Contact", "Kontakt"]
-    ]
 
 function Navbar()
 {
@@ -29,13 +23,13 @@ function Navbar()
             </div>
             <div className="MobileHidden">
                 <Anchor affix="true" offsetTop="0">
-                    {Items.map(item => {return(<Link href={item[1]} title={item[2]}/>)})}
+                    {Items.map(item => {return(<Link key={item.key} href={item.href} title={item.title}/>)})}
                 </Anchor>
             </div>
             <div className="MobileShown">
-            <Button type="primary" onClick={showDrawer} >
-                Menu
-            </Button>
+            <div className="HamburgerButton" type="primary" onClick={showDrawer} >
+                <div /><div /><div />
+            </div>
             <Drawer
                 title="Menu"
                 placement="right"
@@ -44,7 +38,7 @@ function Navbar()
                 visible={visible}
             >
                 <Anchor affix="true" offsetTop="0">
-                    {Items.map(item => {return(<div onClick={onClose}><Link href={item[1]} title={item[2]}/></div>)})}
+                    {Items.map(item => {return(<div onClick={onClose}><Link key={item.key} href={item.href} title={item.title}/></div>)})}
                 </Anchor>
             </Drawer>
             </div>
