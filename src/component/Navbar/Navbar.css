@@ -1,0 +1,130 @@
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+.logo {
+  color: #fff;
+  float: left;
+  width: 10vw;
+  height: 48px;
+  margin: 0;
+  position: relative;
+}
+.logo > *
+{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+[data-theme="dark"] .site-layout-content {
+    background: #141414;
+  }
+
+.ant-anchor {
+  background: #001529;
+}
+
+.ant-anchor * {
+  color: #fff;
+  display: inline;
+}
+
+.ant-anchor-wrapper {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  display: inline;
+  overflow: visible;
+  background: #001529;
+}
+
+.ant-anchor-ink {
+  display: none;
+}
+
+/* Mobile */
+
+.MobileShown > .HamburgerButton {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  color: white;
+  cursor: pointer;
+}
+
+.MobileShown > .HamburgerButton > div {
+  width: 30px;
+  height: 4px;
+  background-color: rgb(224, 224, 224);
+  margin: 6px 0;
+  transition: 0.2s;
+}
+
+.MobileShown > .HamburgerButton:hover > div {
+  background-color: rgb(255, 255, 255);
+}
+
+.ant-drawer-header {
+  background: #141414;
+  height: 48px;
+  border-bottom: 1px solid black;
+}
+
+.ant-drawer-title {
+  color: #fff;
+}
+
+.ant-drawer-body {
+  background: #141414;
+  color: #fff;  
+}
+
+.MobileShown {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .MobileHidden {
+    display: none;
+  }
+  .MobileShown {
+    display: block;
+  }
+
+  .ant-anchor {
+    background: #141414;
+  }
+  
+  .ant-anchor * {
+    color: #fff;
+    display: block;
+  }
+
+  .ant-anchor-wrapper {
+    padding: 0;
+    margin: 0;
+    position: static;
+    top: 50%;
+    left: 50%;
+    transform: none;
+    display: block;
+    overflow:visible;
+  }
+  
+  .ant-anchor-ink {
+    display: block;
+  }
+}

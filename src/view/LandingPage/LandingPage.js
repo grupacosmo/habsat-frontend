@@ -7,6 +7,7 @@ import ContactSection from "../../container/ContactSection/ContactSection";
 // import IconsSection from "../../container/IconsSection/IconsSection";
 import MapView from "../../container/MapView/MapView";
 import AboutUsSection from "../../container/AboutUsSection/AboutUsSection";
+import NavbarSection from "../../container/NavbarSection/NavbarSection";
 import HomeSection from "../../container/HomeSection/HomeSection";
 
 const { Content } = Layout;
@@ -14,13 +15,19 @@ const { Content } = Layout;
 function LandingPage() {
     return (
         <Layout>
-            <Content>        
+            <Content>   
+                <NavbarSection />
+                <div class="scroll-to-element" id="Home" />    
                 <HomeSection />
-                <MapView/>
+                <div class="scroll-to-element" id="MapView" />
+                <MapView id="MapView" />
                 {/* <IconsSection/> */}
-                <AboutUsSection />
-                <PartnersSection />
-                <ContactSection/>
+                <div class="scroll-to-element" id="AboutUs" />
+                <AboutUsSection id="AboutUs" />
+                <div class="scroll-to-element" id="Partners" />
+                <PartnersSection id="Partners" />
+                <div class="scroll-to-element" id="Contact" />
+                <ContactSection id="Contact" />
             </Content>
         </Layout>
     );
