@@ -3,16 +3,16 @@ import './Number.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import CountUp from "react-countup";
 import VisibilitySensor from 'react-visibility-sensor';
-function Number(props)
-{
-    return(
+
+function Number(props) {
+    return (
         <div className="NumberComponent">
             <FontAwesomeIcon className="NumberIcon" icon={props.icon}/>
             <div className="NumberValue">
                 <CountUp duration={2} end={props.number} redraw={true}>
-                    {({ countUpRef, start }) => (
+                    {({countUpRef, start}) => (
                         <VisibilitySensor onChange={start} delayedCall>
-                            <span ref={countUpRef} />
+                            <span ref={countUpRef}/>
                         </VisibilitySensor>
                     )}
                 </CountUp>

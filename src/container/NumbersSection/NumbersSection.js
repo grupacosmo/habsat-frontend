@@ -7,58 +7,58 @@ import Number from "../../component/Number/Number";
 import './NumbersSection.css';
 
 
-function NumbersSection() 
-{
+function NumbersSection() {
     const numbersData =
-    [
-        {
-            icon:faWeight,
-            number:2137,
-            unit:"g",
-            mainText:"Tyle kremówek zmieściliśmy w HABsacie",
-            secondaryText:"Bo wcześniej nam nigdy nie dawali"
-        },
-        {
-            icon:faUser,
-            number:100,
-            unit:"",
-            mainText:"Tyle osób nie dostało za to nawet grosza",
-            secondaryText:"Choć i tak nikt się zarobku nie spodziewał"
-        },
-        {
-            icon:faCube,
-            number:999,
-            unit:<span>m<sup>2</sup></span>,
-            mainText:"Nie wiem jaka miała być objętość balona",
-            secondaryText:"Więc powiedzmy że na razie placeholder"
-        },
-        {
-            icon:faGlobeEurope,
-            number:222,
-            unit:"km",
-            mainText:"Poleci gdzieś wysoko",
-            secondaryText:"Lorem Ipsum coś tam coś tam"
-        }
-    ]
+        [
+            {
+                icon: faWeight,
+                number: 2137,
+                unit: "g",
+                mainText: "Tyle kremówek zmieściliśmy w HABsacie",
+                secondaryText: "Bo wcześniej nam nigdy nie dawali"
+            },
+            {
+                icon: faUser,
+                number: 100,
+                unit: "",
+                mainText: "Tyle osób nie dostało za to nawet grosza",
+                secondaryText: "Choć i tak nikt się zarobku nie spodziewał"
+            },
+            {
+                icon: faCube,
+                number: 999,
+                unit: <span>m<sup>2</sup></span>,
+                mainText: "Nie wiem jaka miała być objętość balona",
+                secondaryText: "Więc powiedzmy że na razie placeholder"
+            },
+            {
+                icon: faGlobeEurope,
+                number: 222,
+                unit: "km",
+                mainText: "Poleci gdzieś wysoko",
+                secondaryText: "Lorem Ipsum coś tam coś tam"
+            }
+        ]
 
-    return(
+    return (
         <div className="NumbersSection">
-            <Row justify="center" gutter={[16,16]}>
+            <Row justify="center" gutter={[16, 16]}>
                 {numbersData.map((element) => {
-                    return(
+                    return (
                         <Col xs={24} sm={12} md={12} lg={6} xl={6}>
-                            <Number 
-                                icon={element.icon} 
-                                number={element.number} 
-                                unit={element.unit} 
-                                mainText={element.mainText} 
+                            <Number
+                                icon={element.icon}
+                                number={element.number}
+                                unit={element.unit}
+                                mainText={element.mainText}
                                 secondaryText={element.secondaryText}
                             />
                         </Col>
-                )})}   
+                    )
+                })}
             </Row>
         </div>
-    )    
+    )
 }
 
 export default NumbersSection

@@ -1,22 +1,26 @@
-.NumberComponent{
+.NumberComponent {
     background-color: rgb(236, 236, 236);
     border-radius: 0.5em;
     padding: 0.5em;
     margin: 0 0.5em;
     height: 100%;
-    color:#333333;
+    color: #333333;
 }
-.NumberIcon{
+
+.NumberIcon {
     color: darkblue;
     font-size: 2em;
     text-align: center;
 }
-.NumberValue{
+
+.NumberValue {
     font-size: 1.4em;
 }
-.NumberMainText{
+
+.NumberMainText {
     font-size: 1.1em;
 }
-.NumberSecondaryText{
-    color:#555;
+
+.NumberSecondaryText {
+    color: #555;
 }
