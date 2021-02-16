@@ -8,6 +8,7 @@ import ContactSection from "../../container/ContactSection/ContactSection";
 import MapView from "../../container/MapView/MapView";
 import AboutUsSection from "../../container/AboutUsSection/AboutUsSection";
 import NavbarSection from "../../container/NavbarSection/NavbarSection";
+import HomeSection from "../../container/HomeSection/HomeSection";
 
 const { Content } = Layout;
 
@@ -17,6 +18,7 @@ function LandingPage() {
             <Content>   
                 <NavbarSection />
                 <div class="scroll-to-element" id="Home" />    
+                <HomeSection />
                 <div class="scroll-to-element" id="MapView" />
                 <MapView id="MapView" />
                 {/* <IconsSection/> */}
