@@ -6,6 +6,7 @@ import ContactSection from "../../container/ContactSection/ContactSection";
 // import IconsSection from "../../container/IconsSection/IconsSection";
 import MapView from "../../container/MapView/MapView";
 import AboutUsSection from "../../container/AboutUsSection/AboutUsSection";
+import HabsatComponentsSection from "../../container/HabsatComponentsSection/HabsatComponentsSection";
 import NumbersSection from "../../container/NumbersSection/NumbersSection";
 import NavbarSection from "../../container/NavbarSection/NavbarSection";
 import HomeSection from "../../container/HomeSection/HomeSection";
@@ -21,7 +22,8 @@ function LandingPage() {
                 <HomeSection />
                 <div class="scroll-to-element" id="MapView" />
                 <MapView id="MapView" />
-                {/* <IconsSection/> */}
+                <div class="scroll-to-element" id="HabsatComponents" />
+                <HabsatComponentsSection/>
                 <div class="scroll-to-element" id="AboutUs" />
                 <AboutUsSection id="AboutUs" />
                 <NumbersSection />

@@ -1,0 +1,54 @@
+.habsatComponentContainer{
+    display: flex;
+    align-items: flex-start;
+    opacity: 0.6;
+    transition: opacity 0.5s;
+    margin-bottom: 3em;
+    border-radius: 1em;
+    width: 80%;
+    text-align: justify;
+    font-size: 1em;
+}
+
+.habsatComponentContainer:hover{
+    opacity: 1;
+}
+
+.habsatComponentContainer .habIcon{
+    display: flex;
+    flex-direction: column;
+    padding-right: 1em;
+}
+
+.habsatComponentContainer .circleBackground{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    padding: 0.3em;
+    font-size: 2.5em;
+    background-image: linear-gradient(to left top, #09a0f0, #00b7fa, #00ccff, #00e1ff, #3ff5ff);
+}
+
+.habsatComponentContainer .AwsomeIcon{
+    color: #fff;
+}
+
+.habsatComponentContainer .habContent{
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 700px) {
+    .habsatComponentContainer{
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .habsatComponentContainer{
+        font-size: 0.7em;
+    }
+}
