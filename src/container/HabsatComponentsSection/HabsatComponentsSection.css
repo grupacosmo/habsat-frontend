@@ -1,0 +1,33 @@
+.hComponentsContainer {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 3em;
+}
+
+.hComponentsContainer .panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+
+#habsatImg {
+   width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    #habsatImg{
+        margin-bottom: 2em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .hComponentsContainer{
+        padding: 0;
+    }
+}

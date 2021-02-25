@@ -6,6 +6,7 @@ import ContactSection from "../../container/ContactSection/ContactSection";
 import IconsSection from "../../container/IconsSection/IconsSection";
 import MapView from "../../container/MapView/MapView";
 import AboutUsSection from "../../container/AboutUsSection/AboutUsSection";
+import HabsatComponentsSection from "../../container/HabsatComponentsSection/HabsatComponentsSection";
 
 
 const { Content } = Layout;
@@ -15,6 +16,7 @@ function LandingPage() {
         <Layout>
             <Content>        
                 <MapView/>
+                <HabsatComponentsSection/>
                 <IconsSection/>
                 <AboutUsSection />
                 <PartnersSection />
