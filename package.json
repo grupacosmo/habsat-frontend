@@ -4,19 +4,21 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "antd": "^4.9.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.3",
+    "antd": "^4.12.3",
+    "bootstrap": "^4.6.0",
     "leaflet": "^1.7.1",
     "react": "^17.0.1",
     "react-animated-number": "^0.4.4",
     "react-countup": "^4.3.3",
     "react-dom": "^17.0.1",
-    "react-leaflet": "^3.0.5",
-    "react-scripts": "^4.0.1",
+    "react-leaflet": "^3.1.0",
+    "react-scripts": "^4.0.3",
     "react-visibility-sensor": "^5.1.1",
     "start": "^5.1.0",
     "web-vitals": "^0.2.4"
@@ -44,5 +46,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify-icons/bi": "^1.1.2",
+    "@iconify-icons/bx": "^1.1.0",
+    "@iconify-icons/dashicons": "^1.1.0",
+    "@iconify-icons/eva": "^1.1.0",
+    "@iconify-icons/fa-solid": "^1.1.0",
+    "@iconify-icons/feather": "^1.1.0",
+    "@iconify/react": "^1.1.4"
   }
 }
