@@ -10,6 +10,7 @@ import HabsatComponentsSection from "../../container/HabsatComponentsSection/Hab
 import NumbersSection from "../../container/NumbersSection/NumbersSection";
 import NavbarSection from "../../container/NavbarSection/NavbarSection";
 import HomeSection from "../../container/HomeSection/HomeSection";
+import FooterSection from "../../container/FooterSection/FooterSection";
 
 const { Content } = Layout;
 
@@ -31,6 +32,7 @@ function LandingPage() {
                 <PartnersSection id="Partners" />
                 <div class="scroll-to-element" id="Contact" />
                 <ContactSection id="Contact" />
+                <FooterSection />
             </Content>
         </Layout>
     );
