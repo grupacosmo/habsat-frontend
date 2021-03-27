@@ -4,13 +4,13 @@ import {Layout} from "antd";
 import PartnersSection from '../../container/PartnersSection/PartnersSection';
 import ContactSection from "../../container/ContactSection/ContactSection";
 // import IconsSection from "../../container/IconsSection/IconsSection";
-import MapView from "../../container/MapView/MapView";
 import AboutUsSection from "../../container/AboutUsSection/AboutUsSection";
 import HabsatComponentsSection from "../../container/HabsatComponentsSection/HabsatComponentsSection";
 import NumbersSection from "../../container/NumbersSection/NumbersSection";
 import NavbarSection from "../../container/NavbarSection/NavbarSection";
 import HomeSection from "../../container/HomeSection/HomeSection";
 import FooterSection from "../../container/FooterSection/FooterSection";
+import IconsSection from "../../container/IconsSection/IconsSection";
 
 const { Content } = Layout;
 
@@ -21,10 +21,10 @@ function LandingPage() {
                 <NavbarSection />
                 <div class="scroll-to-element" id="Home" />    
                 <HomeSection />
-                <div class="scroll-to-element" id="MapView" />
-                <MapView id="MapView" />
-                <div class="scroll-to-element" id="HabsatComponents" />
+                <div class="scroll-to-element" id="Project" />
                 <HabsatComponentsSection/>
+                <div className="scroll-to-element" id="Experiment"/>
+                <IconsSection/>
                 <div class="scroll-to-element" id="AboutUs" />
                 <AboutUsSection id="AboutUs" />
                 <NumbersSection />

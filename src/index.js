@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import LandingPage from './view/LandingPage/LandingPage';
 import reportWebVitals from './reportWebVitals';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import MapView from "./view/MapView/MapView";
 
 ReactDOM.render(
   <React.StrictMode>
-    <LandingPage />
+      <Router>
+          <Switch>
+              <Route exact path="/" component={LandingPage}/>
+              <Route exact path="/map" component={MapView}/>
+          </Switch>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

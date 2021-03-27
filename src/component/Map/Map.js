@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import 'leaflet/dist/leaflet.css';
-import "./MapSection.css"
+import "./Map.css"
 import {MapContainer, Marker,Popup, TileLayer, Polyline} from "react-leaflet"
 import L from 'leaflet';
 import balloonSharp from '../../assets/images/hot-air-balloon-sharp.svg';
@@ -31,7 +31,7 @@ L.Icon.Default.mergeOptions({
 // L.Marker.prototype.options.icon = BalloonIcon;
 
 
-function MapSection(props) {
+function Map(props) {
     const [polylines, setPolylines] = useState(null)
     const [markers, setMarkers] = useState(null)
     const [polygons, setPolygons] = useState(null)
@@ -106,4 +106,4 @@ function MapSection(props) {
     )
 }
 
-export default MapSection;
+export default Map;
