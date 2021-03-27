@@ -46,7 +46,7 @@ function NumbersSection() {
 
     return (
         <div className="NumbersSection">
-            <Row justify="center" gutter={[0, 16]}>
+            <Row justify="center">
                 {numbersData.map((element, key) => {
                     return (
                         <Col key={key} xs={24} sm={12} md={12} lg={6} xl={6}>
