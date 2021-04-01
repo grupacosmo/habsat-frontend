@@ -1,8 +1,40 @@
-.MapContainer{
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    background: #fff;
-    padding: 1em 1em 5em 1em;
+.MapViewContainer {
+    min-height: 100vh;
+    padding: 1em 1em 1em 1em;
+}
+
+.SliderContainer {
+    width: 80%;
+    padding: 2em 0;
+    margin: 0 auto;
+}
+
+/*Styling Slider*/
+.ant-slider-rail{
+    height: 12px;
+    border-radius: 6px;
+    background-color: white;
+    border: solid 2px #46a6ff;
+}
+
+.ant-slider-track{
+    height: 12px;
+    border-radius: 6px;
+    border: solid 2px #46a6ff;
+}
+.ant-slider-step{
+    height: 12px;
+    border-radius: 6px;
+}
+.ant-slider-handle{
+    height: 22px;
+    width: 22px;
+}
+.ant-slider-dot{
+    width: 12px;
+    height: 12px;
+    top: 0;
+    margin-left: -5px;
+    border: solid 2px #46a6ff;
 }
 
