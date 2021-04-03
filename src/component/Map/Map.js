@@ -26,19 +26,19 @@ const BalloonIcon = L.icon({
 /**
  *  Ten kod naprawia poprawne wyświetlanie sie ikony markera ma mapie
  */
-delete L.Icon.Default.prototype._getIconUrl;
-
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-    iconUrl: require('leaflet/dist/images/marker-icon.png'),
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png')
-});
+// delete L.Icon.Default.prototype._getIconUrl;
+//
+// L.Icon.Default.mergeOptions({
+//     iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+//     iconUrl: require('leaflet/dist/images/marker-icon.png'),
+//     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+// });
 
 /**
  * Ustwienie domyślnej ikony
  */
 // L.Marker.prototype.options.icon = BalloonIcon;
-L.Marker.prototype.options.icon = DefaultIcon;
+// L.Marker.prototype.options.icon = DefaultIcon;
 
 
 function Map(props) {
@@ -106,7 +106,7 @@ function Map(props) {
             let coords = formatcoords(position.latitude, position.longitude).format({latLonSeparator: ', '}).split(",")
             return (
                 <Marker position={[position.latitude, position.longitude]}
-                        icon={index === (props.geoData.length - 1) ? BalloonIcon : DefaultIcon}
+                        icon={index === (props.pathLength - 1) ? BalloonIcon : DefaultIcon}
                         key={position.id}>
                     <Popup>
                         <p>Time: {props.formatDate(position.dateTime)}</p>

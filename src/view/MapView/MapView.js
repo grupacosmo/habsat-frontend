@@ -81,7 +81,6 @@ const MapView = () => {
             setGeoData(points);
             setSliderValue(points.length);
         });
-
     }, [dataFramePath])
 
     function onChange(value) {
@@ -94,19 +93,19 @@ const MapView = () => {
     return (
         <Layout>
             <Content className="MapViewContainer">
-                <Map geoData={geoData} formatDate={formatDate}/>
+                <Map geoData={geoData.slice(0,sliderValue)} pathLength={geoData.length} formatDate={formatDate}/>
                 {/*<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a*/}
                 {/*    href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/}
                 <div className="SliderContainer">
                     {
-                        geoData.length > 1 ?
+                        geoData.length > 0 ?
                             <Slider
                                 min={1}
-                                max={geoData.length - 1}
+                                max={geoData.length}
                                 onChange={onChange}
                                 onAfterChange={onAfterChange}
                                 tipFormatter={(value) => {
-                                    const element = geoData[value]
+                                    const element = geoData[value - 1]
                                     return `Time${value} ${formatDate(element.dateTime)}`;
                                 }}
                                 value={sliderValue}
@@ -116,7 +115,17 @@ const MapView = () => {
 
                     }
                 </div>
-                <Table columns={columns} dataSource={geoData} pagination={{pageSize: 5}}/>
+                <Table
+                    rowKey="dateTime"
+                    columns={columns}
+                    dataSource={geoData}
+                    pagination={{
+                        pageSize: 5,
+                        showSizeChanger: false,
+                        simple: (window.matchMedia('(max-width: 600px)').matches)
+                    }}
+                    scroll={{ x: 400 }}
+                />
             </Content>
         </Layout>
     )
