@@ -4,7 +4,6 @@
   background: #fff;
 }
 .logo {
-  color: #fff;
   float: left;
   width: 10vw;
   height: 48px;
@@ -13,6 +12,7 @@
 }
 .logo > *
 {
+  color: #fff;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -29,7 +29,7 @@
   }
 
 .ant-anchor {
-  background: #001529;
+  background: rgba(0,0,0,0);
 }
 
 .ant-anchor * {
@@ -46,7 +46,7 @@
   transform: translate(-50%, -50%);
   display: inline;
   overflow: visible;
-  background: #001529;
+  background: rgba(0,0,0,0);
 }
 
 .ant-anchor-ink {
@@ -102,10 +102,6 @@
   }
   .MobileShown {
     display: block;
-  }
-
-  .ant-anchor {
-    background: #141414;
   }
   
   .ant-anchor * {

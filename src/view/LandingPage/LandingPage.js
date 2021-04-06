@@ -17,17 +17,17 @@ const { Content } = Layout;
 function LandingPage() {
     return (
         <Layout>
-            <Content>   
-                <NavbarSection />
-                <div class="scroll-to-element" id="Home" />    
+            <Content>    
+                <div class="scroll-to-element" id="Home" />   
                 <HomeSection />
+                <NavbarSection />
                 <div class="scroll-to-element" id="MapView" />
-                <MapView id="MapView" />
+                {/* <MapView id="MapView" /> */}
                 <div class="scroll-to-element" id="HabsatComponents" />
                 <HabsatComponentsSection/>
                 <div class="scroll-to-element" id="AboutUs" />
                 <AboutUsSection id="AboutUs" />
-                <NumbersSection />
+                {/* <NumbersSection /> */}
                 <div class="scroll-to-element" id="Partners" />
                 <PartnersSection id="Partners" />
                 <div class="scroll-to-element" id="Contact" />
