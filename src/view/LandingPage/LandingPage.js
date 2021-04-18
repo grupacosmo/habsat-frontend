@@ -11,6 +11,7 @@ import NumbersSection from "../../container/NumbersSection/NumbersSection";
 import NavbarSection from "../../container/NavbarSection/NavbarSection";
 import HomeSection from "../../container/HomeSection/HomeSection";
 import FooterSection from "../../container/FooterSection/FooterSection";
+import ProjectDescription from "../../container/ProjectDescription/ProjectDescription";
 
 const { Content } = Layout;
 
@@ -21,6 +22,8 @@ function LandingPage() {
                 <NavbarSection />
                 <div class="scroll-to-element" id="Home" />    
                 <HomeSection />
+                <div className="scroll-to-element" id="ProjectDescription"/>
+                <ProjectDescription id="ProjectDescription"/>
                 <div class="scroll-to-element" id="MapView" />
                 <MapView id="MapView" />
                 <div class="scroll-to-element" id="HabsatComponents" />
