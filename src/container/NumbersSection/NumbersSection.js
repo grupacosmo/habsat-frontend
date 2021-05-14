@@ -12,6 +12,7 @@ function NumbersSection() {
         [
             {
                 icon: faWeight,
+                backgroundColor:"#444eff",
                 number: 2137,
                 unit: "g",
                 mainText: "Tyle kremówek zmieściliśmy w HABsacie",
@@ -19,6 +20,7 @@ function NumbersSection() {
             },
             {
                 icon: faUser,
+                backgroundColor:"#1167b1",
                 number: 100,
                 unit: "",
                 mainText: "Tyle osób nie dostało za to nawet grosza",
@@ -26,6 +28,7 @@ function NumbersSection() {
             },
             {
                 icon: faCube,
+                backgroundColor:"#03254c",
                 number: 999,
                 unit: <span>m<sup>2</sup></span>,
                 mainText: "Nie wiem jaka miała być objętość balona",
@@ -33,6 +36,7 @@ function NumbersSection() {
             },
             {
                 icon: faGlobeEurope,
+                backgroundColor:"#4c67ff",
                 number: 222,
                 unit: "km",
                 mainText: "Poleci gdzieś wysoko",
@@ -42,16 +46,12 @@ function NumbersSection() {
 
     return (
         <div className="NumbersSection">
-            <Row justify="center" gutter={[16, 16]}>
-                {numbersData.map((element) => {
+            <Row justify="center">
+                {numbersData.map((element, key) => {
                     return (
-                        <Col xs={24} sm={12} md={12} lg={6} xl={6}>
+                        <Col key={key} xs={24} sm={12} md={12} lg={6} xl={6}>
                             <Number
-                                icon={element.icon}
-                                number={element.number}
-                                unit={element.unit}
-                                mainText={element.mainText}
-                                secondaryText={element.secondaryText}
+                                {...element}
                             />
                         </Col>
                     )
