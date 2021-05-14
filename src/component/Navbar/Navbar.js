@@ -1,6 +1,6 @@
 import './Navbar.css'
 
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { Anchor, Drawer } from "antd"
 
 import Items from "./Items"
@@ -19,7 +19,7 @@ function Navbar()
     return(
         <div className="NavbarContainer">
             <div className="logo">
-                <span>HabSat</span>
+                <a href="#Home"><span>HabSat</span></a>
             </div>
             <div className="MobileHidden">
                 <Anchor affix="true" offsetTop="0">
