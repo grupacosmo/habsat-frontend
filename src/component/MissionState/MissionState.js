@@ -4,8 +4,8 @@ import "./MissionState.css"
 function MissionState(){
     const [date, updateDate] = useState(0)
 
-    const dDayDate = new Date(2021,3,20)
-    const endDate = new Date(2021,3,22)
+    const dDayDate = new Date(2021,8,20)
+    const endDate = new Date(2021,8,22)
 
     const missionMessages = {
         waiting: {
