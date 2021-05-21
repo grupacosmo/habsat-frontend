@@ -5,6 +5,7 @@ import Map from "../../component/Map/Map";
 import axios from "axios";
 import formatcoords from "formatcoords"
 import {geoDataApiPath} from "../../assets/properties"
+import SockJsClient from 'react-stomp';
 
 
 const {Content} = Layout
@@ -93,9 +94,8 @@ const MapView = () => {
     return (
         <Layout>
             <Content className="MapViewContainer">
-                <Map geoData={geoData.slice(0,sliderValue)} pathLength={geoData.length} formatDate={formatDate}/>
-                {/*<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a*/}
-                {/*    href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/}
+                {/*<Map geoData={geoData.slice(0,sliderValue)} pathLength={geoData.length} formatDate={formatDate}/>*/}
+                <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate}/>
                 <div className="SliderContainer">
                     {
                         geoData.length > 0 ?
@@ -104,10 +104,7 @@ const MapView = () => {
                                 max={geoData.length}
                                 onChange={onChange}
                                 onAfterChange={onAfterChange}
-                                tipFormatter={(value) => {
-                                    const element = geoData[value - 1]
-                                    return `Time${value} ${formatDate(element.dateTime)}`;
-                                }}
+                                tipFormatter={(value) => `${formatDate(geoData[value - 1])}`}
                                 value={sliderValue}
                             />
                             :
@@ -120,13 +117,21 @@ const MapView = () => {
                     columns={columns}
                     dataSource={geoData}
                     pagination={{
-                        pageSize: 5,
+                        pageSize: 20,
                         showSizeChanger: false,
                         simple: (window.matchMedia('(max-width: 600px)').matches)
                     }}
                     scroll={{ x: 400 }}
                 />
             </Content>
+            <SockJsClient url={`${geoDataApiPath}/ws`} topics={['/data/ws']}
+                          onMessage={(dataFrame) => {
+                              setGeoData([...geoData, dataFrame]);
+                              if (sliderValue === geoData.length) {
+                                  setSliderValue(sliderValue + 1);
+                              }
+                          }}
+            />
         </Layout>
     )
 }
