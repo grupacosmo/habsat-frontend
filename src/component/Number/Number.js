@@ -6,7 +6,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 
 function Number(props) {
     return (
-        <div className="NumberComponent">
+        <div className="NumberComponent"  style={{backgroundColor: props.backgroundColor}}>
             <FontAwesomeIcon className="NumberIcon" icon={props.icon}/>
             <div className="NumberValue">
                 <CountUp duration={2} end={props.number} redraw={true}>

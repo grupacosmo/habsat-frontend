@@ -1,14 +1,11 @@
 .NumberComponent {
-    background-color: rgb(236, 236, 236);
-    border-radius: 0.5em;
-    padding: 0.5em;
-    margin: 0 0.5em;
+    padding: 2.5em;
     height: 100%;
-    color: #333333;
+    color: white;
 }
 
 .NumberIcon {
-    color: darkblue;
+    color: ghostwhite;
     font-size: 2em;
     text-align: center;
 }
@@ -22,5 +19,5 @@
 }
 
 .NumberSecondaryText {
-    color: #555;
+    color: antiquewhite;
 }

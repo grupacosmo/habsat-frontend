@@ -11,23 +11,26 @@ import NavbarSection from "../../container/NavbarSection/NavbarSection";
 import HomeSection from "../../container/HomeSection/HomeSection";
 import FooterSection from "../../container/FooterSection/FooterSection";
 import IconsSection from "../../container/IconsSection/IconsSection";
+import ProjectDescription from "../../container/ProjectDescription/ProjectDescription";
 
 const { Content } = Layout;
 
 function LandingPage() {
     return (
         <Layout>
-            <Content>   
-                <NavbarSection />
-                <div class="scroll-to-element" id="Home" />    
+            <Content>    
+                <div class="scroll-to-element" id="Home" />   
                 <HomeSection />
-                <div class="scroll-to-element" id="Project" />
+                <NavbarSection />
+                <div className="scroll-to-element" id="ProjectDescription"/>
+                <ProjectDescription id="ProjectDescription"/>
+                <div class="scroll-to-element" id="HabsatComponents" />
                 <HabsatComponentsSection/>
                 <div className="scroll-to-element" id="Experiment"/>
                 <IconsSection/>
                 <div class="scroll-to-element" id="AboutUs" />
                 <AboutUsSection id="AboutUs" />
-                <NumbersSection />
+                {/* <NumbersSection /> */}
                 <div class="scroll-to-element" id="Partners" />
                 <PartnersSection id="Partners" />
                 <div class="scroll-to-element" id="Contact" />
