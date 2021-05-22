@@ -4,10 +4,15 @@ const Items = [
         href: "#Home", 
         title: "Home"
     },
-    { 
-        key: "map", 
-        href: "#MapView", 
-        title: "Mapa"
+    {
+        key: "project",
+        href: "#Project",
+        title: "Projekt"
+    },
+    {
+        key: "experiment",
+        href: "#Experiment",
+        title: "Eksperymenty"
     },
     { 
         key: "about", 
