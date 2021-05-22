@@ -18,19 +18,19 @@ const { Content } = Layout;
 function LandingPage() {
     return (
         <Layout>
-            <Content>    
-                <div class="scroll-to-element" id="Home" />   
+            <Content>
+                <div class="scroll-to-element" id="Home" />
                 <HomeSection />
                 <NavbarSection />
                 <div className="scroll-to-element" id="ProjectDescription"/>
                 <ProjectDescription id="ProjectDescription"/>
                 <div class="scroll-to-element" id="HabsatComponents" />
                 <HabsatComponentsSection/>
+                <NumbersSection />
                 <div className="scroll-to-element" id="Experiment"/>
                 <IconsSection/>
                 <div class="scroll-to-element" id="AboutUs" />
                 <AboutUsSection id="AboutUs" />
-                {/* <NumbersSection /> */}
                 <div class="scroll-to-element" id="Partners" />
                 <PartnersSection id="Partners" />
                 <div class="scroll-to-element" id="Contact" />
