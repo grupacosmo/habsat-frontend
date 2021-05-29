@@ -1,6 +1,6 @@
 import React from 'react';
-import {Row, Col} from 'antd';
-import {faSitemap,faChartPie,faRocket,faLightbulb} from '@fortawesome/free-solid-svg-icons';
+import {Col, Row} from 'antd';
+import {faChartPie, faLightbulb, faRocket, faSitemap} from '@fortawesome/free-solid-svg-icons';
 
 import './IconsSection.css';
 import IconTile from "../../component/IconTile/IconTile";

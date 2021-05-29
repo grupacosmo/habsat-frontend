@@ -1,7 +1,7 @@
 import React from 'react'
-import {Row, Col, Divider} from 'antd';
+import {Button, Col, Divider, Input, Row} from 'antd';
 import './ContactSection.css'
-import { Input, Button } from 'antd';
+
 const { TextArea } = Input;
 
 function ContactSection() {

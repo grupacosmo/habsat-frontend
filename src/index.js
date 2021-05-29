@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import LandingPage from './view/LandingPage/LandingPage';
 import reportWebVitals from './reportWebVitals';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MapView from "./view/MapView/MapView";
 
 ReactDOM.render(

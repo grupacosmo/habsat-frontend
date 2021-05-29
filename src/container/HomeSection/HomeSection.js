@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 
 import MissionState from '../../component/MissionState/MissionState';
 import "./HomeSection.css"

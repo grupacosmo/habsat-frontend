@@ -1,4 +1,3 @@
-import { convertLegacyProps } from "antd/lib/button/button";
 import './Partner.css'
 
 function Partner(props)

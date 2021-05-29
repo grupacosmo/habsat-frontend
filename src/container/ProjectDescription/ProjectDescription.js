@@ -25,10 +25,10 @@ function ProjectDescription() {
                             vitae feugiat congue, hendrerit at elit. Donec scelerisque ex ac orci rutrum consectetur.
                         </p>
                         <p>
-                            <a href="#" style={{fontSize: "18px"}}>Uczestnicy projektu</a>
+                            <a href="/#" style={{fontSize: "18px"}}>Uczestnicy projektu</a>
                         </p>
                         <p style={{textAlign: "center", fontStyle: "italic"}}>
-                            <a href="#" style={{fontSize: "24px", color: "rgb(125 125 125)"}}>Dowiedz się więcej o projekcie</a>
+                            <a href="/#" style={{fontSize: "24px", color: "rgb(125 125 125)"}}>Dowiedz się więcej o projekcie</a>
                         </p>
                     </Card>
                 </Col>

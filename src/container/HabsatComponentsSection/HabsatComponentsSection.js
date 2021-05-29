@@ -1,14 +1,13 @@
-import {Row, Col} from 'antd';
+import {Col, Row} from 'antd';
 import {
-    faRocket,
-    faLightbulb,
     faChartPie,
+    faLightbulb,
     faMeteor,
-    faSpaceShuttle,
-    faSatellite
+    faRocket,
+    faSatellite,
+    faSpaceShuttle
 } from '@fortawesome/free-solid-svg-icons';
 import "./HabsatComponentsSection.css";
-import habsat from "../../assets/images/habsat.svg";
 import HabsatComponent from "../../component/HabsatComponent/HabsatComponent";
 
 import React from 'react';

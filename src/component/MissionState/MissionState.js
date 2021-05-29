@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, {useEffect, useState} from "react"
 import "./MissionState.css"
 
-function MissionState(){
+function MissionState() {
     const [date, updateDate] = useState(0)
 
-    const dDayDate = new Date(2021,8,20)
-    const endDate = new Date(2021,8,22)
+    const dDayDate = new Date(2021, 7, 20)
+    const endDate = new Date(2021, 7, 22)
 
     const missionMessages = {
         waiting: {
@@ -25,8 +25,8 @@ function MissionState(){
     const getMissionState = (dDayDate, endDate) => {
         const todayDate = new Date()
         let missionStatus = "WAITING"
-        if(todayDate >= dDayDate &&  todayDate <= endDate) missionStatus = "LIVE"
-        if(todayDate >= endDate) missionStatus = "ENDED"
+        if (todayDate >= dDayDate && todayDate <= endDate) missionStatus = "LIVE"
+        if (todayDate >= endDate) missionStatus = "ENDED"
 
         return missionStatus
     }
@@ -34,88 +34,88 @@ function MissionState(){
     let currentState = getMissionState(dDayDate, endDate)
 
     const messageTitle = (missionState) => {
-        switch(missionState) {
+        switch (missionState) {
             case "WAITING":
                 return <>{missionMessages.waiting.title}</>
-            break
             case "LIVE":
                 return <>{missionMessages.live.title}</>
-            break
             case "ENDED":
                 return <>{missionMessages.ended.title}</>
-            break
+            default:
+                return <></>
         }
     }
 
     const messageDescription = (missionState) => {
-        switch(missionState) {
+        switch (missionState) {
             case "WAITING":
-                return(
+                return (
                     <>
-                    <div>{missionMessages.waiting.description}</div><br></br>
-                    <div className="counterDays">
-                        {date.days} dni
-                    </div><br></br>
-                    <div id="counter-hours" className="counterRoll">
-                        <div>{date.hoursF}</div>
-                        <div className="counterBottom">{date.hours}</div>
-                    </div>
-                    <div className="counterRoll">:</div>
-                    <div id="counter-minutes" className="counterRoll">
-                        <div>{date.minutesF}</div>
-                        <div className="counterBottom">{date.minutes}</div>
-                    </div>
-                    <div className="counterRoll">:</div>
-                    <div id="counter-seconds" className="counterRoll">
-                        <div>{date.secondsF}</div>
-                        <div className="counterBottom">{date.seconds}</div>
-                    </div>
+                        <div>{missionMessages.waiting.description}</div>
+                        <br/>
+                        <div className="counterDays">
+                            {date.days} dni
+                        </div>
+                        <br/>
+                        <div id="counter-hours" className="counterRoll">
+                            <div>{date.hoursF}</div>
+                            <div className="counterBottom">{date.hours}</div>
+                        </div>
+                        <div className="counterRoll">:</div>
+                        <div id="counter-minutes" className="counterRoll">
+                            <div>{date.minutesF}</div>
+                            <div className="counterBottom">{date.minutes}</div>
+                        </div>
+                        <div className="counterRoll">:</div>
+                        <div id="counter-seconds" className="counterRoll">
+                            <div>{date.secondsF}</div>
+                            <div className="counterBottom">{date.seconds}</div>
+                        </div>
                     </>
                 )
-            break
             case "LIVE":
-                return(
+                return (
                     <>
-                    <div className="MissionStateText">
-                        {missionMessages.live.description}
-                    </div>
+                        <div className="MissionStateText">
+                            {missionMessages.live.description}
+                        </div>
                     </>
                 )
-            break
             case "ENDED":
-                return(
+                return (
                     <>
-                    <div className="MissionStateText">
-                        {missionMessages.ended.description}
-                    </div>
+                        <div className="MissionStateText">
+                            {missionMessages.ended.description}
+                        </div>
                     </>
                 )
-            break
+            default:
+                return <></>
         }
     }
-    
+
     const difference = () => {
         let nowDate = new Date()
         let nowDateF = new Date(nowDate.getTime() + 1000);
 
-        const sDiff = (dDayDate.getTime()-nowDate.getTime())/1000
+        const sDiff = (dDayDate.getTime() - nowDate.getTime()) / 1000
         let rest = 0
-        const days = Math.floor(sDiff/(3600*24))
-        rest+= days*3600*24
-        const hours = Math.floor((sDiff - rest)/3600)
-        rest+= hours*3600
-        const minutes = Math.floor((sDiff - rest)/60)
-        rest+= minutes*60
+        const days = Math.floor(sDiff / (3600 * 24))
+        rest += days * 3600 * 24
+        const hours = Math.floor((sDiff - rest) / 3600)
+        rest += hours * 3600
+        const minutes = Math.floor((sDiff - rest) / 60)
+        rest += minutes * 60
         const seconds = Math.floor(sDiff - rest)
 
-        const sDiffF = (dDayDate.getTime() - nowDateF.getTime())/1000
+        const sDiffF = (dDayDate.getTime() - nowDateF.getTime()) / 1000
         let restF = 0
-        const daysF = Math.floor(sDiffF/(3600*24))
-        restF+= daysF*3600*24
-        const hoursF = Math.floor((sDiffF - restF)/3600)
-        restF+= hoursF*3600
-        const minutesF = Math.floor((sDiffF - restF)/60)
-        restF+= minutesF*60
+        const daysF = Math.floor(sDiffF / (3600 * 24))
+        restF += daysF * 3600 * 24
+        const hoursF = Math.floor((sDiffF - restF) / 3600)
+        restF += hoursF * 3600
+        const minutesF = Math.floor((sDiffF - restF) / 60)
+        restF += minutesF * 60
         const secondsF = Math.floor(sDiffF - restF)
 
         return {
@@ -136,25 +136,25 @@ function MissionState(){
             currentState = getMissionState(dDayDate, endDate)
 
             const diff = difference()
-            if(currentState = "WAITING") {
+            if (currentState === "WAITING") {
                 try {
                     updateDate(diff)
                     const seconds = document.getElementById("counter-seconds")
                     seconds.classList.remove("counterAnimate")
                     void seconds.offsetWidth
                     seconds.classList.add("counterAnimate")
-        
+
                     const minutes = document.getElementById("counter-minutes")
-                    if(minutes.children[0].innerHTML != minutes.children[1].innerHTML) {
+                    if (minutes.children[0].innerHTML !== minutes.children[1].innerHTML) {
                         minutes.classList.remove("counterAnimate")
                         void seconds.offsetWidth
                         minutes.classList.add("counterAnimate")
                     } else {
                         minutes.classList.remove("counterAnimate")
                     }
-        
+
                     const hours = document.getElementById("counter-hours")
-                    if(hours.children[0].innerHTML != hours.children[1].innerHTML) {
+                    if (hours.children[0].innerHTML !== hours.children[1].innerHTML) {
                         hours.classList.remove("counterAnimate")
                         void seconds.offsetWidth
                         hours.classList.add("counterAnimate")
@@ -169,7 +169,7 @@ function MissionState(){
         return () => clearInterval(interval);
     }, []);
 
-    return(
+    return (
         <div className="MissionStateWrapper">
             <div className="MissionStateTitle">{messageTitle(currentState)}</div>
             <div className="MisssionStateDescription">

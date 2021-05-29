@@ -1,4 +1,4 @@
-import { Row, Col } from "antd"
+import {Col, Row} from "antd"
 
 import background from "../../assets/images/earth.jpg"
 import logo from "../../assets/images/Logo2.png"

@@ -1,13 +1,10 @@
 import React from 'react';
-import {Icon, InlineIcon} from '@iconify/react';
+import {Icon} from '@iconify/react';
 import bxlFacebook from '@iconify-icons/bx/bxl-facebook';
-import bxlTwitter from '@iconify-icons/bx/bxl-twitter';
 import bxlInstagram from '@iconify-icons/bx/bxl-instagram';
 import bxlGithub from '@iconify-icons/bx/bxl-github';
 import universityIcon from '@iconify-icons/fa-solid/university';
-import telephoneFill from '@iconify-icons/bi/telephone-fill';
 import mailIcon from '@iconify-icons/feather/mail';
-import emailOutline from '@iconify-icons/eva/email-outline';
 
 import './FooterSection.css';
 import Items from "../../component/Navbar/Items";
@@ -18,11 +15,21 @@ const FooterSection = () => {
             <div id="mediaSection">
                 <div className="containerSocial">
                     <ul className="list">
-                        <li><a href="https://www.facebook.com/pkcosmopk" target="_blank"><Icon icon={bxlFacebook}/></a>
+                        <li>
+                            <a href="https://www.facebook.com/pkcosmopk" target="_blank" rel="noreferrer">
+                                <Icon icon={bxlFacebook}/>
+                            </a>
                         </li>
-                        <li><a href="https://www.instagram.com/pkcosmopk/" target="_blank"><Icon
-                            icon={bxlInstagram}/></a></li>
-                        <li><a href="https://github.com/grupacosmo" target="_blank"><Icon icon={bxlGithub}/></a></li>
+                        <li>
+                            <a href="https://www.instagram.com/pkcosmopk/" target="_blank" rel="noreferrer">
+                                <Icon icon={bxlInstagram}/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/grupacosmo" target="_blank" rel="noreferrer">
+                                <Icon icon={bxlGithub}/>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +51,7 @@ const FooterSection = () => {
 
                         <div className="col-md-6">
                             <div className="row">
-                                <div className="col-md-6 col-lg-4">
+                                <div className="col-md-6">
                                     <div className="footer-link">
                                         <h3>Linki</h3>
                                         {
@@ -53,11 +60,11 @@ const FooterSection = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-md-6 col-lg-4">
+                                <div className="col-md-6">
                                     <div className="footer-contact">
                                         <h3>Kontakt</h3>
                                         <p>
-                                            <Icon icon={universityIcon}/>
+                                            <Icon icon={universityIcon}/>&nbsp;
                                             <a style={{color: "#dddddd"}}
                                                href="https://www.google.com/maps/place/Politechnika+Krakowska+im.+Tadeusza+Ko%C5%9Bciuszki/@50.0720447,19.9427642,15z/data=!4m2!3m1!1s0x0:0x41a815e1860a19eb?sa=X&ved=2ahUKEwip3_SWpY3vAhUOGewKHQn1CC0Q_BIwD3oECCMQBQ">
                                                 Warszawska 24, Krakow
@@ -79,7 +86,7 @@ const FooterSection = () => {
                         </div>
 
                         <div className="col-md-6">
-                            <p>by <a href="http://cosmo.pk.edu.pl/">COSMO PK</a></p>
+                            <p>by <a href="https://cosmo.pk.edu.pl/">COSMO PK</a></p>
                         </div>
                     </div>
                 </div>

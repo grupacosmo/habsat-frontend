@@ -1,5 +1,5 @@
 import Partner from "../../component/Partner/Partner";
-import {Row, Col} from 'antd';
+import {Col, Row} from 'antd';
 
 import './PartnersSection.css';
 
