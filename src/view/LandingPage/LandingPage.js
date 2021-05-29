@@ -2,7 +2,7 @@ import React from "react";
 import './LandingPage.css';
 import {Layout} from "antd";
 import PartnersSection from '../../container/PartnersSection/PartnersSection';
-import ContactSection from "../../container/ContactSection/ContactSection";
+// import ContactSection from "../../container/ContactSection/ContactSection";
 // import IconsSection from "../../container/IconsSection/IconsSection";
 import AboutUsSection from "../../container/AboutUsSection/AboutUsSection";
 import HabsatComponentsSection from "../../container/HabsatComponentsSection/HabsatComponentsSection";
@@ -27,14 +27,14 @@ function LandingPage() {
                 <div class="scroll-to-element" id="HabsatComponents" />
                 <HabsatComponentsSection/>
                 <NumbersSection />
-                <div className="scroll-to-element" id="Experiment"/>
-                <IconsSection/>
+                {/*<div className="scroll-to-element" id="Experiment"/>*/}
+                {/*<IconsSection/>*/}
                 <div class="scroll-to-element" id="AboutUs" />
                 <AboutUsSection id="AboutUs" />
                 <div class="scroll-to-element" id="Partners" />
                 <PartnersSection id="Partners" />
                 <div class="scroll-to-element" id="Contact" />
-                <ContactSection id="Contact" />
+                {/*<ContactSection id="Contact" />*/}
                 <FooterSection />
             </Content>
         </Layout>

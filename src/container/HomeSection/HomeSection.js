@@ -25,15 +25,7 @@ function HomeSection(){
                     <MissionState />
                 </div>
             </div>
-            <div style={{
-                height: "150px",
-                width: "100%",
-                backgroundImage: `url(${clouds})`,
-                backgroundRepeat: "repeat",
-                backgroundPosition: "center",
-                backgroundSize: "auto 150px"
-            }}>
-            </div>
+            <div className="clouds-background" style={{backgroundImage: `url(${clouds})`}}></div>
         </div>
     )
 }

@@ -6,7 +6,7 @@ const habsatComponent = (props) => {
     return (
         <div className="habsatComponentContainer">
             <div className="habIcon">
-                <div className="circleBackground">
+                <div className="circleBackground" style={{backgroundColor: "#1890ff"}}>
                     <FontAwesomeIcon icon={props.data.icon} className="AwsomeIcon"/>
                 </div>
             </div>

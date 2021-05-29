@@ -97,3 +97,22 @@
         transform: translate(0, 0) rotate(2deg);
     }
 }
+
+.clouds-background {
+    height: 150px;
+    width: 100%;
+    background-repeat: repeat;
+    background-position: 0 center;
+    background-size: auto 150px;
+    animation: clouds-move 200s 1 linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes clouds-move {
+    0% {
+        background-position: 0 center;
+    }
+    100% {
+        background-position: 100% center;
+    }
+}

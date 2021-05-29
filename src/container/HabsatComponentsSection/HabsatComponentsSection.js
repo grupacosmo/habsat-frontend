@@ -49,14 +49,15 @@ const habsatData = [
 const habsatComponentsSection = () => {
     return (
         <div className="hComponentsContainer">
+            <Row>
+                <Col xs={24} style={{margin: "50px 0 30px 0", textAlign: "center"}}>
+                    <h1 style={{marginBottom: "25px", fontSize: "45px", color: "rgb(59,59,59)"}}>Komponenty</h1>
+                </Col>
+            </Row>
             <Row justify="center" align="middle">
                 <Col className="panel" xl={{span: 9, order: 1}} lg={{span: 8, order: 1}} sm={{span: 24, order: 2}}
                      xs={{span: 24, order: 2}}>
                     {habsatData.slice(0, 3).map((data, key) => <HabsatComponent data={data} key={key}/>)}
-                </Col>
-                <Col xl={{span: 6, order: 2}} lg={{span: 8, order: 1}} sm={{span: 12, order: 1}}
-                     xs={{span: 16, order: 1}}>
-                    <img id="habsatImg" src={habsat} alt="cubesat"/>
                 </Col>
                 <Col className="panel" xl={{span: 9, order: 3}} lg={{span: 8, order: 1}} sm={{span: 24, order: 3}}
                      xs={{span: 24, order: 3}}>
