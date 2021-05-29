@@ -22,8 +22,8 @@ function LandingPage() {
                 <div class="scroll-to-element" id="Home" />
                 <HomeSection />
                 <NavbarSection />
-                <div className="scroll-to-element" id="ProjectDescription"/>
-                <ProjectDescription id="ProjectDescription"/>
+                <div className="scroll-to-element" id="Project"/>
+                <ProjectDescription id="Project"/>
                 <div class="scroll-to-element" id="HabsatComponents" />
                 <HabsatComponentsSection/>
                 <NumbersSection />

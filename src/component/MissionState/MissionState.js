@@ -175,7 +175,7 @@ function MissionState(){
             <div className="MisssionStateDescription">
                 {messageDescription(currentState)}
             </div>
-            <a className="MissionStateLink" href="">Śledź balon</a>
+            <a className="MissionStateLink" href="/map">Śledź balon</a>
         </div>
     )
 }
