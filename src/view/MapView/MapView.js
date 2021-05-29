@@ -6,6 +6,7 @@ import axios from "axios";
 import formatcoords from "formatcoords"
 import {geoDataApiPath} from "../../assets/properties"
 import SockJsClient from 'react-stomp';
+import MapNavbarSection from "../../container/MapNavbarSection/MapNavbarSection";
 
 
 const {Content} = Layout
@@ -23,7 +24,7 @@ const formatDate = (dateString) => {
     hh = hh < 10 ? `0` + hh : hh;
     mi = mi < 10 ? `0` + mi : mi;
 
-    return hh + ":" + mi + ", " + dd + '-' + mm + '-' + yyyy;
+    return `${dd}/${mm}/${yyyy} ${hh}:${mi}`;
 }
 
 
@@ -93,6 +94,7 @@ const MapView = () => {
 
     return (
         <Layout>
+            <MapNavbarSection />
             <Content className="MapViewContainer">
                 {/*<Map geoData={geoData.slice(0,sliderValue)} pathLength={geoData.length} formatDate={formatDate}/>*/}
                 <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate}/>
@@ -104,7 +106,7 @@ const MapView = () => {
                                 max={geoData.length}
                                 onChange={onChange}
                                 onAfterChange={onAfterChange}
-                                tipFormatter={(value) => `${formatDate(geoData[value - 1])}`}
+                                tipFormatter={(value) => `${formatDate(geoData[value - 1].dateTime)}`}
                                 value={sliderValue}
                             />
                             :
