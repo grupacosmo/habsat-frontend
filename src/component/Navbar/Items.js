@@ -9,11 +9,11 @@ const Items = [
         href: "#Project",
         title: "Projekt"
     },
-    {
-        key: "experiment",
-        href: "#Experiment",
-        title: "Eksperymenty"
-    },
+    // {
+    //     key: "experiment",
+    //     href: "#Experiment",
+    //     title: "Eksperymenty"
+    // },
     { 
         key: "about", 
         href: "#AboutUs", 

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 
-import background from "../../assets/images/weather_baloon.jpg"
 import MissionState from '../../component/MissionState/MissionState';
-
 import "./HomeSection.css"
+
+import balloon from "../../assets/images/svg/weather-balloon-epa-cropped.svg";
+import clouds from "../../assets/images/clouds-shadow.png";
 
 function HomeSection(){
     useEffect(() =>{
@@ -13,7 +14,8 @@ function HomeSection(){
         });
     })
     return(
-        <div className="HomeSection" style={{backgroundImage: `url(${background})`}}>
+        <div className="HomeSection" style={{backgroundColor: "#0e3664"}}>
+            <img className="balloon-image" src={balloon} alt="balloon" />
             <div className="HomeSectionWrapper">
                 <div className="HomeSectionText">
                     <div className="HomeSectionTitle">HabSat</div>
@@ -23,6 +25,7 @@ function HomeSection(){
                     <MissionState />
                 </div>
             </div>
+            <div className="clouds-background" style={{backgroundImage: `url(${clouds})`}}></div>
         </div>
     )
 }

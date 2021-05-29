@@ -1,7 +1,8 @@
 import Navbar from '../../component/Navbar/Navbar'
 import "./NavbarSection.css"
 
-import {  Layout } from "antd"
+import {Layout} from "antd"
+
 const { Header } = Layout;
 
 function NavbarSection() {

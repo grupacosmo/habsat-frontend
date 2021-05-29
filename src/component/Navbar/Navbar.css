@@ -29,6 +29,7 @@
   }
 
 .ant-anchor {
+  font-size: 18px;
   background: rgba(0,0,0,0);
 }
 
@@ -96,7 +97,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   .MobileHidden {
     display: none;
   }

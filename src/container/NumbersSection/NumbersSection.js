@@ -1,6 +1,6 @@
 import React from 'react';
-import {Row, Col} from 'antd';
-import {faWeight, faUser, faCube, faGlobeEurope} from '@fortawesome/free-solid-svg-icons';
+import {Col, Row} from 'antd';
+import {faCube, faGlobeEurope, faUser, faWeight} from '@fortawesome/free-solid-svg-icons';
 
 import Number from "../../component/Number/Number";
 

@@ -15,7 +15,7 @@ function ProjectDescription() {
             <Row>
                 <Col xs={24} md={12}>
                     <Card style={cardStyle}>
-                        <h1 style={{color: "rgb(3, 37, 76)"}}>Projekt</h1>
+                        <h1 style={{marginBottom: "25px", color: "rgb(3, 37, 76)"}}>Projekt</h1>
                         <p style={{textAlign: "justify"}}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis efficitur felis quis
                             vehicula. Aliquam sapien dolor, elementum a turpis non, consequat euismod ligula. Quisque in
@@ -24,16 +24,17 @@ function ProjectDescription() {
                             elementum velit in, egestas nisl. Nunc faucibus blandit luctus. Nullam ligula lacus, feugiat
                             vitae feugiat congue, hendrerit at elit. Donec scelerisque ex ac orci rutrum consectetur.
                         </p>
-                        <p style={{textAlign: "right"}}>
-                            <a href="#" style={{fontStyle: "italic"}}>Dowiec się więcej o projekcie</a>
-                            <br/>
-                            <a href="#" style={{fontStyle: "italic"}}>Uczestnicy projektu</a>
+                        <p>
+                            <a href="/#" style={{fontSize: "18px"}}>Uczestnicy projektu</a>
+                        </p>
+                        <p style={{textAlign: "center", fontStyle: "italic"}}>
+                            <a href="/#" style={{fontSize: "24px", color: "rgb(125 125 125)"}}>Dowiedz się więcej o projekcie</a>
                         </p>
                     </Card>
                 </Col>
                 <Col xs={24} md={12}>
                     <Card style={cardStyle}>
-                        <h1 style={{color: "rgb(3, 37, 76)"}}>Eksperyment</h1>
+                        <h1 style={{marginBottom: "25px", color: "rgb(3, 37, 76)"}}>Eksperyment</h1>
                         <p style={{textAlign: "justify"}}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis efficitur felis quis
                             vehicula. Aliquam sapien dolor, elementum a turpis non, consequat euismod ligula. Quisque in

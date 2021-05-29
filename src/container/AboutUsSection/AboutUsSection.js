@@ -1,6 +1,7 @@
-import { Row, Col } from "antd"
+import {Col, Row} from "antd"
 
 import background from "../../assets/images/earth.jpg"
+import logo from "../../assets/images/Logo2.png"
 
 import './AboutUsSection.css'
 
@@ -23,7 +24,23 @@ function AboutUs() {
                             backgroundImage: `url(${background})`
                         }}
                     >
-                        <a href="http://cosmo.pk.edu.pl/" target="_blank" rel="noreferrer">Odwiedź stronę Cosmo</a>
+                        <img
+                            src={logo}
+                            alt="logo"
+                            style={{position: "absolute", height: "90%", right: "10px", zIndex: 1, top: "5%", mixBlendMode: "color"}}
+                        />
+                        <img
+                            src={logo}
+                            alt="logo"
+                            style={{position: "absolute", height: "90%", right: "10px", zIndex: 1, top: "5%", opacity: "0.5"}}
+                        />
+                        <a href="https://cosmo.pk.edu.pl/"
+                           target="_blank"
+                           rel="noreferrer"
+                           style={{zIndex: 10}}
+                        >
+                            Odwiedź stronę Cosmo
+                        </a>
                     </div>
                 </Col>
             </Row>
