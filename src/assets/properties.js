@@ -1,1 +1,1 @@
-export const geoDataApiPath = 'http://localhost:8000/habsat'
+export const geoDataApiPath = 'http://146.59.17.124'
