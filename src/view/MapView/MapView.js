@@ -32,42 +32,42 @@ const formatDate = (dateString) => {
 const columns = [
     {
         title: 'DateTime',
-        dataIndex: 'dateTime',
-        key: 'dateTime',
+        dataIndex: 'time',
+        key: 'time',
         render: dateString => formatDate(dateString)
     },
     {
         title: 'Height [m]',
-        dataIndex: 'heightInMeters',
-        key: 'height',
+        dataIndex: 'altitude',
+        key: 'altitude',
         render: height => {
-            return height.toFixed(2)
+            return height/*.toFixed(2) */
         }
     },
     {
         title: 'Temperature [°C]',
-        dataIndex: 'temperatureInCelsius',
-        key: 'temp',
+        dataIndex: 'temperature',
+        key: 'temperature',
         render: height => {
-            return height.toFixed(2)
+            return height/*.toFixed(2)*/
         }
     },
     {
         title: 'Latitude [°]',
-        key: 'lat',
-        dataIndex: 'latitude',
+        key: 'qualityLocation',
+        dataIndex: 'qualityLocation',
         render: lat => {
-            let [latFormatted] = formatcoords(lat, 0).format({ latLonSeparator: ', ' }).split(",")
-            return latFormatted
+            // let [latFormatted] = formatcoords(lat, 0).format({ latLonSeparator: ', ' }).split(",")
+            return lat
         }
     },
     {
         title: 'Longitude [°]',
-        key: 'lng',
-        dataIndex: 'longitude',
+        key: 'qualityLocation',
+        dataIndex: 'qualityLocation',
         render: lng => {
-            let [, lngFormatted] = formatcoords(0, lng).format({ latLonSeparator: ', ' }).split(",")
-            return lngFormatted
+            // let [, lngFormatted] = formatcoords(0, lng).format({ latLonSeparator: ', ' }).split(",")
+            return lng
         }
     },
 
@@ -102,7 +102,7 @@ const MapView = () => {
             <MapNavbarSection />
             <Content className="MapViewContainer">
                 {/*<Map geoData={geoData.slice(0,sliderValue)} pathLength={geoData.length} formatDate={formatDate}/>*/}
-                <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate} />
+                {/* <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate} /> */}
                 <div className="SliderContainer">
                     {
                         geoData.length > 0 ?
@@ -139,13 +139,13 @@ const MapView = () => {
                             <Col span={24}>
                                 {geoData.length > 0 ?
                                     <ChartTile title="Temperature" label="[°C]" data={geoData.map(data => {
-                                        return { date: new Date(data.dateTime), value: data.temperatureInCelsius };
+                                        return { date: new Date(data.time), value: data.temperature };
                                     }).slice(-20)} /> : <></>}
                             </Col>
                             <Col span={24}>
                                 {geoData.length > 0 ?
                                     <ChartTile title="Height" label="[m]" data={geoData.map(data => {
-                                        return { date: new Date(data.dateTime), value: data.heightInMeters };
+                                        return { date: new Date(data.time), value: data.altitude };
                                     }).slice(-20)} /> : <></>}
                             </Col>
                         </Row>
@@ -154,7 +154,7 @@ const MapView = () => {
                 </Row>
 
             </Content>
-            <SockJsClient url={`${geoDataApiPath}/ws`} topics={['/data/ws']}
+            {/* { <SockJsClient url={`${geoDataApiPath}/ws`} topics={['/data/ws']}
                 onMessage={(dataFrame) => {
                     setGeoData([...geoData, dataFrame]);
                     // setTemperatureData([...temperatureData], dataFrame.map(data => { return { primary: data.dataTime, secondary: data.temperatureInCelsius }; }));
@@ -162,7 +162,8 @@ const MapView = () => {
                         setSliderValue(sliderValue + 1);
                     }
                 }}
-            />
+                /> 
+            } */}
         </Layout>
     )
 }
