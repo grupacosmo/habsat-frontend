@@ -31,45 +31,45 @@ const formatDate = (dateString) => {
 
 const columns = [
     {
-        title: 'DateTime',
-        dataIndex: 'dateTime',
-        key: 'dateTime',
-        render: dateString => formatDate(dateString)
+        title: 'time',
+        dataIndex: 'time',
+        key: 'time',
+        render: time => {
+            return time
+        }
     },
     {
-        title: 'Height [m]',
-        dataIndex: 'heightInMeters',
-        key: 'height',
-        render: height => {
-            return height.toFixed(2)
+        title: 'altitude',
+        dataIndex: 'altitude',
+        key: 'altitude',
+        render: altitude => {
+            return altitude
+        }
+    },
+    {
+        title: 'longitude',
+        dataIndex: 'longitude',
+        key: 'longitude',
+        render: longitude => {
+            return longitude
+        }
+    },
+    {
+        title: 'latitude',
+        dataIndex: 'latitude',
+        key: 'latitude',
+        render: latitude => {
+            return latitude
         }
     },
     {
         title: 'Temperature [°C]',
-        dataIndex: 'temperatureInCelsius',
-        key: 'temp',
-        render: height => {
-            return height.toFixed(2)
+        dataIndex: 'temperature',
+        key: 'temperature',
+        render: temperature => {
+            return temperature
         }
-    },
-    {
-        title: 'Latitude [°]',
-        key: 'lat',
-        dataIndex: 'latitude',
-        render: lat => {
-            let [latFormatted] = formatcoords(lat, 0).format({ latLonSeparator: ', ' }).split(",")
-            return latFormatted
-        }
-    },
-    {
-        title: 'Longitude [°]',
-        key: 'lng',
-        dataIndex: 'longitude',
-        render: lng => {
-            let [, lngFormatted] = formatcoords(0, lng).format({ latLonSeparator: ', ' }).split(",")
-            return lngFormatted
-        }
-    },
+    }
 
 ];
 
@@ -101,7 +101,6 @@ const MapView = () => {
         <Layout>
             <MapNavbarSection />
             <Content className="MapViewContainer">
-                {/*<Map geoData={geoData.slice(0,sliderValue)} pathLength={geoData.length} formatDate={formatDate}/>*/}
                 <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate} />
                 <div className="SliderContainer">
                     {
@@ -111,7 +110,7 @@ const MapView = () => {
                                 max={geoData.length}
                                 onChange={onChange}
                                 onAfterChange={onAfterChange}
-                                tipFormatter={(value) => `${formatDate(geoData[value - 1].dateTime)}`}
+                                tipFormatter={(value) => `${formatDate(geoData[value - 1].time)}`}
                                 value={sliderValue}
                             />
                             :
@@ -139,13 +138,13 @@ const MapView = () => {
                             <Col span={24}>
                                 {geoData.length > 0 ?
                                     <ChartTile title="Temperature" label="[°C]" data={geoData.map(data => {
-                                        return { date: new Date(data.dateTime), value: data.temperatureInCelsius };
+                                        return { date: new Date(data.time), value: data.temperature };
                                     }).slice(-20)} /> : <></>}
                             </Col>
                             <Col span={24}>
                                 {geoData.length > 0 ?
                                     <ChartTile title="Height" label="[m]" data={geoData.map(data => {
-                                        return { date: new Date(data.dateTime), value: data.heightInMeters };
+                                        return { date: new Date(data.time), value: data.altitude };
                                     }).slice(-20)} /> : <></>}
                             </Col>
                         </Row>

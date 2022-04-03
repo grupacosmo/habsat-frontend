@@ -65,9 +65,9 @@ const Map = (props) => {
                             icon={index === (props.pathLength - 1) ? BalloonIcon : DefaultIcon}
                             key={position.id}>
                         <Popup>
-                            <p>Time: {props.formatDate(position.dateTime)}</p>
-                            <p>Height: {position.heightInMeters.toFixed(2)}m</p>
-                            <p>Temp: {position.temperatureInCelsius.toFixed(2)}°C,</p>
+                            <p>Time: {props.formatDate(position.time)}</p>
+                            <p>Height: {position.altitude.toFixed(2)}m</p>
+                            <p>Temp: {position.temperature.toFixed(2)}°C,</p>
                             <p>Longitude: {coords[0]},</p>
                             <p>Latitude: {coords[1]},</p>
                         </Popup>
