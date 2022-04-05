@@ -18,7 +18,7 @@ function Navbar() {
     return (
         <div className="NavbarContainer">
             <div className="logo" style={{fontSize: "24px"}}>
-                <a href="#Home"><span>HabSat</span></a>
+                <a href="#Home"><span>HABSat</span></a>
             </div>
             <div className="MobileHidden">
                 <Anchor affix="true" offsetTop="0">

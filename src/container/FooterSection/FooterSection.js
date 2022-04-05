@@ -16,12 +16,12 @@ const FooterSection = () => {
                 <div className="containerSocial">
                     <ul className="list">
                         <li>
-                            <a href="https://www.facebook.com/pkcosmopk" target="_blank" rel="noreferrer">
+                            <a href="https://www.facebook.com/cosmopk.kn" target="_blank" rel="noreferrer">
                                 <Icon icon={bxlFacebook}/>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/pkcosmopk/" target="_blank" rel="noreferrer">
+                            <a href="https://www.instagram.com/cosmopk_kn/" target="_blank" rel="noreferrer">
                                 <Icon icon={bxlInstagram}/>
                             </a>
                         </li>
@@ -81,7 +81,7 @@ const FooterSection = () => {
                 <div className="container copyright">
                     <div className="row">
                         <div className="col-md-6">
-                            <p>&copy; <a href="https://www.pk.edu.pl/index.php?lang=pl">Politechnika Krakowska</a> 2021
+                            <p>&copy; <a href="https://www.pk.edu.pl/index.php?lang=pl">Politechnika Krakowska</a> 2022
                             </p>
                         </div>
 

@@ -18,7 +18,7 @@ function HomeSection(){
             <img className="balloon-image" src={balloon} alt="balloon" />
             <div className="HomeSectionWrapper">
                 <div className="HomeSectionText">
-                    <div className="HomeSectionTitle">HabSat</div>
+                    <div className="HomeSectionTitle">HABSat</div>
                     <div className="HomeSectionDescription">
                         Projekt balonu stratosferycznego Koła Naukowego COSMO
                     </div>

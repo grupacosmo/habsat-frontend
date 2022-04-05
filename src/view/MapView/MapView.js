@@ -31,15 +31,15 @@ const formatDate = (dateString) => {
 
 const columns = [
     {
-        title: 'time',
+        title: 'Time',
         dataIndex: 'time',
         key: 'time',
         render: time => {
-            return time
+            return formatDate(new Date(time))
         }
     },
     {
-        title: 'altitude',
+        title: 'Altitude',
         dataIndex: 'altitude',
         key: 'altitude',
         render: altitude => {
@@ -47,7 +47,7 @@ const columns = [
         }
     },
     {
-        title: 'longitude',
+        title: 'Longitude',
         dataIndex: 'longitude',
         key: 'longitude',
         render: longitude => {
@@ -55,7 +55,7 @@ const columns = [
         }
     },
     {
-        title: 'latitude',
+        title: 'Latitude',
         dataIndex: 'latitude',
         key: 'latitude',
         render: latitude => {
@@ -83,7 +83,17 @@ const MapView = () => {
 
     useEffect(() => {
         axios.get(dataFramePath).then(resp => {
-            const points = resp.data;
+            let points = resp.data.reverse();
+            points = points.filter(point => {
+                if(point.latitude === 0) {
+                    return false
+                } else if (point.longitude === 0) {
+                    return false
+                } else {
+                    return true
+                }
+            })
+            console.log(points)
             setGeoData(points);
             setSliderValue(points.length);
         });
@@ -138,13 +148,19 @@ const MapView = () => {
                             <Col span={24}>
                                 {geoData.length > 0 ?
                                     <ChartTile title="Temperature" label="[°C]" data={geoData.map(data => {
-                                        return { date: new Date(data.time), value: data.temperature };
-                                    }).slice(-20)} /> : <></>}
+                                        return { date: new Date(data.time), value: data.temperature, key: data };
+                                    })} /> : <></>}
                             </Col>
                             <Col span={24}>
                                 {geoData.length > 0 ?
                                     <ChartTile title="Height" label="[m]" data={geoData.map(data => {
-                                        return { date: new Date(data.time), value: data.altitude };
+                                        return { date: new Date(data.time), value: data.altitude, key: data };
+                                    }).slice(-20)} /> : <></>}
+                            </Col>
+                            <Col span={24}>
+                                {geoData.length > 0 ?
+                                    <ChartTile title="RSSI" label="" data={geoData.map(data => {
+                                        return { date: new Date(data.time), value: data.rssi, key: data };
                                     }).slice(-20)} /> : <></>}
                             </Col>
                         </Row>
@@ -155,7 +171,7 @@ const MapView = () => {
             </Content>
             <SockJsClient url={`${geoDataApiPath}/ws`} topics={['/data/ws']}
                 onMessage={(dataFrame) => {
-                    setGeoData([...geoData, dataFrame]);
+                    setGeoData([dataFrame,...geoData,]);
                     // setTemperatureData([...temperatureData], dataFrame.map(data => { return { primary: data.dataTime, secondary: data.temperatureInCelsius }; }));
                     if (sliderValue === geoData.length) {
                         setSliderValue(sliderValue + 1);

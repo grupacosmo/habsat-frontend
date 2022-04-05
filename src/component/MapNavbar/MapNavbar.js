@@ -6,7 +6,7 @@ function MapNavbar() {
     return (
         <div className="NavbarContainer">
             <div className="logo" style={{fontSize: "24px"}}>
-                <a href="/"><span>HabSat</span></a>
+                <a href="/"><span>HABSat</span></a>
             </div>
         </div>
     )

@@ -1,6 +1,9 @@
 .MapViewContainer {
     min-height: 100vh;
     padding: 1em 1em 1em 1em;
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
 }
 
 .SliderContainer {

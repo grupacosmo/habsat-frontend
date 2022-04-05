@@ -4,21 +4,24 @@ import "./MissionState.css"
 function MissionState() {
     const [date, updateDate] = useState(0)
 
-    const dDayDate = new Date(2021, 7, 20)
-    const endDate = new Date(2021, 7, 22)
+    const dDayDate = new Date(2022, 3, 9, 11, 45)
+    const endDate = new Date(2022, 3, 9, 17)
 
     const missionMessages = {
         waiting: {
             title: "Oczekiwanie",
             description: "Do startu pozostało:",
+            buttonText: "Śledzenie balonu dostępne wkrótce"
         },
         live: {
             title: "Misja trwa",
             description: "Misja jest w trakcie. Możesz śledzić lot balonu korzystając z linku poniżej.",
+            buttonText: "Śledź balon"
         },
         ended: {
             title: "Misja skończona",
             description: "Historia lotu dostępna w linku poniżej",
+            buttonText: "Śledź historię lotu"
         },
     }
 
@@ -41,6 +44,19 @@ function MissionState() {
                 return <>{missionMessages.live.title}</>
             case "ENDED":
                 return <>{missionMessages.ended.title}</>
+            default:
+                return <></>
+        }
+    }
+
+    const buttonText = (missionState) => {
+        switch (missionState) {
+            case "WAITING":
+                return <>{missionMessages.waiting.buttonText}</>
+            case "LIVE":
+                return <>{missionMessages.live.buttonText}</>
+            case "ENDED":
+                return <>{missionMessages.ended.buttonText}</>
             default:
                 return <></>
         }
@@ -175,7 +191,11 @@ function MissionState() {
             <div className="MisssionStateDescription">
                 {messageDescription(currentState)}
             </div>
-            <a className="MissionStateLink" href="/map">Śledź balon</a>
+            { currentState == "WAITING" ?
+                <a className="MissionStateLink MissionStateLink__disabled" href="/#">{buttonText(currentState)}</a>
+                :
+                <a className="MissionStateLink" href="/map">{buttonText(currentState)}</a>
+            }
         </div>
     )
 }
