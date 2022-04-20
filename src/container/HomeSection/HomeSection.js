@@ -20,7 +20,7 @@ function HomeSection(){
                 <div className="HomeSectionText">
                     <div className="HomeSectionTitle">HABSat</div>
                     <div className="HomeSectionDescription">
-                        Projekt balonu stratosferycznego Koła Naukowego COSMO
+                        HABSat - projekt sondy stratosferycznej Koła Naukowego COSMO
                     </div>
                     <MissionState />
                 </div>
