@@ -4,13 +4,13 @@ import "./MissionState.css"
 function MissionState() {
     const [date, updateDate] = useState(0)
 
-    const dDayDate = new Date(2022, 3, 23, 12, 0)
-    const endDate = new Date(2022, 3, 23, 17)
+    const dDayDate = new Date(2022, 4, 7, 12, 0)
+    const endDate = new Date(2022, 4, 7, 17, 0)
 
     const missionMessages = {
         waiting: {
             title: "Oczekiwanie",
-            description: "Start 23 kwietnia, godzina 12:00. Do startu pozostało:",
+            description: "Start 7 maja, godzina 12:00. Do startu pozostało:",
             buttonText: "Śledzenie balonu dostępne wkrótce"
         },
         live: {
