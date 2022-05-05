@@ -9,7 +9,7 @@ function MissionState() {
 
     const missionMessages = {
         waiting: {
-            title: "Oczekiwanie",
+            title: "Termin potwierdzony!",
             description: "Start 7 maja, godzina 12:00. Do startu pozostało:",
             buttonText: "Śledzenie balonu dostępne wkrótce"
         },
