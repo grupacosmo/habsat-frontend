@@ -1,0 +1,10 @@
+.Members {
+    background-color: #f0f2f5;
+}
+
+.Members__content {
+    max-width: 1280px;
+    margin: auto;
+    padding: 2em;
+    background-color: #fff;
+}

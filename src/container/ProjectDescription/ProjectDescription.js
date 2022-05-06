@@ -1,5 +1,6 @@
 import {Card, Col, Row} from "antd";
 import {useMediaQuery} from "react-responsive";
+import { Link } from "react-router-dom";
 
 function ProjectDescription() {
     const isXs = useMediaQuery({ maxWidth: 576 });
@@ -17,15 +18,10 @@ function ProjectDescription() {
                     <Card style={cardStyle}>
                         <h1 style={{marginBottom: "25px", color: "rgb(3, 37, 76)"}}>Projekt</h1>
                         <p style={{textAlign: "justify"}}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis efficitur felis quis
-                            vehicula. Aliquam sapien dolor, elementum a turpis non, consequat euismod ligula. Quisque in
-                            tincidunt massa. Morbi porta arcu id ultricies pretium. Praesent tincidunt ac turpis et
-                            facilisis. Etiam mollis purus interdum sem suscipit pulvinar. Ut in nisi ultricies,
-                            elementum velit in, egestas nisl. Nunc faucibus blandit luctus. Nullam ligula lacus, feugiat
-                            vitae feugiat congue, hendrerit at elit. Donec scelerisque ex ac orci rutrum consectetur.
+                            Nasza sonda jest zbudowana z trzech głównych modułów. Pierwszy z nich zawiera zasilanie natomiast drugi jest dziełem naszego zespołu od sztucznej inteligencji, czyli AI. Zawiera on kamerę naukową, której zadaniem jest rozpoznawać teren, nad którym przelatuje HabSat. Działa to w sposób taki, że jeśli leci on nad lasem, wodą czy miastem to sonda jest w stanie rozpoznać charakterystyczne obiekty i sklasyfikować teren.  Trzeci z modułów jest efektem pracy zespołu OBC oraz jest on najbardziej rozbudowany.
                         </p>
                         <p>
-                            <a href="/#" style={{fontSize: "18px"}}>Uczestnicy projektu</a>
+                            <a href="/#" style={{fontSize: "18px"}}><Link to="/members">Uczestnicy projektu</Link></a>
                         </p>
                         <p style={{textAlign: "center", fontStyle: "italic"}}>
                             <a href="/#" style={{fontSize: "24px", color: "rgb(125 125 125)"}}>Dowiedz się więcej o projekcie</a>
@@ -36,12 +32,7 @@ function ProjectDescription() {
                     <Card style={cardStyle}>
                         <h1 style={{marginBottom: "25px", color: "rgb(3, 37, 76)"}}>Eksperyment</h1>
                         <p style={{textAlign: "justify"}}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis efficitur felis quis
-                            vehicula. Aliquam sapien dolor, elementum a turpis non, consequat euismod ligula. Quisque in
-                            tincidunt massa. Morbi porta arcu id ultricies pretium. Praesent tincidunt ac turpis et
-                            facilisis. Etiam mollis purus interdum sem suscipit pulvinar. Ut in nisi ultricies,
-                            elementum velit in, egestas nisl. Nunc faucibus blandit luctus. Nullam ligula lacus, feugiat
-                            vitae feugiat congue, hendrerit at elit. Donec scelerisque ex ac orci rutrum consectetur.
+                            Sonda HABSat jest urządzeniem pomiarowym do przeprowadzania eksperymentów w stratosferze na wysokości, ok. 30 km nad ziemią. Stanowi platformę eksperymentalną do bezpiecznego wysyłania w stratosferę projektów badawczych, które wymagają warunków zbliżonych do tych panujących w przestrzeni kosmicznej. Moduły umożliwiają zbieranie informacji meteorologicznych, wykonanie zdjęć Ziemi oraz zdjęć i wideo horyzontalnego stratosfery. Wszystkie informacje związane z lotem, a więc wysokość, prędkość wznoszenia i opadania, kierunek przemieszczenia, lokalizacja, będą rejestrowane i przekazywane przez specjalny nadajnik radiowy. To dzięki niemu młodzi naukowcy namierzą miejsce lądowania obiektu.
                         </p>
                     </Card>
                 </Col>
