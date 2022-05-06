@@ -41,10 +41,7 @@ const FooterSection = () => {
                             <div className="footer-about">
                                 <h3>{"<"}HabSat{">"}</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu lectus a leo
-                                    tristique dictum nec non quam.
-                                    Suspendisse convallis, tortor eu placerat rhoncus, lorem quam iaculis felis, sed
-                                    eleifend lacus neque id eros. Integer convallis volutpat neque
+                                    Projekt sondy stratosferycznej koła naukowego COSMO PK
                                 </p>
                             </div>
                         </div>
@@ -70,7 +67,7 @@ const FooterSection = () => {
                                                 Warszawska 24, Krakow
                                             </a>
                                         </p>
-                                        <p><Icon icon={mailIcon}/> habsat@gmail.com</p>
+                                        <p><Icon icon={mailIcon}/>kolocosmopk@gmail.com</p>
                                     </div>
                                 </div>
                             </div>

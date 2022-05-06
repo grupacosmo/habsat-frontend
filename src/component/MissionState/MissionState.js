@@ -7,21 +7,22 @@ function MissionState() {
     const dDayDate = new Date(2022, 4, 7, 12, 0)
     const endDate = new Date(2022, 4, 7, 17, 0)
 
+
     const missionMessages = {
         waiting: {
             title: "Termin potwierdzony!",
             description: "Start 7 maja, godzina 12:00. Do startu pozostało:",
-            buttonText: "Śledzenie balonu dostępne wkrótce"
+            buttonText: "Śledzenie wkrótce. Kliknij tutaj aby przejść do mapy."
         },
         live: {
-            title: "Misja trwa",
+            title: "Misja trwa.",
             description: "Misja jest w trakcie. Możesz śledzić lot balonu korzystając z linku poniżej.",
-            buttonText: "Śledź balon"
+            buttonText: "Śledź balon."
         },
         ended: {
-            title: "Misja skończona",
+            title: "Misja zakończona.",
             description: "Historia lotu dostępna w linku poniżej",
-            buttonText: "Śledź historię lotu"
+            buttonText: "Śledź historię lotu."
         },
     }
 
@@ -34,7 +35,7 @@ function MissionState() {
         return missionStatus
     }
 
-    let currentState = getMissionState(dDayDate, endDate)
+    let [currentState, setCurrentState] = useState(getMissionState(dDayDate, endDate))
 
     const messageTitle = (missionState) => {
         switch (missionState) {
@@ -149,9 +150,10 @@ function MissionState() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            currentState = getMissionState(dDayDate, endDate)
+            setCurrentState(getMissionState(dDayDate, endDate))
 
             const diff = difference()
+            currentState = getMissionState(dDayDate, endDate)
             if (currentState === "WAITING") {
                 try {
                     updateDate(diff)
@@ -177,6 +179,7 @@ function MissionState() {
                     } else {
                         hours.classList.remove("counterAnimate")
                     }
+
                 } catch (e) {
 
                 }
@@ -192,7 +195,7 @@ function MissionState() {
                 {messageDescription(currentState)}
             </div>
             { currentState == "WAITING" ?
-                <a className="MissionStateLink MissionStateLink__disabled" href="/#">{buttonText(currentState)}</a>
+                <a className="MissionStateLink MissionStateLink__disabled" href="/map">{buttonText(currentState)}</a>
                 :
                 <a className="MissionStateLink" href="/map">{buttonText(currentState)}</a>
             }

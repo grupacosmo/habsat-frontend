@@ -1,11 +1,12 @@
 import {Col, Row} from 'antd';
 import {
-    faChartPie,
-    faLightbulb,
-    faMeteor,
-    faRocket,
+    faCloud,
+    faGaugeHigh,
+    faTowerBroadcast,
+    faSdCard,
     faSatellite,
-    faSpaceShuttle
+    faTv
+
 } from '@fortawesome/free-solid-svg-icons';
 import "./HabsatComponentsSection.css";
 import HabsatComponent from "../../component/HabsatComponent/HabsatComponent";
@@ -14,35 +15,35 @@ import React from 'react';
 
 const habsatData = [
     {
-        title: "Random title1",
-        content: "",
-        icon: faRocket
+        title: "Akcelerometr",
+        content: "Urządzenie badające przyspieszenie w trzech osiach. Dzięki niemu wiemy w jakiej pozycji znajduje się sonda. Może być przekręcona pod różnymi kątami i nie jest to proste do zbadania, jeśli zamiast stać na stabilnym gruncie, coś unosi się 30 km nad powierzchnią Ziemi.",
+        icon: faGaugeHigh
     },
     {
-        title: "Random title2",
-        content: "",
-        icon: faLightbulb
+        title: "Czujnik atmosferyczny",
+        content: "Zbiera dane meteorologiczne takie jak temperatura, ciśnienie, wilgotność i inne statystyki, które możecie na bieżąco obserwować na naszej stronie.",
+        icon: faCloud
     },
     {
-        title: "Random title3",
-        content: "",
-        icon: faChartPie
+        title: "SSTV",
+        content: "Nadajnik telewizyjny SSTV (Slow Scan Television) pozwoli na transmisje unikatowych pocztówek z naszym gościem specjalnym. ;)",
+        icon: faTv
     },
     {
-        title: "Random title4",
-        content: "",
-        icon: faMeteor
+        title: "Radio LoRa",
+        content: "Działające w sieci LoRaWAN. Czyli część protokołu sieciowego za pomocą, którego sonda może się łączyć z Internetem. Dzięki niej możemy wygodnie agregować wysyłane ramki informacji i wyświetlać na naszej stronie internetowej.",
+        icon: faTowerBroadcast
     },
     {
-        title: "Random title5",
-        content: "",
-        icon: faSpaceShuttle
-    },
-    {
-        title: "Random title6",
-        content: "",
+        title: "GPS",
+        content: "Tu chyba nie trzeba za dużo tłumaczyć, jest nam on potrzebny do nawigacji. Nie chcemy zgubić naszego HABSATa, za długo nad nim pracowaliśmy :)",
         icon: faSatellite
-    }
+    },
+    {
+        title: "Logger",
+        content: "Czarna skrzynka naszego sprzętu, który zbiera wszystkie dane. Zapisywać będzie komplet informacji niezbędnych do analiz eksperymentu. W razie utraty łączności wszystkie informacje będą bezpieczne.",
+        icon: faSdCard
+    },
 ]
 
 const habsatComponentsSection = () => {
