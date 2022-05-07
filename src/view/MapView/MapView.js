@@ -77,18 +77,18 @@ const MapView = () => {
     const dataFramePath = `${geoDataApiPath}/data-frame`;
     const [geoData, setGeoData] = useState(StaticGeoData.reverse());
     const [sliderValue, setSliderValue] = useState(0);
-    // const [startDate, ] = useState(new Date(2022, 4, 7, 12, 0))
-    // const [currentDate, setCurrentDate] = useState(new Date())
+    const [startDate, ] = useState(new Date(2022, 4, 7, 12, 0))
+    const [currentDate, setCurrentDate] = useState(new Date())
     // const [temperatureData, setTemperatureData] = useState(geoData.map(data => {
     //     return { primary: data.dataTime, secondary: data.temperatureInCelsius };
     // }));
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrentDate(new Date())
-    //     }, 1000);
-    //     return () => clearInterval(interval);
-    // }, []);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentDate(new Date())
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         axios.get(dataFramePath).then(resp => {
@@ -120,12 +120,12 @@ const MapView = () => {
         <Layout>
             <MapNavbarSection />
             <Content className="MapViewContainer">
-                {/* {
+                {
                     currentDate < startDate ?
                         <div>Oczekiwanie. Śledzenie na żywo na mapie będzie dostępne 07.05.2022 12:00.</div>
                     :
                         <></>
-                } */}
+                }
                 <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate} />
                 <div className="SliderContainer">
                     {
