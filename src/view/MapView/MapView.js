@@ -74,16 +74,7 @@ const columns = [
 
 const MapView = () => {
     const dataFramePath = `${geoDataApiPath}/data-frame`;
-    const [geoData, setGeoData] = useState([{
-        id:0,
-        speed: 0,
-        altitude:200,
-        longitude:19.7583,
-        latitude:50.3795,
-        temperature:20,
-        time:"2022-05-07T08:00:00.000000",
-        rssi:-105
-    }]);
+    const [geoData, setGeoData] = useState([]);
     const [sliderValue, setSliderValue] = useState(0);
     const [startDate, ] = useState(new Date(2022, 4, 7, 12, 0))
     const [currentDate, setCurrentDate] = useState(new Date())
