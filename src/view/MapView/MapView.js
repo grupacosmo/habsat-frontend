@@ -74,7 +74,7 @@ const columns = [
 
 const MapView = () => {
     const dataFramePath = `${geoDataApiPath}/data-frame`;
-    const [geoData, setGeoData] = useState();
+    const [geoData, setGeoData] = useState([]);
     const [sliderValue, setSliderValue] = useState(0);
     const [startDate, ] = useState(new Date(2022, 4, 7, 12, 0))
     const [currentDate, setCurrentDate] = useState(new Date())
@@ -102,7 +102,7 @@ const MapView = () => {
                 }
             })
             console.log(points)
-            setGeoData(points); 
+            setGeoData(points);
             setSliderValue(1);
         });
 
