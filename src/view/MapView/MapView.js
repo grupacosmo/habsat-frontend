@@ -103,7 +103,8 @@ const MapView = () => {
                 }
             })
             console.log(points)
-            setGeoData(points);
+            // api disabled
+            // setGeoData(points); 
             setSliderValue(1);
         });
 
