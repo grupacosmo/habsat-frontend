@@ -103,7 +103,7 @@ const MapView = () => {
             })
             console.log(points)
             setGeoData(points);
-            setSliderValue(points.length);
+            setSliderValue(1);
         });
 
     }, [dataFramePath])
