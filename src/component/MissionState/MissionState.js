@@ -5,7 +5,7 @@ function MissionState() {
     const [date, updateDate] = useState(0)
 
     const dDayDate = new Date(2022, 4, 7, 12, 0)
-    const endDate = new Date(2022, 4, 7, 17, 0)
+    const endDate = new Date(2022, 4, 7, 15, 30)
 
 
     const missionMessages = {
