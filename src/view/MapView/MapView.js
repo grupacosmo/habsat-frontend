@@ -8,6 +8,7 @@ import { geoDataApiPath } from "../../assets/properties"
 import SockJsClient from 'react-stomp';
 import MapNavbarSection from "../../container/MapNavbarSection/MapNavbarSection";
 import ChartTile from "../../component/ChartTile/ChartTile";
+import StaticGeoData from "../../assets/geoData/data-frame.json"
 
 
 const { Content } = Layout
@@ -74,7 +75,7 @@ const columns = [
 
 const MapView = () => {
     const dataFramePath = `${geoDataApiPath}/data-frame`;
-    const [geoData, setGeoData] = useState([]);
+    const [geoData, setGeoData] = useState(StaticGeoData.reverse());
     const [sliderValue, setSliderValue] = useState(0);
     const [startDate, ] = useState(new Date(2022, 4, 7, 12, 0))
     const [currentDate, setCurrentDate] = useState(new Date())
