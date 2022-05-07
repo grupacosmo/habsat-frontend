@@ -47,7 +47,7 @@ const Map = (props) => {
     const polyline = () => {
         const polylinePath = [];
         props.geoData
-            .slice(0, props.sliderValue)
+            .slice(props.sliderValue, props.geoData.length)
             .forEach((position) => {
                 polylinePath.push([position.latitude, position.longitude])
             })
@@ -56,13 +56,13 @@ const Map = (props) => {
 
     const markers = () => {
         return props.geoData
-            .slice(0, props.sliderValue)
+            .slice(props.sliderValue, props.geoData.length)
             .map((position, index) => {
                 let coords = formatcoords(position.latitude, position.longitude).format({latLonSeparator: ', '}).split(",")
                 return (
                     <Marker position={[position.latitude, position.longitude]}
                         // icon={DefaultIcon}
-                            icon={index === (props.pathLength - 1) ? BalloonIcon : DefaultIcon}
+                            icon={index === 0 ? BalloonIcon : DefaultIcon}
                             key={position.id}>
                         <Popup>
                             <p>Time: {props.formatDate(position.time)}</p>
