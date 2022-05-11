@@ -114,6 +114,26 @@ const MapView = () => {
     function onAfterChange() {
     }
 
+    const responsiveOptionsTable = {
+        span: 24,
+        order: 2
+    }
+
+    const responsiveOptionsChart = {
+        span: 24,
+        order: 1
+    }
+
+    const normalOptionsTable = {
+        span: 14,
+        order: 1
+    }
+
+    const normalOptionsChart = {
+        span: 10,
+        order: 2
+    }
+
     return (
         <Layout>
             <MapNavbarSection />
@@ -143,7 +163,7 @@ const MapView = () => {
                     }
                 </div>
                 <Row gutter={[16, 16]} style={{ margin: "0 auto" }}>
-                    <Col span={14}>
+                    <Col xs={responsiveOptionsTable} lg={normalOptionsTable} >
                         <Table
                             rowKey="dateTime"
                             columns={columns}
@@ -157,7 +177,7 @@ const MapView = () => {
                         />
                     </Col>
 
-                    <Col span={10}>
+                    <Col xs={responsiveOptionsChart} lg={normalOptionsChart} >
                         <Row gutter={[0, 16]} style={{ margin: "0 auto" }}>
                             <Col span={24}>
                                 {geoData.length > 0 ?
@@ -167,15 +187,15 @@ const MapView = () => {
                             </Col>
                             <Col span={24}>
                                 {geoData.length > 0 ?
-                                    <ChartTile title="Height" label="[m]" data={geoData.map(data => {
+                                    <ChartTile title="Altitude" label="[m]" data={geoData.map(data => {
                                         return { date: new Date(data.time), value: data.altitude, key: data };
-                                    }).slice(-20)} /> : <></>}
+                                    })} /> : <></>}
                             </Col>
                             <Col span={24}>
                                 {geoData.length > 0 ?
                                     <ChartTile title="RSSI" label="" data={geoData.map(data => {
                                         return { date: new Date(data.time), value: data.rssi, key: data };
-                                    }).slice(-20)} /> : <></>}
+                                    })} /> : <></>}
                             </Col>
                         </Row>
                     </Col>
