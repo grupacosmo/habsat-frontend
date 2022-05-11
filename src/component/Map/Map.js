@@ -77,11 +77,7 @@ const Map = (props) => {
         )
     }
 
-    let startCoordinates = {lat: 50.08137898440151, lng: 19.994258880615234};
-    if (props.geoData.length > 0) {
-        const lastPoint = props.geoData[props.geoData.length - 1];
-        startCoordinates = {lat: lastPoint.latitude, lng: lastPoint.longitude}
-    }
+    let startCoordinates = [50.343, 19.9932];
 
     return (
         <div className="map-container">
@@ -89,7 +85,7 @@ const Map = (props) => {
                 props.geoData.length > 0 ?
                     <MapContainer
                         center={startCoordinates}
-                        zoom={5}
+                        zoom={9}
                         className="map"
                     >
                         <TileLayer

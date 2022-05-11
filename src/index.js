@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import LandingPage from './view/LandingPage/LandingPage';
-import LandingPageDemo from './view/LandingPageDemo/LandingPageDemo'
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MapView from "./view/MapView/MapView";

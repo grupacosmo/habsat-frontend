@@ -1,1 +1,1 @@
-export const geoDataApiPath = '/api'
+export const geoDataApiPath = 'https://www.habsat.pl/api'

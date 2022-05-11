@@ -3,7 +3,6 @@ import { Layout, Slider, Table, Row, Col } from "antd";
 import "./MapView.css";
 import Map from "../../component/Map/Map";
 import axios from "axios";
-import formatcoords from "formatcoords"
 import { geoDataApiPath } from "../../assets/properties"
 import SockJsClient from 'react-stomp';
 import MapNavbarSection from "../../container/MapNavbarSection/MapNavbarSection";
