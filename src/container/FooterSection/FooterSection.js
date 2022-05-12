@@ -67,7 +67,7 @@ const FooterSection = () => {
                                                 Warszawska 24, Krakow
                                             </a>
                                         </p>
-                                        <p><Icon icon={mailIcon}/>kolocosmopk@gmail.com</p>
+                                        <p><Icon icon={mailIcon}/>&nbsp;kolocosmopk@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@ const FooterSection = () => {
                         </div>
 
                         <div className="col-md-6">
-                            <p>by <a href="https://cosmo.pk.edu.pl/">COSMO PK</a></p>
+                            <p>Created with 🍺 and ❤️ <a href="https://cosmo.pk.edu.pl/">COSMO PK</a></p>
                         </div>
                     </div>
                 </div>

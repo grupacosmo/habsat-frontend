@@ -1,12 +1,17 @@
 import React from 'react'
 import MapNavbarSection from '../../container/MapNavbarSection/MapNavbarSection'
 
+import TeamPhoto from "../../assets/images/team.jpg"
+
 import './Members.css'
 
 const Members = () => {
     return (
         <div className="Members">
             <MapNavbarSection />
+            <div className="Members__photo">
+                <img src={TeamPhoto} alt="Grupowe zdjęcie przed startem" />
+            </div>
             <div className="Members__content">
                 <p>W skład grupy projektowej HABSat wchodzą m.in.: </p>
                 <ul>

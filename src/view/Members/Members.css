@@ -2,6 +2,16 @@
     background-color: #f0f2f5;
 }
 
+.Members__photo {
+    padding: 2em;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.Members__photo img {
+    height: 25em;
+}
+
 .Members__content {
     max-width: 1280px;
     margin: auto;

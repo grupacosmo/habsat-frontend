@@ -9,6 +9,7 @@ import NavbarSection from "../../container/NavbarSection/NavbarSection";
 import HomeSection from "../../container/HomeSection/HomeSection";
 import FooterSection from "../../container/FooterSection/FooterSection";
 import ProjectDescription from "../../container/ProjectDescription/ProjectDescription";
+import SSTVSection from "../../container/SSTVSection/SSTVSection";
 
 const { Content } = Layout;
 
@@ -24,6 +25,7 @@ function LandingPage() {
                     <ProjectDescription id="Project"/>
                     <div class="scroll-to-element" id="HabsatComponents" />
                     <HabsatComponentsSection/>
+                    <SSTVSection id="SSTVSection" />
                     <NumbersSection />
                     <div className="scroll-to-element" id="Experiment"/>
                     {/* <IconsSection/> */}

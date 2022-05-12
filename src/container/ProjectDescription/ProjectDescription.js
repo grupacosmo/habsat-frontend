@@ -24,7 +24,7 @@ function ProjectDescription() {
                             <a href="/#" style={{fontSize: "18px"}}><Link to="/members">Uczestnicy projektu</Link></a>
                         </p>
                         <p style={{textAlign: "center", fontStyle: "italic"}}>
-                            <a target="_blank" href="https://www.pk.edu.pl/index.php?option=com_content&view=article&id=4277:studenci-z-politechniki-krakowskiej-stworzyli-sonde-stratosferyczna-habsat-teraz-pora-na-start&catid=49&lang=pl&Itemid=944" style={{fontSize: "24px", color: "rgb(125 125 125)"}}>Dowiedz się więcej o projekcie</a>
+                            <a target="_blank" rel="noreferrer" href="https://www.pk.edu.pl/index.php?option=com_content&view=article&id=4280:studenci-z-pk-wyslali-do-stratosfery-zbudowana-przez-siebie-sonde-misja-zakonczona-sukcesem&catid=49&lang=pl&Itemid=944" style={{fontSize: "24px", color: "rgb(125 125 125)"}}>Dowiedz się więcej o projekcie</a>
                         </p>
                     </Card>
                 </Col>

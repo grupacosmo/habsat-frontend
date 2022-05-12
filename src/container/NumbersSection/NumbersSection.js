@@ -12,10 +12,10 @@ function NumbersSection() {
             {
                 icon: faWeight,
                 backgroundColor:"#444eff",
-                number: 800,
+                number: 1800,
                 unit: <span>&nbsp;g</span>,
                 mainText: "Taki ładunek może unieść HABSat",
-                secondaryText: "To aż 8 kremówek!"
+                secondaryText: "To aż 18 kremówek!"
             },
             {
                 icon: faUser,
