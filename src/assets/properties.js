@@ -1,1 +1,1 @@
-export const geoDataApiPath = 'http://146.59.17.124:8080'
+export const geoDataApiPath = '/api'

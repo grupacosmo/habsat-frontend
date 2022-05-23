@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-brands-svg-icons": "^5.15.2",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -54,6 +55,7 @@
     "@iconify-icons/eva": "^1.1.0",
     "@iconify-icons/fa-solid": "^1.1.0",
     "@iconify-icons/feather": "^1.1.0",
+    "@iconify/icons-tabler": "^1.2.14",
     "@iconify/react": "^1.1.4"
   }
 }

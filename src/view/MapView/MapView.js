@@ -3,7 +3,6 @@ import { Layout, Slider, Table, Row, Col } from "antd";
 import "./MapView.css";
 import Map from "../../component/Map/Map";
 import axios from "axios";
-import formatcoords from "formatcoords"
 import { geoDataApiPath } from "../../assets/properties"
 import SockJsClient from 'react-stomp';
 import MapNavbarSection from "../../container/MapNavbarSection/MapNavbarSection";
@@ -27,7 +26,6 @@ const formatDate = (dateString) => {
 
     return `${dd}/${mm}/${yyyy} ${hh}:${mi}`;
 }
-
 
 const columns = [
     {
@@ -77,9 +75,18 @@ const MapView = () => {
     const dataFramePath = `${geoDataApiPath}/data-frame`;
     const [geoData, setGeoData] = useState([]);
     const [sliderValue, setSliderValue] = useState(0);
+    const [startDate, ] = useState(new Date(2022, 4, 7, 12, 0))
+    const [currentDate, setCurrentDate] = useState(new Date())
     // const [temperatureData, setTemperatureData] = useState(geoData.map(data => {
     //     return { primary: data.dataTime, secondary: data.temperatureInCelsius };
     // }));
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentDate(new Date())
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         axios.get(dataFramePath).then(resp => {
@@ -95,7 +102,7 @@ const MapView = () => {
             })
             console.log(points)
             setGeoData(points);
-            setSliderValue(points.length);
+            setSliderValue(1);
         });
 
     }, [dataFramePath])
@@ -107,15 +114,42 @@ const MapView = () => {
     function onAfterChange() {
     }
 
+    const responsiveOptionsTable = {
+        span: 24,
+        order: 2
+    }
+
+    const responsiveOptionsChart = {
+        span: 24,
+        order: 1
+    }
+
+    const normalOptionsTable = {
+        span: 14,
+        order: 1
+    }
+
+    const normalOptionsChart = {
+        span: 10,
+        order: 2
+    }
+
     return (
         <Layout>
             <MapNavbarSection />
             <Content className="MapViewContainer">
+                {
+                    currentDate < startDate ?
+                        <div>Oczekiwanie. Śledzenie na żywo na mapie będzie dostępne 07.05.2022 12:00.</div>
+                    :
+                        <></>
+                }
                 <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate} />
                 <div className="SliderContainer">
                     {
                         geoData.length > 0 ?
                             <Slider
+                                reverse
                                 min={1}
                                 max={geoData.length}
                                 onChange={onChange}
@@ -129,7 +163,7 @@ const MapView = () => {
                     }
                 </div>
                 <Row gutter={[16, 16]} style={{ margin: "0 auto" }}>
-                    <Col span={14}>
+                    <Col xs={responsiveOptionsTable} lg={normalOptionsTable} >
                         <Table
                             rowKey="dateTime"
                             columns={columns}
@@ -143,7 +177,7 @@ const MapView = () => {
                         />
                     </Col>
 
-                    <Col span={10}>
+                    <Col xs={responsiveOptionsChart} lg={normalOptionsChart} >
                         <Row gutter={[0, 16]} style={{ margin: "0 auto" }}>
                             <Col span={24}>
                                 {geoData.length > 0 ?
@@ -153,15 +187,15 @@ const MapView = () => {
                             </Col>
                             <Col span={24}>
                                 {geoData.length > 0 ?
-                                    <ChartTile title="Height" label="[m]" data={geoData.map(data => {
+                                    <ChartTile title="Altitude" label="[m]" data={geoData.map(data => {
                                         return { date: new Date(data.time), value: data.altitude, key: data };
-                                    }).slice(-20)} /> : <></>}
+                                    })} /> : <></>}
                             </Col>
                             <Col span={24}>
                                 {geoData.length > 0 ?
                                     <ChartTile title="RSSI" label="" data={geoData.map(data => {
                                         return { date: new Date(data.time), value: data.rssi, key: data };
-                                    }).slice(-20)} /> : <></>}
+                                    })} /> : <></>}
                             </Col>
                         </Row>
                     </Col>

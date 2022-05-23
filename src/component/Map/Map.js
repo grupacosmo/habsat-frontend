@@ -47,7 +47,7 @@ const Map = (props) => {
     const polyline = () => {
         const polylinePath = [];
         props.geoData
-            .slice(0, props.sliderValue)
+            .slice(props.sliderValue, props.geoData.length)
             .forEach((position) => {
                 polylinePath.push([position.latitude, position.longitude])
             })
@@ -56,13 +56,13 @@ const Map = (props) => {
 
     const markers = () => {
         return props.geoData
-            .slice(0, props.sliderValue)
+            .slice(props.sliderValue, props.geoData.length)
             .map((position, index) => {
                 let coords = formatcoords(position.latitude, position.longitude).format({latLonSeparator: ', '}).split(",")
                 return (
                     <Marker position={[position.latitude, position.longitude]}
                         // icon={DefaultIcon}
-                            icon={index === (props.pathLength - 1) ? BalloonIcon : DefaultIcon}
+                            icon={index === 0 ? BalloonIcon : DefaultIcon}
                             key={position.id}>
                         <Popup>
                             <p>Time: {props.formatDate(position.time)}</p>
@@ -77,11 +77,7 @@ const Map = (props) => {
         )
     }
 
-    let startCoordinates = {lat: 50.08137898440151, lng: 19.994258880615234};
-    if (props.geoData.length > 0) {
-        const lastPoint = props.geoData[props.geoData.length - 1];
-        startCoordinates = {lat: lastPoint.latitude, lng: lastPoint.longitude}
-    }
+    let startCoordinates = [50.343, 19.9932];
 
     return (
         <div className="map-container">
@@ -89,7 +85,7 @@ const Map = (props) => {
                 props.geoData.length > 0 ?
                     <MapContainer
                         center={startCoordinates}
-                        zoom={5}
+                        zoom={9}
                         className="map"
                     >
                         <TileLayer

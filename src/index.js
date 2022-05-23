@@ -5,6 +5,7 @@ import LandingPage from './view/LandingPage/LandingPage';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MapView from "./view/MapView/MapView";
+import Members from "./view/Members/Members"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
           <Switch>
               <Route exact path="/" component={LandingPage}/>
               <Route exact path="/map" component={MapView}/>
+              <Route exact path="/members" component={Members}/>
           </Switch>
       </Router>
   </React.StrictMode>,

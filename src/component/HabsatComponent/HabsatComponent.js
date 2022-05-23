@@ -12,11 +12,7 @@ const habsatComponent = (props) => {
             </div>
             <div className="habContent">
                 <h2>{props.data.title}</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue facilisis augue, eu
-                    consequat magna rhoncus in. Etiam tincidunt eros vitae ultricies efficitur
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue facilisis augue, eu
-                    consequat magna rhoncus in. Etiam tincidunt eros vitae ultricies efficitur
-                </p>
+                <p>{props.data.content}</p>
             </div>
         </div>
     );

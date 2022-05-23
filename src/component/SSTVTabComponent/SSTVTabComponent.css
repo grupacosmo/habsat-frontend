@@ -1,0 +1,35 @@
+.SSTVTabComponent {
+    margin-bottom: 1em;
+}
+
+.SSTVTabComponent__description {
+    padding: 1em;
+}
+
+.SSTVTabComponent__image--image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next,
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover {
+  font-size: 2em;
+  color: currentColor;
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-prev:hover {
+  left: 10px;
+  z-index: 2;
+  color: rgba(82, 82, 82, 0.85);
+}
+
+.ant-carousel .slick-next,
+.ant-carousel .slick-next:hover {
+  right: 10px;
+  z-index: 2;
+  color: rgba(82, 82, 82, 0.85);
+}

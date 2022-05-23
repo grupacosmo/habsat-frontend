@@ -1,7 +1,6 @@
 import React from 'react';
 import {Col, Row} from 'antd';
-import {faCube, faGlobeEurope, faUser, faWeight} from '@fortawesome/free-solid-svg-icons';
-
+import {faBullseye, faGlobeEurope, faUser, faWeight } from '@fortawesome/free-solid-svg-icons';
 import Number from "../../component/Number/Number";
 
 import './NumbersSection.css';
@@ -13,34 +12,34 @@ function NumbersSection() {
             {
                 icon: faWeight,
                 backgroundColor:"#444eff",
-                number: 2137,
-                unit: "g",
-                mainText: "Tyle kremówek zmieściliśmy w HABsacie",
-                secondaryText: "Bo wcześniej nam nigdy nie dawali"
+                number: 1800,
+                unit: <span>&nbsp;g</span>,
+                mainText: "Taki ładunek może unieść HABSat",
+                secondaryText: "To aż 18 kremówek!"
             },
             {
                 icon: faUser,
                 backgroundColor:"#1167b1",
-                number: 100,
+                number: 35,
                 unit: "",
                 mainText: "Tyle osób nie dostało za to nawet grosza",
                 secondaryText: "Choć i tak nikt się zarobku nie spodziewał"
             },
             {
-                icon: faCube,
+                icon: faBullseye,
                 backgroundColor:"#03254c",
-                number: 999,
-                unit: <span>m<sup>2</sup></span>,
-                mainText: "Nie wiem jaka miała być objętość balona",
-                secondaryText: "Więc powiedzmy że na razie placeholder"
+                number: 4200,
+                unit: <span>&nbsp;l</span>,
+                mainText: "Jest to objętość balonu który wyniesie naszą sondę do stratosfery",
+                secondaryText: ""
             },
             {
                 icon: faGlobeEurope,
                 backgroundColor:"#4c67ff",
-                number: 222,
-                unit: "km",
-                mainText: "Poleci gdzieś wysoko",
-                secondaryText: "Lorem Ipsum coś tam coś tam"
+                number: 33,
+                unit: <span>&nbsp;km</span>,
+                mainText: "Wysokość jest mocno uzależniona od warunków pogodowych",
+                secondaryText: "które lubią przysporzyć problemów"
             }
         ]
 
