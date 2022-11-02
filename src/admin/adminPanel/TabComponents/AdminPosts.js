@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import { Form, Input, Button, Table, Modal } from "antd";
+import React, { useState, useEffect } from "react";
+import { Button, Table, Modal, Select, Space } from "antd";
 import fakeData from "../fakeDataPost";
-import {
-  DeleteOutlined,
-  EditOutlined,
-  PictureOutlined,
-} from "@ant-design/icons";
-import TextArea from "antd/lib/input/TextArea";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import PostsForm from "./Components/PostsForm";
+
+const { Option } = Select;
+const defaultDate = "Wszystkie";
 
 const tableColumns = (onEditPostWindow, onDeletePost) => [
   {
     key: "1",
-    title: "ID",
-    dataIndex: "id",
+    title: "Data lotu",
+    dataIndex: "flightDate",
   },
   {
     key: "2",
@@ -58,9 +57,10 @@ const tableColumns = (onEditPostWindow, onDeletePost) => [
 
 const AdminPosts = () => {
   const [dataSource, setDataSource] = useState(fakeData);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editPost, setEditPost] = useState(null);
-  const [isAdding, setIsAdding] = useState(false);
+  const [filteredDataSource, setFilteredDataSource] = useState(dataSource);
+  const [selectedDate, setSelectedDate] = useState(defaultDate);
+  const [newPost, setNewPost] = useState(null);
+  const [whichWindowIsOpen, setWhichWindowIsOpen] = useState("NoWindow");
 
   const onDeletePost = (record) => {
     Modal.confirm({
@@ -76,116 +76,104 @@ const AdminPosts = () => {
     });
   };
   const onEditPostWindow = (record) => {
-    setIsEditing(true);
-    setEditPost({ ...record });
+    setWhichWindowIsOpen("EditWindow");
+    setNewPost({ ...record });
   };
-  const resetEditing = () => {
-    setIsEditing(false);
-    setEditPost(null);
-  };
-  const resetAdding = () => {
-    setIsAdding(false);
-    setEditPost(null);
+  const resetWindow = () => {
+    setWhichWindowIsOpen("NoWindow");
+    setNewPost(null);
   };
   const onChangePost = (event) => {
     const { name, value } = event.target;
-    setEditPost((prePost) => {
+    setNewPost((prePost) => {
       return {
         ...prePost,
         [name]: value,
       };
     });
   };
-  const onAddPostWindow = () => {
-    setIsAdding(true);
+  const getUniqueDates = () => {
+    return [...new Set(dataSource.map((item) => item.flightDate))];
   };
+  const changeTableBySelected = () => {
+    if (selectedDate === defaultDate) {
+      return dataSource;
+    }
+    return dataSource.filter((item) => {
+      return selectedDate === item.flightDate;
+    });
+  };
+
+  useEffect(() => {
+    setFilteredDataSource(changeTableBySelected());
+  }, [selectedDate, dataSource]);
 
   return (
     <div>
-      <Button
-        type="primary"
-        onClick={onAddPostWindow}
-        style={{ marginBlock: 15 }}
-      >
-        Dodaj post
-      </Button>
+      <Space size="middle">
+        <Button
+          type="primary"
+          onClick={() => setWhichWindowIsOpen("AddWindow")}
+          style={{ marginBlock: 15 }}
+        >
+          Dodaj post
+        </Button>
+
+        <Select
+          defaultValue={defaultDate}
+          style={{
+            width: 120,
+          }}
+          onChange={(value) => setSelectedDate(value)}
+        >
+          <Option value={defaultDate}></Option>
+          {getUniqueDates().map((item) => (
+            <Option value={item} key={item}></Option>
+          ))}
+        </Select>
+      </Space>
+
       <Table
         columns={tableColumns(onEditPostWindow, onDeletePost)}
-        dataSource={dataSource}
+        dataSource={filteredDataSource}
       ></Table>
 
       <Modal
-        title="Dodaj post "
-        open={isAdding}
+        title="Dodaj post"
+        open={whichWindowIsOpen === "AddWindow" ? true : false}
         okText="Zapisz"
         cancelText="Anuluj"
         onCancel={() => {
-          resetAdding();
+          resetWindow();
         }}
         onOk={() => {
           setDataSource((preData) => {
-            return [...preData, editPost];
+            return [...preData, newPost];
           });
-          resetAdding();
+          resetWindow();
         }}
       >
-        <Input.Group>
-          <Input />
-          <Input value={editPost?.title} onChange={onChangePost} name="title" />
-        </Input.Group>
-        <TextArea
-          value={editPost?.description}
-          onChange={onChangePost}
-          name="description"
-        />
-        <Input
-          value={editPost?.imageUrl}
-          onChange={onChangePost}
-          name="imageUrl"
-        />
+        <PostsForm newPost={newPost} onChangePost={onChangePost} />
       </Modal>
+
       <Modal
         title="Edytuj post"
-        open={isEditing}
+        open={whichWindowIsOpen === "EditWindow" ? true : false}
         okText="Zapisz"
         cancelText="Anuluj"
         onCancel={() => {
-          resetEditing();
+          resetWindow();
         }}
         onOk={() => {
           setDataSource((preData) => {
             return preData.map((post) => {
-              return post.id === editPost.id ? editPost : post;
+              return post.id === newPost.id ? newPost : post;
             });
           });
-          resetEditing();
+          resetWindow();
         }}
       >
-        <Input.Group>
-          <Input
-            value={editPost?.id}
-            disabled={true}
-            style={{ width: "25%" }}
-          />
-          <Input
-            value={editPost?.title}
-            onChange={onChangePost}
-            name="title"
-            style={{ width: "75%" }}
-          />
-        </Input.Group>
-        <TextArea
-          value={editPost?.description}
-          onChange={onChangePost}
-          name="description"
-          style={{ maxHeight: 100 }}
-        />
-        <Input
-          value={editPost?.imageUrl}
-          onChange={onChangePost}
-          name="imageUrl"
-          prefix={<PictureOutlined style={{ color: "#1890ff" }} />}
-        />
+        <PostsForm newPost={newPost} onChangePost={onChangePost} />
       </Modal>
     </div>
   );
