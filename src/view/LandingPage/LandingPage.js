@@ -17,23 +17,23 @@ function LandingPage() {
     return (
         <Layout>
             <Content>
-                <div class="scroll-to-element" id="Home" />
+                <div className="scroll-to-element" id="Home" />
                 <HomeSection />
                 <NavbarSection />
                 <div className="Content">
                     <div className="scroll-to-element" id="Project"/>
                     <ProjectDescription id="Project"/>
-                    <div class="scroll-to-element" id="HabsatComponents" />
+                    <div className="scroll-to-element" id="HabsatComponents" />
                     <HabsatComponentsSection/>
                     <SSTVSection id="SSTVSection" />
                     <NumbersSection />
                     <div className="scroll-to-element" id="Experiment"/>
                     {/* <IconsSection/> */}
-                    <div class="scroll-to-element" id="AboutUs" />
+                    <div className="scroll-to-element" id="AboutUs" />
                     <AboutUsSection id="AboutUs" />
-                    <div class="scroll-to-element" id="Partners" />
+                    <div className="scroll-to-element" id="Partners" />
                     <PartnersSection id="Partners" />
-                    <div class="scroll-to-element" id="Contact" />
+                    <div className="scroll-to-element" id="Contact" />
                     {/* <ContactSection id="Contact" /> */}
                 </div>
                 <FooterSection />

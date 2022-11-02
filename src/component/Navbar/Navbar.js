@@ -43,7 +43,7 @@ function Navbar() {
                     <Anchor affix="true" offsetTop="0">
                         {
                             Items.map(item =>
-                                <div onClick={onClose}>
+                                <div onClick={onClose} key={item.key}>
                                     <Link key={item.key} href={item.href} title={item.title}/>
                                 </div>
                             )

@@ -10,6 +10,7 @@ function NumbersSection() {
     const numbersData =
         [
             {
+                id: 0,
                 icon: faWeight,
                 backgroundColor:"#444eff",
                 number: 1800,
@@ -18,6 +19,7 @@ function NumbersSection() {
                 secondaryText: "To aż 18 kremówek!"
             },
             {
+                id: 1,
                 icon: faUser,
                 backgroundColor:"#1167b1",
                 number: 35,
@@ -26,6 +28,7 @@ function NumbersSection() {
                 secondaryText: "Choć i tak nikt się zarobku nie spodziewał"
             },
             {
+                id: 2,
                 icon: faBullseye,
                 backgroundColor:"#03254c",
                 number: 4200,
@@ -34,6 +37,7 @@ function NumbersSection() {
                 secondaryText: ""
             },
             {
+                id: 3,
                 icon: faGlobeEurope,
                 backgroundColor:"#4c67ff",
                 number: 33,
@@ -46,9 +50,9 @@ function NumbersSection() {
     return (
         <div className="NumbersSection">
             <Row justify="center">
-                {numbersData.map((element, key) => {
+                {numbersData.map((element, id) => {
                     return (
-                        <Col key={key} xs={24} sm={12} md={12} lg={6} xl={6}>
+                        <Col key={id} xs={24} sm={12} md={12} lg={6} xl={6}>
                             <Number
                                 {...element}
                             />
