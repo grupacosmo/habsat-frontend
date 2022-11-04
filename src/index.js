@@ -11,9 +11,9 @@ ReactDOM.render(
   <React.StrictMode>
       <Router>
           <Switch>
-              <Route exact path="/" component={LandingPage}/>
               <Route exact path="/map" component={MapView}/>
               <Route exact path="/members" component={Members}/>
+              <Route strict path="/" component={LandingPage}/>
           </Switch>
       </Router>
   </React.StrictMode>,
