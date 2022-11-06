@@ -7,7 +7,7 @@ const { Header } = Layout;
 
 function MapNavbarSection() {
     return(
-        <div class="Navbar">
+        <div className="Navbar">
             <Header>
                 <MapNavbar />
             </Header>

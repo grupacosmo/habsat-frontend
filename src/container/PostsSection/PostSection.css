@@ -1,0 +1,40 @@
+.my-list-item {
+    background-color: white;
+    margin-bottom:30px;
+    padding:26px 14px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myListElement.ant-list-item {
+    border-bottom: none;  
+    padding-bottom: 0;
+
+}
+.myListElement.ant-list-item:last-child {
+    padding-bottom: 0; 
+}
+.postHeader {
+    font-size: 16px;
+}
+.post-content {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-top:4px solid #03254c;
+    padding-top:20px;
+}
+.post-content img {
+    margin-bottom:30px;
+    max-width: 100%;
+}
+.post-content .post-author {
+    color: rgba(0, 0, 0, 0.45);
+    align-self: flex-end;
+}
+
+.post-author span {
+    position: relative;
+    top:-3px;
+}

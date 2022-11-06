@@ -10,7 +10,8 @@ import HomeSection from "../../container/HomeSection/HomeSection";
 import FooterSection from "../../container/FooterSection/FooterSection";
 import ProjectDescription from "../../container/ProjectDescription/ProjectDescription";
 import SSTVSection from "../../container/SSTVSection/SSTVSection";
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
+import PostsSection from "../../container/PostsSection/PostsSection";
+import { Route, Redirect} from "react-router-dom";
 
 const { Content } = Layout;
 
@@ -40,6 +41,12 @@ function LandingPage() {
                             <AboutUsSection id="AboutUs" />
                         </div>
                     </Route>
+                    <Route exact path="/posts">
+                        <div className="scroll-to-element" id="Posts" />
+                        <div className="Content">
+                            <PostsSection /> 
+                        </div>
+                    </Route>
                     <Route exact path="/partners">
                         <div className="scroll-to-element" id="Partners" />
                         <div className="Content">
@@ -47,10 +54,10 @@ function LandingPage() {
                         </div>
                     </Route>
 
-                    <div className="scroll-to-element" id="Experiment"/>
+                    {/* <div className="scroll-to-element" id="Experiment"/>
                         <div className="Content">
-                            {/* <IconsSection/> */}
-                        </div>
+                            <IconsSection/>
+                        </div> */}
                     <div className="scroll-to-element" id="Contact" />
                     {/* <ContactSection id="Contact" /> */}
                     <FooterSection />

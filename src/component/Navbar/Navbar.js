@@ -21,18 +21,24 @@ function Navbar() {
     };
     const handleClick = (e, link) => {
         e.preventDefault();
+
+        
+        window.scrollTo({
+            top:0,
+            behavior: 'auto'
+        })
         history.push(e.target.closest(".data-link").id);
       };
     return (
         <div className="NavbarContainer">
             <div className="logo" style={{fontSize: "24px"}}>
-                <a href="#Home"><span>HABSat</span></a>
+                <a href="/"><span>HABSat</span></a>
             </div>
             <div className="MobileHidden">
                 <Anchor affix="true" offsetTop="0" onClick={handleClick}>
-                    {
+                    {   
                         Items.map(item => (
-                            <div class="data-link" id={item.key} key={item.key}>
+                            <div className="data-link" id={item.key} key={item.key}>
                                 <Link key={item.key} href={item.href} title={item.title}/>
                             </div>
                         ))
@@ -51,11 +57,12 @@ function Navbar() {
                     closable={false}
                     onClose={onClose}
                     visible={visible}
+                    width="300px"
                 >
                     <Anchor affix="true" offsetTop="0" onClick={handleClick}>
                         {
                             Items.map(item =>
-                                <div class="data-link" id={item.key}  key={item.key} onClick={onClose}>
+                                <div className="data-link" id={item.key}  key={item.key} onClick={onClose}>
                                     <Link key={item.key} href={item.href} title={item.title}/>
                                 </div>
                             )
