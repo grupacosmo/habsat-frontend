@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useContext, useState } from "react";
 import { Layout, Slider, Table, Row, Col } from "antd";
 import "./MapView.css";
 import Map from "../../component/Map/Map";
@@ -7,7 +7,7 @@ import { geoDataApiPath } from "../../assets/properties"
 import SockJsClient from 'react-stomp';
 import MapNavbarSection from "../../container/MapNavbarSection/MapNavbarSection";
 import ChartTile from "../../component/ChartTile/ChartTile";
-
+import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider";
 
 const { Content } = Layout
 
@@ -77,6 +77,7 @@ const MapView = () => {
     const [sliderValue, setSliderValue] = useState(0);
     const [startDate, ] = useState(new Date(2022, 4, 7, 12, 0))
     const [currentDate, setCurrentDate] = useState(new Date())
+    const {currentFlight} = useContext(FlightsContext);
     // const [temperatureData, setTemperatureData] = useState(geoData.map(data => {
     //     return { primary: data.dataTime, secondary: data.temperatureInCelsius };
     // }));
@@ -89,6 +90,7 @@ const MapView = () => {
     }, []);
 
     useEffect(() => {
+        console.log("axios get", currentFlight)
         axios.get(dataFramePath).then(resp => {
             let points = resp.data.reverse();
             points = points.filter(point => {
@@ -105,7 +107,7 @@ const MapView = () => {
             setSliderValue(1);
         });
 
-    }, [dataFramePath])
+    }, [dataFramePath, currentFlight])
 
     function onChange(value) {
         setSliderValue(() => value);
@@ -135,84 +137,84 @@ const MapView = () => {
     }
 
     return (
-        <Layout>
-            <MapNavbarSection />
-            <Content className="MapViewContainer">
-                {
-                    currentDate < startDate ?
-                        <div>Oczekiwanie. Śledzenie na żywo na mapie będzie dostępne 07.05.2022 12:00.</div>
-                    :
-                        <></>
-                }
-                <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate} />
-                <div className="SliderContainer">
+            <Layout>
+                <MapNavbarSection />
+                <Content className="MapViewContainer">
                     {
-                        geoData.length > 0 ?
-                            <Slider
-                                reverse
-                                min={1}
-                                max={geoData.length}
-                                onChange={onChange}
-                                onAfterChange={onAfterChange}
-                                tipFormatter={(value) => `${formatDate(geoData[value - 1].time)}`}
-                                value={sliderValue}
+                        currentDate < startDate ?
+                            <div>Oczekiwanie. Śledzenie na żywo na mapie będzie dostępne 07.05.2022 12:00.</div>
+                        :
+                            <></>
+                    }
+                    <Map geoData={geoData} sliderValue={sliderValue} pathLength={geoData.length} formatDate={formatDate} />
+                    <div className="SliderContainer">
+                        {
+                            geoData.length > 0 ?
+                                <Slider
+                                    reverse
+                                    min={1}
+                                    max={geoData.length}
+                                    onChange={onChange}
+                                    onAfterChange={onAfterChange}
+                                    tipFormatter={(value) => `${formatDate(geoData[value - 1].time)}`}
+                                    value={sliderValue}
+                                />
+                                :
+                                null
+
+                        }
+                    </div>
+                    <Row gutter={[16, 16]} style={{ margin: "0 auto" }}>
+                        <Col xs={responsiveOptionsTable} lg={normalOptionsTable} >
+                            <Table
+                                rowKey="dateTime"
+                                columns={columns}
+                                dataSource={geoData}
+                                pagination={{
+                                    pageSize: 20,
+                                    showSizeChanger: false,
+                                    simple: (window.matchMedia('(max-width: 600px)').matches)
+                                }}
+                                scroll={{ x: 400 }}
                             />
-                            :
-                            null
+                        </Col>
 
-                    }
-                </div>
-                <Row gutter={[16, 16]} style={{ margin: "0 auto" }}>
-                    <Col xs={responsiveOptionsTable} lg={normalOptionsTable} >
-                        <Table
-                            rowKey="dateTime"
-                            columns={columns}
-                            dataSource={geoData}
-                            pagination={{
-                                pageSize: 20,
-                                showSizeChanger: false,
-                                simple: (window.matchMedia('(max-width: 600px)').matches)
-                            }}
-                            scroll={{ x: 400 }}
-                        />
-                    </Col>
+                        <Col xs={responsiveOptionsChart} lg={normalOptionsChart} >
+                            <Row gutter={[0, 16]} style={{ margin: "0 auto" }}>
+                                <Col span={24}>
+                                    {geoData.length > 0 ?
+                                        <ChartTile title="Temperature" label="[°C]" data={geoData.map(data => {
+                                            return { date: new Date(data.time), value: data.temperature, key: data };
+                                        })} /> : <></>}
+                                </Col>
+                                <Col span={24}>
+                                    {geoData.length > 0 ?
+                                        <ChartTile title="Altitude" label="[m]" data={geoData.map(data => {
+                                            return { date: new Date(data.time), value: data.altitude, key: data };
+                                        })} /> : <></>}
+                                </Col>
+                                <Col span={24}>
+                                    {geoData.length > 0 ?
+                                        <ChartTile title="RSSI" label="" data={geoData.map(data => {
+                                            return { date: new Date(data.time), value: data.rssi, key: data };
+                                        })} /> : <></>}
+                                </Col>
+                            </Row>
+                        </Col>
 
-                    <Col xs={responsiveOptionsChart} lg={normalOptionsChart} >
-                        <Row gutter={[0, 16]} style={{ margin: "0 auto" }}>
-                            <Col span={24}>
-                                {geoData.length > 0 ?
-                                    <ChartTile title="Temperature" label="[°C]" data={geoData.map(data => {
-                                        return { date: new Date(data.time), value: data.temperature, key: data };
-                                    })} /> : <></>}
-                            </Col>
-                            <Col span={24}>
-                                {geoData.length > 0 ?
-                                    <ChartTile title="Altitude" label="[m]" data={geoData.map(data => {
-                                        return { date: new Date(data.time), value: data.altitude, key: data };
-                                    })} /> : <></>}
-                            </Col>
-                            <Col span={24}>
-                                {geoData.length > 0 ?
-                                    <ChartTile title="RSSI" label="" data={geoData.map(data => {
-                                        return { date: new Date(data.time), value: data.rssi, key: data };
-                                    })} /> : <></>}
-                            </Col>
-                        </Row>
-                    </Col>
+                    </Row>
 
-                </Row>
-
-            </Content>
-            <SockJsClient url={`${geoDataApiPath}/ws`} topics={['/data/ws']}
-                onMessage={(dataFrame) => {
-                    setGeoData([dataFrame,...geoData,]);
-                    // setTemperatureData([...temperatureData], dataFrame.map(data => { return { primary: data.dataTime, secondary: data.temperatureInCelsius }; }));
-                    if (sliderValue === geoData.length) {
-                        setSliderValue(sliderValue + 1);
-                    }
-                }}
-            />
-        </Layout>
+                </Content>
+                <SockJsClient url={`${geoDataApiPath}/ws`} topics={['/data/ws']}
+                    onMessage={(dataFrame) => {
+                        setGeoData([dataFrame,...geoData,]);
+                        // setTemperatureData([...temperatureData], dataFrame.map(data => { return { primary: data.dataTime, secondary: data.temperatureInCelsius }; }));
+                        if (sliderValue === geoData.length) {
+                            setSliderValue(sliderValue + 1);
+                        }
+                    }}
+                />
+            </Layout>
     )
 }
 

@@ -1,0 +1,51 @@
+.map-header-wrapper {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: #0056b3;
+    height: 100px;
+    margin:auto;
+    width:80%;
+}
+.map-header-wrapper #flight-info {
+    color: white;
+    height:50px;
+    font-size: 30px;
+}
+.switch-flights {
+    height:48px;
+    display:flex;
+    align-items: center;
+    position: absolute;
+    right:0;
+    top:0;
+    margin-right:10%;
+    color:white;
+    font-size:24px;
+}
+.switch-flights-button-wrapper {
+    position: relative;
+    margin-left: 10px;
+    top:-4px;
+}
+.switch-flights-button-wrapper button {
+   color:black;
+}
+.switch-flights-dropdown {
+    text-align: center;
+}
+
+.ant-dropdown-menu-item-selected, .ant-dropdown-menu-submenu-title-selected {
+    color: #0056b3;
+    background-color: rgb(24, 144, 255, 0.2)
+}
+.ant-btn:hover, .ant-btn:focus {
+    color: #0056b3;
+    border-color: rgb(24, 144, 255, 0.2);
+}
+@media only screen and (max-width: 400px) {
+    .switch-flights > span {
+        display:none;
+    }
+}

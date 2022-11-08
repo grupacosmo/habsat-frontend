@@ -6,14 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MapView from "./view/MapView/MapView";
 import Members from "./view/Members/Members"
+import FlightsProvider from "./container/FlightsProvider/FlightsProvider"
 
 ReactDOM.render(
   <React.StrictMode>
       <Router>
           <Switch>
-              <Route exact path="/" component={LandingPage}/>
-              <Route exact path="/map" component={MapView}/>
+              <Route exact path="/map" ><FlightsProvider><MapView /></FlightsProvider></Route>
               <Route exact path="/members" component={Members}/>
+              <Route strict path="/" component={LandingPage}/>
           </Switch>
       </Router>
   </React.StrictMode>,

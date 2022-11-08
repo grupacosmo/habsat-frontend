@@ -12,7 +12,7 @@ function AboutUs() {
                 <Col xs={24} sm={24} md={24} lg={14} xl={14}>
                     <div className="AboutUsContent">
                         <h2>O nas</h2>
-                        <p>
+                        <p style={{textAlign: "justify"}}>
                             Koło naukowe z Wydziału Informatyki i Telekomunikacji zrzesza osoby chcące realizować własne projekty studenckie związane z technologiami informatycznymi i kosmicznymi. Opiekunem projektu był mgr inż. Paweł Kisielewicz z Katedry Informatyki WIiT – pomysłodawca budowy i wystrzelenia satelity, którego zadaniem byłoby zbadanie możliwości użycia sztucznej inteligencji w przetwarzaniu danych satelitarnych bezpośrednio na pokładzie. Aktualną opiekunką naukową Cosmo PK jest mgr. inż Katarzyna Smelcerz. Członkowie koła aktualnie realizują projekty dotyczące sond stratosferycznych, ale także inne przedsięwzięcia, takie jak: stacja nasłuchowa do odbioru danych satelitarnych czy stacja pogodowa.
                         </p>
                     </div>

@@ -5,11 +5,21 @@ import bxlInstagram from '@iconify-icons/bx/bxl-instagram';
 import bxlGithub from '@iconify-icons/bx/bxl-github';
 import universityIcon from '@iconify-icons/fa-solid/university';
 import mailIcon from '@iconify-icons/feather/mail';
+import {Link} from "react-router-dom"
 
 import './FooterSection.css';
 import Items from "../../component/Navbar/Items";
 
 const FooterSection = () => {
+
+    const handleClick = (e) => {
+
+        window.scrollTo({
+            top:0,
+            behavior: 'auto'
+        })
+
+    };
     return (
         <>
             <div id="mediaSection">
@@ -52,7 +62,7 @@ const FooterSection = () => {
                                     <div className="footer-link">
                                         <h3>Linki</h3>
                                         {
-                                            Items.map(item => <a key={item.key} href={item.href}>{item.title}</a>)
+                                            Items.map(item => <Link key={item.key} to={`/${item.key}`} onClick={handleClick}>{item.title}</Link>)
                                         }
                                     </div>
                                 </div>

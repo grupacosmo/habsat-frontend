@@ -1,4 +1,6 @@
 .Content {
     max-width: 1280px;
     margin: auto;
+    margin-top:30px;
+    min-height:400px;
 }

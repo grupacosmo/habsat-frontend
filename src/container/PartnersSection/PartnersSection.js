@@ -31,7 +31,7 @@ function PartnersSection()
                 <Row justify="center" align="top">
                     {partnersInfo.map((value) => {
                         return(
-                            <Col xs={24} sm={12} md={12} lg={8} xl={8}>
+                            <Col key={value[0]} xs={24} sm={12} md={12} lg={8} xl={8}>
                                 <Partner imgPath={value[1]} altText={value[0]} partnerSite={value[2]}/>
                             </Col>
                     )})}   

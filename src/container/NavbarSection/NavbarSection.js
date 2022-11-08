@@ -7,7 +7,7 @@ const { Header } = Layout;
 
 function NavbarSection() {
     return(
-        <div class="Navbar">
+        <div className="Navbar">
             <Header>
                 <Navbar />
             </Header>

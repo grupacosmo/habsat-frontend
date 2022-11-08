@@ -5,6 +5,11 @@ const Items = [
         title: "Home"
     },
     {
+        key: "posts",
+        href: "#Posts",
+        title: "Aktualności"
+    },
+    {
         key: "project",
         href: "#Project",
         title: "Projekt"
