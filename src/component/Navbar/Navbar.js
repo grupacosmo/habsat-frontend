@@ -2,9 +2,7 @@ import './Navbar.css'
 
 import React, {useState} from "react"
 import {Anchor, Drawer} from "antd"
-//import {Redirect} from "react-router-dom"
 import Items from "./Items"
-import { Redirect } from 'react-router'
 import {useHistory} from 'react-router-dom'
 
 const {Link} = Anchor
@@ -27,7 +25,7 @@ function Navbar() {
             top:0,
             behavior: 'auto'
         })
-        history.push(e.target.closest(".data-link").id);
+        history.push(`/${e.target.closest(".data-link").id}`);
       };
     return (
         <div className="NavbarContainer">

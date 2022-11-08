@@ -41,7 +41,7 @@ function LandingPage() {
                             <AboutUsSection id="AboutUs" />
                         </div>
                     </Route>
-                    <Route exact path="/posts">
+                    <Route exact path="/posts/:slug?">
                         <div className="scroll-to-element" id="Posts" />
                         <div className="Content">
                             <PostsSection /> 

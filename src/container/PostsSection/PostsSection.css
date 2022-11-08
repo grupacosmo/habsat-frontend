@@ -1,7 +1,7 @@
 .my-list-item {
     background-color: white;
     margin-bottom:30px;
-    padding:26px 14px;
+    padding:35px 35px;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -12,11 +12,20 @@
     padding-bottom: 0;
 
 }
+
+.my-list-item .ant-list-item {
+    padding:0;
+}
+
 .myListElement.ant-list-item:last-child {
     padding-bottom: 0; 
 }
-.postHeader {
-    font-size: 16px;
+
+.post-title {
+    font-size: 26px;
+}
+.post-title > a {
+   color:#03254c;
 }
 .post-content {
     display:flex;
@@ -26,8 +35,8 @@
     padding-top:20px;
 }
 .post-content img {
-    margin-bottom:30px;
     max-width: 100%;
+    margin-bottom: 20px;
 }
 .post-content .post-author {
     color: rgba(0, 0, 0, 0.45);

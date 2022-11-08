@@ -5,7 +5,7 @@ import "./HomeSection.css"
 
 import balloon from "../../assets/images/svg/weather-balloon-epa-cropped.svg";
 import clouds from "../../assets/images/clouds-shadow.png";
-import { WindowsFilled } from '@ant-design/icons';
+// import { WindowsFilled } from '@ant-design/icons';
 
 const resize = () => {
     document.getElementsByClassName("HomeSectionWrapper")[0].style.height = `${window.innerHeight - 48}px`
