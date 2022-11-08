@@ -19,7 +19,6 @@ const scrollTop = () => {
 const Post = ({item, isFull}) => (
     <div  className="my-list-item">  
         <List.Item
-            className='post -header'
             key={item.title}
         >
             <List.Item.Meta

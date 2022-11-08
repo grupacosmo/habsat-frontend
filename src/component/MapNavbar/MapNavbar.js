@@ -1,5 +1,5 @@
 import '../Navbar/Navbar.css'
-import MapHeader from "../MapHeader/MapHeader"
+import MapHeader from "../FlightSwitch/FlightSwitch"
 import React from "react"
 
 function MapNavbar() {

@@ -1,11 +1,11 @@
 import React, {useContext} from 'react'
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Space } from 'antd';
-import "./MapHeader.css";
+import "./FlightSwitch.css";
 import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider";
 
 
-const MapHeader = () => {
+const FlightSwitch = () => {
   const {flights: items, currentFlight, switchCurrentFlight} = useContext(FlightsContext);
   
   const handleMenuClick = ( {key}) => {
@@ -44,4 +44,4 @@ const MapHeader = () => {
   )
 }
 
-export default MapHeader
+export default FlightSwitch

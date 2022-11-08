@@ -12,11 +12,13 @@ import Items from "../../component/Navbar/Items";
 
 const FooterSection = () => {
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+
         window.scrollTo({
             top:0,
             behavior: 'auto'
         })
+
     };
     return (
         <>
@@ -60,7 +62,7 @@ const FooterSection = () => {
                                     <div className="footer-link">
                                         <h3>Linki</h3>
                                         {
-                                            Items.map(item => <Link key={item.key} to={item.key} onClick={handleClick}>{item.title}</Link>)
+                                            Items.map(item => <Link key={item.key} to={`/${item.key}`} onClick={handleClick}>{item.title}</Link>)
                                         }
                                     </div>
                                 </div>
