@@ -138,7 +138,7 @@ const MapView = () => {
 
     return (
             <Layout>
-                <MapNavbarSection />
+                <MapNavbarSection mode="map" />
                 <Content className="MapViewContainer">
                     {
                         currentDate < startDate ?
