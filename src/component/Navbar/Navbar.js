@@ -1,4 +1,5 @@
 import './Navbar.css'
+import balloon from "../../assets/images/svg/weather-balloon-epa-cropped.svg";
 
 import React, {useState} from "react"
 import {Anchor, Drawer} from "antd"
@@ -27,7 +28,10 @@ function Navbar() {
       };
     return (
         <div className="NavbarContainer">
-            <div className="logo" style={{fontSize: "24px"}}>
+            <div style={{width:"70px", height:"70px"}}>
+            <img className="balloon-image" src={balloon} alt="balloon" style={{height:"70px", top:0, left:0}}/>
+            </div>
+            <div className="logo" style={{fontSize: "38px"}}>
                 <a href="/"><span>HABSat</span></a>
             </div>
             <div className="MobileHidden">
