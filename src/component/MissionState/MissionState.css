@@ -14,11 +14,13 @@
 
 .MissionStateLink {
     display: inline-block;
-    color: white;
+    color: #03254c;
     border: 0.1rem solid white;
+    background-color: #ffffffF0;
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.247);
     padding: 0.4rem 1.3rem;
     margin: 5vh 0;
-    border-radius: 5vh;
+    border-radius: 2vh;
     transition: 0.5s;
     transition-timing-function: ease;
     animation-name: fadeInDelay;
@@ -27,8 +29,8 @@
 }
 
 .MissionStateLink:hover {
-    background-color: white;
-    color: black;
+    background-color: #03254cde;
+    color: white;
     box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.247);
 }
 

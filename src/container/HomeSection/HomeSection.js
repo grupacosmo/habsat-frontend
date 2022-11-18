@@ -20,8 +20,7 @@ function HomeSection(){
     })
     
     return(
-        <div className="HomeSection" style={{backgroundColor: "#0e3664"}}>
-            <img className="balloon-image" src={balloon} alt="balloon" />
+        <div className="HomeSection">
             <div className="HomeSectionWrapper">
                 <div className="HomeSectionText">
                     <div className="HomeSectionTitle">HABSat</div>
