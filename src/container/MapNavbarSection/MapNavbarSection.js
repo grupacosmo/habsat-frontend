@@ -5,11 +5,11 @@ import MapNavbar from "../../component/MapNavbar/MapNavbar";
 
 const { Header } = Layout;
 
-function MapNavbarSection() {
+function MapNavbarSection({mode}) {
     return(
         <div className="Navbar">
             <Header>
-                <MapNavbar />
+                <MapNavbar mode={mode} />
             </Header>
         </div>
     )

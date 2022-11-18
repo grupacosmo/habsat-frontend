@@ -60,7 +60,7 @@ const FooterSection = () => {
                                     <div className="footer-link">
                                         <h3>Linki</h3>
                                         {
-                                            Items.map(item => <Link key={item.key} to={item.key} onClick={handleClick}>{item.title}</Link>)
+                                            Items.map(item => <Link key={item.key} to={`/${item.key}`} onClick={handleClick}>{item.title}</Link>)
                                         }
                                     </div>
                                 </div>

@@ -16,11 +16,6 @@
 .my-list-item .ant-list-item {
     padding:0;
 }
-
-.myListElement.ant-list-item:last-child {
-    padding-bottom: 0; 
-}
-
 .post-title {
     font-size: 26px;
 }

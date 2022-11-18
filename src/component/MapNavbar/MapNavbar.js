@@ -1,14 +1,16 @@
 import '../Navbar/Navbar.css'
-import MapHeader from "../MapHeader/MapHeader"
+import MapHeader from "../FlightSwitch/FlightSwitch"
 import React from "react"
 
-function MapNavbar() {
+function MapNavbar({mode = "default"}) {
     return (
         <div className="NavbarContainer">
             <div className="logo" style={{fontSize: "24px"}}>
                 <a href="/"><span>HABSat</span></a>
             </div>
-            <MapHeader />
+            {
+                (mode === "map") ? <MapHeader /> : null
+            }
         </div>
     )
 }

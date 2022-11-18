@@ -19,8 +19,6 @@ function Navbar() {
     };
     const handleClick = (e, link) => {
         e.preventDefault();
-
-        
         window.scrollTo({
             top:0,
             behavior: 'auto'
