@@ -30,7 +30,7 @@ function HomeSection(){
                     <MissionState />
                 </div>
             </div>
-            <div className="clouds-background" style={{backgroundImage: `url(${clouds})`}}></div>
+            {/* <div className="clouds-background" style={{backgroundImage: `url(${clouds})`}}></div> */}
         </div>
     )
 }

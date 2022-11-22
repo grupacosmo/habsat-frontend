@@ -5,20 +5,23 @@
 }
 .logo {
   float: left;
-  width: 10vw;
-  height: 70px;
+  width: 18vw;
+  height: 8vh;
+  min-height: 50px;
   margin: 0;
   position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size:calc(25px + 0.5vh);;
 }
 .logo > *
 {
   color: #fff;
   margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+
 }
 .ant-row-rtl .logo {
   float: right;
@@ -29,7 +32,7 @@
   }
 
 .ant-anchor {
-  font-size: 18px;
+  font-size:18px;
   background: rgba(0,0,0,0);
 }
 
@@ -44,7 +47,7 @@
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translate(-50%, -50%);
+  transform: translate( 0%, -50%);
   display: inline;
   overflow: visible;
   background: rgba(0,0,0,0);
@@ -55,6 +58,11 @@
 }
 
 /* Mobile */
+
+.MobileHidden {
+  position: relative;
+  margin-right:5vw;
+}
 
 .MobileShown > .HamburgerButton {
   margin: 0;
@@ -80,7 +88,7 @@
 
 .ant-drawer-header {
   background: #141414;
-  height: 48px;
+  height: 8vh;
   border-bottom: 1px solid black;
 }
 

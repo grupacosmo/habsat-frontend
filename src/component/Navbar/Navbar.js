@@ -27,13 +27,11 @@ function Navbar() {
         history.push(`/${e.target.closest(".data-link").id}`);
       };
     return (
-        <div className="NavbarContainer">
-            <div style={{width:"70px", height:"70px"}}>
-            <img className="balloon-image" src={balloon} alt="balloon" style={{height:"70px", top:0, left:0}}/>
-            </div>
-            <div className="logo" style={{fontSize: "38px"}}>
+        <div className="NavbarContainer">       
+            <div className="logo">
+                <img className="balloon-image" src={balloon} alt="balloon" style={{height:"4vh"}}/>
                 <a href="/"><span>HABSat</span></a>
-            </div>
+            </div>     
             <div className="MobileHidden">
                 <Anchor affix="true" offsetTop="0" onClick={handleClick}>
                     {   
