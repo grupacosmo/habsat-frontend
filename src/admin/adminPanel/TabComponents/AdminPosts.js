@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Table, Modal, Select, Space } from "antd";
+import { Button, Table, Modal, Select, Space, Form } from "antd";
 import fakeData from "../fakeDataPost";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import PostsForm from "./Components/PostsForm";
@@ -59,7 +59,8 @@ const AdminPosts = () => {
   const [dataSource, setDataSource] = useState(fakeData);
   const [filteredDataSource, setFilteredDataSource] = useState(dataSource);
   const [selectedDate, setSelectedDate] = useState(defaultDate);
-  const [newPost, setNewPost] = useState(null);
+  const [addForm] = Form.useForm();
+  const [editForm] = Form.useForm();
   const [whichWindowIsOpen, setWhichWindowIsOpen] = useState("NoWindow");
 
   const onDeletePost = (record) => {
@@ -77,21 +78,9 @@ const AdminPosts = () => {
   };
   const onEditPostWindow = (record) => {
     setWhichWindowIsOpen("EditWindow");
-    setNewPost({ ...record });
+    editForm.setFieldsValue({ ...record });
   };
-  const resetWindow = () => {
-    setWhichWindowIsOpen("NoWindow");
-    setNewPost(null);
-  };
-  const onChangePost = (event) => {
-    const { name, value } = event.target;
-    setNewPost((prePost) => {
-      return {
-        ...prePost,
-        [name]: value,
-      };
-    });
-  };
+
   const getUniqueDates = () => {
     return [...new Set(dataSource.map((item) => item.flightDate))];
   };
@@ -144,16 +133,25 @@ const AdminPosts = () => {
         okText="Zapisz"
         cancelText="Anuluj"
         onCancel={() => {
-          resetWindow();
+          addForm.resetFields();
+          setWhichWindowIsOpen("NoWindow");
         }}
         onOk={() => {
-          setDataSource((preData) => {
-            return [...preData, newPost];
-          });
-          resetWindow();
+          addForm
+            .validateFields()
+            .then((values) => {
+              addForm.resetFields();
+              setDataSource((preData) => {
+                return [...preData, values];
+              });
+              setWhichWindowIsOpen("NoWindow");
+            })
+            .catch((info) => {
+              console.log("Validate Failed: ", info);
+            });
         }}
       >
-        <PostsForm newPost={newPost} onChangePost={onChangePost} />
+        <PostsForm form={addForm} />
       </Modal>
 
       <Modal
@@ -162,18 +160,27 @@ const AdminPosts = () => {
         okText="Zapisz"
         cancelText="Anuluj"
         onCancel={() => {
-          resetWindow();
+          editForm.resetFields();
+          setWhichWindowIsOpen("NoWindow");
         }}
         onOk={() => {
-          setDataSource((preData) => {
-            return preData.map((post) => {
-              return post.id === newPost.id ? newPost : post;
+          editForm
+            .validateFields()
+            .then((values) => {
+              editForm.resetFields();
+              setDataSource((preData) => {
+                return preData.map((post) => {
+                  return post.id === values.id ? values : post;
+                });
+              });
+              setWhichWindowIsOpen("NoWindow");
+            })
+            .catch((info) => {
+              console.log("Validate Failed: ", info);
             });
-          });
-          resetWindow();
         }}
       >
-        <PostsForm newPost={newPost} onChangePost={onChangePost} />
+        <PostsForm form={editForm} />
       </Modal>
     </div>
   );
