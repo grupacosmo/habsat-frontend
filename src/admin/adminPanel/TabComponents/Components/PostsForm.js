@@ -11,7 +11,7 @@ const PostsForm = (props) => {
         rules={[
           {
             required: true,
-            message: "Please input the title of collection!",
+            message: "Wprowadź ID",
           },
         ]}
       >
@@ -23,7 +23,7 @@ const PostsForm = (props) => {
         rules={[
           {
             required: true,
-            message: "Please input the title of collection!",
+            message: "Wprowadź tytuł postu",
           },
         ]}
       >
@@ -38,7 +38,7 @@ const PostsForm = (props) => {
         rules={[
           {
             required: true,
-            message: "Please input the title of collection!",
+            message: "Wprowadź datę lotu",
           },
         ]}
       >

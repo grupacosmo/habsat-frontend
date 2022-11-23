@@ -147,7 +147,7 @@ const AdminPosts = () => {
               setWhichWindowIsOpen("NoWindow");
             })
             .catch((info) => {
-              console.log("Validate Failed: ", info);
+              console.log("Add-Post validation failed: ", info);
             });
         }}
       >
@@ -176,7 +176,7 @@ const AdminPosts = () => {
               setWhichWindowIsOpen("NoWindow");
             })
             .catch((info) => {
-              console.log("Validate Failed: ", info);
+              console.log("Edit-Post validation failed: ", info);
             });
         }}
       >
