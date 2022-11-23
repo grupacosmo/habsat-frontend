@@ -3,7 +3,7 @@ import {  List } from 'antd';
 import { Link } from 'react-router-dom';
 import { EditOutlined } from '@ant-design/icons';
 import cosmo from "../../assets/images/svg/Logo2.svg";
-
+import defaultImage from "../../assets/images/post-default.png";
 
 const cutContent = (text) => {
     return text.substr(0,230)+"...";
@@ -37,14 +37,16 @@ const Post = ({item, isFull}) => (
         <List.Item >
             
             <article className="post-content">
-                {item.thumbnailId > -1 ?
-                    <img
-                        width={`100%`}
-                        alt="Thumbnail"
-                        src={`https://picsum.photos/id/${item.id*100}/1800/500`}
-                    />
-                    : null
-                }
+                <img
+                    width={`100%`}
+                    alt="Thumbnail"
+                    src={
+                        item.thumbnailId > -1 ?
+                            `https://picsum.photos/id/${item.id*100}/1800/500`
+                            :
+                            defaultImage
+                    }
+                />
                 <p style={{textAlign: "justify", marginTop:"10px"}}>
                     {
                         isFull ? item.content : cutContent(item.content)

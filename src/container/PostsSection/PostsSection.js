@@ -1,16 +1,17 @@
 import { List } from 'antd';
-import React from 'react';
-import PostsData from './PostsData'
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import "./PostsSection.css"
 import Post from "../../component/Post/Post"
+import { PostsContext } from '../PostsProvider/PostsProvider';
 
 const PostsSection = () => {
   const { slug } = useParams();
+  const { posts } = useContext(PostsContext)
 
   if (slug) {
-    const post = PostsData.find((post) => post.slug === slug);
-    return <Post item={post} isFull="true" />
+    const singlePost = posts.find((post) => post.slug === slug);
+    return <Post item={singlePost} isFull="true" />
   }
 
   return (
@@ -26,7 +27,7 @@ const PostsSection = () => {
         },
         pageSize: 3,
       }}
-      dataSource={PostsData}
+      dataSource={posts}
 
       renderItem={(item) => (
         <Post item={item} />

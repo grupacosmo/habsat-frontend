@@ -8,16 +8,19 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MapView from "./view/MapView/MapView";
 import Members from "./view/Members/Members"
 import FlightsProvider from "./container/FlightsProvider/FlightsProvider"
+import PostsProvider from "./container/PostsProvider/PostsProvider"
 
 ReactDOM.render(
   <React.StrictMode>
-      <Router>
-          <Switch>
-              <Route exact path="/map" ><FlightsProvider><MapView /></FlightsProvider></Route>
-              <Route exact path="/members" component={Members}/>
-              <Route strict path="/" component={LandingPage}/>
-          </Switch>
-      </Router>
+    <PostsProvider>
+        <Router>
+            <Switch>
+                <Route exact path="/map" ><FlightsProvider><MapView /></FlightsProvider></Route>
+                <Route exact path="/members" component={Members}/>
+                <Route strict path="/" component={LandingPage}/>
+            </Switch>
+        </Router>
+    </PostsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
