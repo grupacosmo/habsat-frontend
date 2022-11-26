@@ -2,9 +2,6 @@ import React, {useEffect} from 'react';
 
 import MissionState from '../../component/MissionState/MissionState';
 import "./HomeSection.css"
-
-import balloon from "../../assets/images/svg/weather-balloon-epa-cropped.svg";
-import clouds from "../../assets/images/clouds-shadow.png";
 // import { WindowsFilled } from '@ant-design/icons';
 
 const resize = () => {
@@ -30,7 +27,7 @@ function HomeSection(){
                     <MissionState />
                 </div>
             </div>
-            <div className="clouds-background" style={{backgroundImage: `url(${clouds})`}}></div>
+            {/* <div className="clouds-background" style={{backgroundImage: `url(${clouds})`}}></div> */}
         </div>
     )
 }

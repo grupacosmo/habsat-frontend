@@ -17,12 +17,11 @@
     height:48px;
     display:flex;
     align-items: center;
-    position: absolute;
-    right:0;
-    top:0;
-    margin-right:10%;
+    justify-content: flex-end;
+    margin-right:5vw;
     color:white;
     font-size:24px;
+    position: relative;
 }
 .switch-flights-button-wrapper {
     position: relative;
@@ -44,8 +43,11 @@
     color: #0056b3;
     border-color: rgb(24, 144, 255, 0.2);
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
     .switch-flights > span {
         display:none;
+    }
+    .switch-flights {
+        right:-30px;
     }
 }

@@ -8,22 +8,27 @@ html {
     position: sticky;
     top: 0px;
     width: 100%;
-    height: 70px;
+    height: 8vh;
+    min-height: 50px;
     display: block;
     margin: 0;
 }
+
 .NavbarContainer {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
+
 .ant-layout-header {
     height: 100%;
-    background-color: #03254c;
+    background: linear-gradient(#032350, #04122c);
 }
 
 .scroll-to-element{
     opacity: 0%;
-    top: -47px;
+    top: -8vh;
     position: relative;
     height: 0;
 }
