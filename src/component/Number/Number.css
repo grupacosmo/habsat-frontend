@@ -12,12 +12,73 @@
 
 .NumberValue {
     font-size: 1.4em;
+    align-self: left;
+    width:100%;
 }
 
 .NumberMainText {
     font-size: 1.1em;
+    text-align: center;
 }
 
 .NumberSecondaryText {
-    color: antiquewhite;
+    text-align: center;
+}
+
+.numberHeader {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: end;
+}
+.numberHeader .circleBackground {
+    font-size:1.8em;;
+}
+
+.numberContainer .numberContent {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.numberContainer{
+    display: flex;
+    align-items: flex-start;
+    opacity: 0.9;
+    transition: opacity 0.5s;
+    margin-bottom: 3em;
+    border-radius: 1em;
+    width: 80%;
+    text-align: justify;
+    font-size: 1em;
+    color:white;
+}
+
+.numberContainer:hover{
+    opacity: 1;
+}
+
+.numberContainer .habIcon{
+    display: flex;
+    flex-direction: column;
+    padding-right: 1em;
+}
+
+.numberContainer .circleBackground{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    padding: 0.3em;
+}
+
+.numberContainer .AwsomeIcon{
+    color: #fff;
+}
+
+.numberContainer .habContent{
+    display: flex;
+    flex-direction: column;
 }

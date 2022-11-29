@@ -1,19 +1,6 @@
-import React, {useState} from 'react';
-
-const flightsData = [
-    {
-      label: '02-05-2022r.',
-      key: 0,
-    },
-    {
-      label: '14-02-2022r.',
-      key: 1,
-    },
-    {
-      label: '05-07-2022r.',
-      key: 2,
-    },
-  ];
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import flightsData from '../../data/FlightsData';
 
 export const FlightsContext = React.createContext({
     flights: [],
@@ -24,6 +11,13 @@ export const FlightsContext = React.createContext({
 const FlightsProvider = ({ children }) => {
     const [flights, setFlights] = useState(flightsData);
     const [currentFlight, setCurrentFlight] = useState(flightsData[0]);
+
+    useEffect(() => {
+      axios
+        .get('/list')
+        .then(({ data }) => setFlights(data.flights))
+        .catch((err) => console.log(err));
+    }, []);
 
     const switchCurrentFlight = (id) => {
         setCurrentFlight(flights[id]);

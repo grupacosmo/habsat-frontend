@@ -45,7 +45,7 @@ const PostsData = [
     },
     {
         id: 4,
-        thumbnailId: 0,
+        thumbnailId: 5,
         title: "Ranking projektów studenckich",
         slug: "ranking2022",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dapibus dapibus consequat. Suspendisse non nibh pellentesque, venenatis neque a, faucibus mi. Sed sed nisi non massa sodales fermentum. Etiam pulvinar eleifend tortor in mattis. Vivamus sit amet pretium massa. Aenean nisi lectus, accumsan eu pretium sit amet, tristique quis urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dapibus dapibus consequat. Suspendisse non nibh pellentesque, venenatis neque a, faucibus mi. Sed sed nisi non massa sodales fermentum. Etiam pulvinar eleifend tortor in mattis. Vivamus sit amet pretium massa. Aenean nisi lectus, accumsan eu pretium sit amet, tristique quis urna.",
@@ -78,7 +78,7 @@ const PostsData = [
     },
     {
         id: 7,
-        thumbnailId: 2,
+        thumbnailId: 10,
         title: "Konferecja SpaceExploration 2022",
         slug: "space-exploration",
         content: "Lorem ipsum dol Sed sed nisi non massa sodales fermentum. Etiam pulvinar eleifend tortor in mattis. Vivamus sit amet pretium massa. Aenean nisi lectus, accumsan eu pretium sit amet, tristique quis urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dapibus dapibus consequat. Suspendisse non nibh pellentesque, venenatis neque a, faucibus mi. Sed sed nisi non massa sodales fermentum. Etiam pulvinar eleifend tortor in mattis. Vivamus sit amet pretium massa. Aenean nisi lectus, accumsan eu pretium sit amet, tristique quis urna.",

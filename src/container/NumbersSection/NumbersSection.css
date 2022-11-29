@@ -1,4 +1,13 @@
 .NumbersSection {
     background-color: white;
     text-align: center;
+    padding:20px 50px 0 50px;
+    min-height: 35vh;
+    display: flex;
+    align-items: center;
+    background: url("https://space.biz.pl/wp-content/uploads/2019/11/home-banner.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top;
 }

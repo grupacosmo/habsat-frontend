@@ -13,13 +13,15 @@ import PostsProvider from "./container/PostsProvider/PostsProvider"
 ReactDOM.render(
   <React.StrictMode>
     <PostsProvider>
+      <FlightsProvider>
         <Router>
             <Switch>
-                <Route exact path="/map" ><FlightsProvider><MapView /></FlightsProvider></Route>
+                <Route exact path="/map" component={MapView}/>
                 <Route exact path="/members" component={Members}/>
                 <Route strict path="/" component={LandingPage}/>
             </Switch>
         </Router>
+      </FlightsProvider>
     </PostsProvider>
   </React.StrictMode>,
   document.getElementById('root')

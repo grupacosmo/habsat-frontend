@@ -3,7 +3,7 @@ html {
 }
 
 .Navbar {
-    z-index: 11;
+    z-index: 20;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;

@@ -24,7 +24,7 @@ const PostsProvider = ({ children }) => {
     return (
         <PostsContext.Provider 
             value={{
-              posts,
+              posts, 
               handleWhatever
             }}
           >
