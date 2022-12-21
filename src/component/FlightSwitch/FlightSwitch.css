@@ -30,6 +30,7 @@
 }
 .switch-flights-button-wrapper button {
    color:black;
+   width:130px;
 }
 .switch-flights-dropdown {
     text-align: center;

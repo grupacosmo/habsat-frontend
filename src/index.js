@@ -11,7 +11,7 @@ import FlightsProvider from "./container/FlightsProvider/FlightsProvider"
 import PostsProvider from "./container/PostsProvider/PostsProvider"
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <PostsProvider>
       <FlightsProvider>
         <Router>
@@ -23,7 +23,7 @@ ReactDOM.render(
         </Router>
       </FlightsProvider>
     </PostsProvider>
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
 

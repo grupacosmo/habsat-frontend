@@ -40,4 +40,18 @@
     margin-left: -5px;
     border: solid 2px #46a6ff;
 }
-
+.waiting-container {
+    text-align: center;
+    font-size:1.5em; 
+    background-color: white;
+    padding:8px;
+}
+.waiting-container p {
+    font-size: 0.8em;
+}
+.wait-icon {
+    margin-right: 10px;
+    color:#04122c;
+    position: relative;
+    top:-2px;
+}

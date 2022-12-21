@@ -47,6 +47,7 @@
     opacity: 0.9;
     transition: opacity 0.5s;
     margin-bottom: 3em;
+    margin-top: 3em;
     border-radius: 1em;
     width: 80%;
     text-align: justify;

@@ -1,16 +1,14 @@
-const flightsData = [
+export const flightsData = [
     {
-      label: '02-05-2022r.',
-      key: 0,
+      flightId: 0,
+      date: "2022-12-02T12:11:22.440Z",
     },
     {
-      label: '14-02-2022r.',
-      key: 1,
+      flightId: 1,
+      date: "2022-12-07T12:11:22.440Z",
     },
     {
-      label: '05-07-2022r.',
-      key: 2,
+      flightId: 2,
+      date: "2023-02-12T12:11:22.440Z",
     },
   ];
-
-export default flightsData;
