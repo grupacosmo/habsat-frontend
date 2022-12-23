@@ -8,7 +8,7 @@
 .MissionStateTitle {
     font-weight: 600;
     animation-name: fadeIn;
-    animation-duration: 1s;
+    animation-duration: 0.7s;
     animation-iteration-count: 1;
 }
 
@@ -24,7 +24,7 @@
     transition: 0.5s;
     transition-timing-function: ease;
     animation-name: fadeInDelay;
-    animation-duration: 2.3s;
+    animation-duration: 1.3s;
     animation-iteration-count: 1;
 }
 
@@ -40,7 +40,7 @@
     font-weight: 200;
     line-height: 1.5;;
     animation-name: fadeInDelay;
-    animation-duration: 2s;
+    animation-duration: 1.3s;
     animation-iteration-count: 1;
 }
 
@@ -116,7 +116,7 @@
     0% {
         opacity: 0;
     }
-    50% {
+    30% {
         opacity: 0;
     }
     100% {

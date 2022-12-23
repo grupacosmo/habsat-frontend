@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './assets/styles/fonts.css'
+import './assets/styles/global.css'
 import LandingPage from './view/LandingPage/LandingPage';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MapView from "./view/MapView/MapView";
-import Members from "./view/Members/Members"
+import Members from "./view/Members/Members";
+import LoginPage from './admin/LoginPage/LoginPage';
+import AdminPanel from './admin/adminPanel/AdminPanel';
 import FlightsProvider from "./container/FlightsProvider/FlightsProvider"
 import PostsProvider from "./container/PostsProvider/PostsProvider"
 
@@ -18,6 +20,7 @@ ReactDOM.render(
             <Switch>
                 <Route exact path="/map" component={MapView}/>
                 <Route exact path="/members" component={Members}/>
+                <Route exact path="/admin" component={AdminPanel}/>
                 <Route strict path="/" component={LandingPage}/>
             </Switch>
         </Router>

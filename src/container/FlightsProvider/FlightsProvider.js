@@ -1,24 +1,45 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import flightsData from '../../data/FlightsData';
+//import {flightsData as flightList } from '../../data/FlightsData';
 
 export const FlightsContext = React.createContext({
-    flights: [],
+    finishedFlights: [],
     currentFlight: {},
-    switchCurrentFlight: () => {}
+    switchCurrentFlight: () => {},
+    newest: {}
 });
 
 const FlightsProvider = ({ children }) => {
-    const [flights, setFlights] = useState(flightsData);
-    const [currentFlight, setCurrentFlight] = useState(flightsData[0]);
+    const [flights, setFlights] = useState([]);
+    const [currentFlight, setCurrentFlight] = useState({});
+    const [newest, setNewest] = useState({});
+    const [finishedFlights, setFinishedFlights] = useState([]);
 
     useEffect(() => {
       axios
-        .get('/list')
-        .then(({ data }) => setFlights(data.flights))
-        .catch((err) => console.log(err));
+        .get('/flight-service/flight/newest')
+        .then(({ data }) => {
+          setNewest(data);
+          setCurrentFlight(data);
+        })
+        .catch((err) => console.log("FlightsProvider error:",err));
+    }, []);
+    
+    useEffect(() => {
+      axios
+        .get('/flight-service/flight/stage/FINISHED')
+        .then(({ data }) => {
+          setFinishedFlights(data);
+        })
+        .catch((err) => console.log("FlightsProvider error:",err));
     }, []);
 
+    useEffect(() => {
+      if (finishedFlights.length > 0 && newest.date) {
+        setFlights([...finishedFlights, newest]);
+      }
+    },[finishedFlights, newest]);
+    
     const switchCurrentFlight = (id) => {
         setCurrentFlight(flights[id]);
     };
@@ -28,7 +49,8 @@ const FlightsProvider = ({ children }) => {
             value={{
               flights,
               currentFlight,
-              switchCurrentFlight
+              switchCurrentFlight,
+              newest
             }}
           >
             {children}

@@ -6,8 +6,18 @@ import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider"
 
 
 const FlightSwitch = () => {
-  const {flights: items, currentFlight, switchCurrentFlight} = useContext(FlightsContext);
+  const {flights, currentFlight, switchCurrentFlight} = useContext(FlightsContext);
   
+  const items = flights.slice().reverse();
+
+  // Ant design key name fix
+  if (items.length > 0) {
+    items.forEach((flightObj, index) => {
+      flightObj['label'] = flightObj['date'].slice(0,10);
+      flightObj['key'] = items.length-1-index;
+    })
+  }
+
   const handleMenuClick = ( {key}) => {
     switchCurrentFlight(key);
   };
@@ -16,14 +26,14 @@ const FlightSwitch = () => {
     items,
     onClick: handleMenuClick,
     selectable: true,
-        defaultSelectedKeys: ['0'],
+        defaultSelectedKeys: [`${items.length-1}`],
+        //defaultSelectedKeys: [`0`],
   };
-  
 
   return (
     <div className="switch-flights">
         <span>
-            Lot nr. {currentFlight.key+1}
+            { !isNaN(currentFlight.key) ? currentFlight.title : null }
         </span>
         <Space wrap className="switch-flights-button-wrapper">
             <Dropdown 
@@ -32,7 +42,7 @@ const FlightSwitch = () => {
               getPopupContainer={() => document.querySelector('.switch-flights')}
               overlayClassName="switch-flights-dropdown"
             >
-                <Button>
+                <Button className="switch-button">
                     <Space>
                     {currentFlight.label}
                     <DownOutlined />

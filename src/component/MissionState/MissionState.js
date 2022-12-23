@@ -1,17 +1,31 @@
-import React, {useEffect, useState} from "react"
+import CompoundedSpace from "antd/lib/space";
+import React, {useContext, useEffect, useState} from "react"
+import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider";
 import "./MissionState.css"
+
+const months = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];
 
 function MissionState() {
     const [date, updateDate] = useState(0)
+    const [currentState, setCurrentState] = useState("")
+    const { newest:currentFlight } = useContext(FlightsContext);
+    const dDayDate = new Date(currentFlight.date)
 
-    const dDayDate = new Date(2022, 4, 7, 12, 0)
-    const endDate = new Date(2022, 4, 7, 15, 30)
-
+    const [month, day, year] = [
+    dDayDate.getMonth(),
+    dDayDate.getDate(),
+    dDayDate.getFullYear(),
+    ];
+    const [hour, minutes, seconds] = [
+    dDayDate.getHours() < 10 ? "0"+dDayDate.getHours() : dDayDate.getHours(),
+    dDayDate.getMinutes() < 10 ? "0"+dDayDate.getMinutes() : dDayDate.getMinutes(),
+    dDayDate.getSeconds() < 10 ? "0"+dDayDate.getSeconds() : dDayDate.getSeconds(),
+    ];
 
     const missionMessages = {
         waiting: {
             title: "Termin potwierdzony!",
-            description: "Start 7 maja, godzina 12:00. Do startu pozostało:",
+            description: `Start ${ day } ${ months[month] }, godzina ${ hour + ":" + minutes }. Do startu pozostało:`,
             buttonText: "Śledzenie wkrótce. Kliknij tutaj aby przejść do mapy."
         },
         live: {
@@ -26,16 +40,14 @@ function MissionState() {
         },
     }
 
-    const getMissionState = (dDayDate, endDate) => {
+    const getMissionState = () => {
+        if (currentFlight.flightStage === "FINISHED") return "ENDED";
         const todayDate = new Date()
-        let missionStatus = "WAITING"
-        if (todayDate >= dDayDate && todayDate <= endDate) missionStatus = "LIVE"
-        if (todayDate >= endDate) missionStatus = "ENDED"
+        let missionStatus = "WAITING";
+        if (todayDate >= dDayDate) missionStatus = "LIVE"
 
         return missionStatus
     }
-
-    let [currentState, setCurrentState] = useState(getMissionState(dDayDate, endDate))
 
     const messageTitle = (missionState) => {
         switch (missionState) {
@@ -115,6 +127,8 @@ function MissionState() {
         let nowDate = new Date()
         let nowDateF = new Date(nowDate.getTime() + 1000);
 
+        console.log("difference", dDayDate)
+
         const sDiff = (dDayDate.getTime() - nowDate.getTime()) / 1000
         let rest = 0
         const days = Math.floor(sDiff / (3600 * 24))
@@ -147,14 +161,13 @@ function MissionState() {
             secondsF: secondsF < 10 ? "0" + secondsF : secondsF
         }
     }
-
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentState(getMissionState(dDayDate, endDate))
-
+            let state = getMissionState() 
+            if (state !== currentState) setCurrentState(state)
+            
             const diff = difference()
-            currentState = getMissionState(dDayDate, endDate)
-            if (currentState === "WAITING") {
+            if (state === "WAITING") {
                 try {
                     updateDate(diff)
                     const seconds = document.getElementById("counter-seconds")
@@ -181,25 +194,29 @@ function MissionState() {
                     }
 
                 } catch (e) {
-
+                    console.log("err", e)
                 }
             }
         }, 1000);
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(interval);
+        }
     }, []);
 
     return (
-        <div className="MissionStateWrapper">
-            <div className="MissionStateTitle">{messageTitle(currentState)}</div>
-            <div className="MisssionStateDescription">
-                {messageDescription(currentState)}
+        currentState ?
+            <div className="MissionStateWrapper">
+                <div className="MissionStateTitle">{messageTitle(currentState)}</div>
+                <div className="MisssionStateDescription">
+                    {messageDescription(currentState)}
+                </div>
+                { currentState == "WAITING" ?
+                    <a className="MissionStateLink MissionStateLink__disabled" href="/map">{buttonText(currentState)}</a>
+                    :
+                    <a className="MissionStateLink" href="/map">{buttonText(currentState)}</a>
+                }
             </div>
-            { currentState == "WAITING" ?
-                <a className="MissionStateLink MissionStateLink__disabled" href="/map">{buttonText(currentState)}</a>
-                :
-                <a className="MissionStateLink" href="/map">{buttonText(currentState)}</a>
-            }
-        </div>
+         : null
     )
 }
 

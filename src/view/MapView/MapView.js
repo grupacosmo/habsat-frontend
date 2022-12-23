@@ -8,6 +8,8 @@ import SockJsClient from 'react-stomp';
 import MapNavbarSection from "../../container/MapNavbarSection/MapNavbarSection";
 import ChartTile from "../../component/ChartTile/ChartTile";
 import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMugHot } from '@fortawesome/free-solid-svg-icons';
 
 const { Content } = Layout
 
@@ -72,12 +74,12 @@ const columns = [
 ];
 
 const MapView = () => {
-    const dataFramePath = `${geoDataApiPath}/data-frame`;
+    const dataFramePath = `${geoDataApiPath}/flight/`;
     const [geoData, setGeoData] = useState([]);
     const [sliderValue, setSliderValue] = useState(0);
-    const [startDate, ] = useState(new Date(2022, 4, 7, 12, 0))
     const [currentDate, setCurrentDate] = useState(new Date())
-    const {currentFlight} = useContext(FlightsContext);
+    const { currentFlight} = useContext(FlightsContext);
+    const currentFlightDate = new Date(currentFlight.date);
     // const [temperatureData, setTemperatureData] = useState(geoData.map(data => {
     //     return { primary: data.dataTime, secondary: data.temperatureInCelsius };
     // }));
@@ -90,23 +92,27 @@ const MapView = () => {
     }, []);
 
     useEffect(() => {
-        console.log("axios get", currentFlight)
-        axios.get(dataFramePath).then(resp => {
-            let points = resp.data.reverse();
-            points = points.filter(point => {
-                if(point.latitude === 0) {
-                    return false
-                } else if (point.longitude === 0) {
-                    return false
-                } else {
-                    return true
-                }
+        axios
+            .get(dataFramePath+currentFlight.date?.slice(0,10))
+            .then(resp => {
+                let points = resp.data.flightDataResponseList.reverse();
+                points = points.filter(point => {
+                    if(point.latitude === 0) {
+                        return false
+                    } else if (point.longitude === 0) {
+                        return false
+                    } else {
+                        return true
+                    }
+                })
+                console.log(points)
+                setGeoData(points);
+                setSliderValue(1);
             })
-            console.log(points)
-            setGeoData(points);
-            setSliderValue(1);
-        });
-
+            .catch(err => console.log(err))
+        return () => {
+            setGeoData([]);
+        }
     }, [dataFramePath, currentFlight])
 
     function onChange(value) {
@@ -141,8 +147,16 @@ const MapView = () => {
                 <MapNavbarSection mode="map" />
                 <Content className="MapViewContainer">
                     {
-                        currentDate < startDate ?
-                            <div>Oczekiwanie. Śledzenie na żywo na mapie będzie dostępne 07.05.2022 12:00.</div>
+                        currentDate < currentFlightDate?
+                            <div className="waiting-container">
+                                <FontAwesomeIcon icon={faMugHot} className="wait-icon"/>
+                                Oczekiwanie
+                                <p>
+                                    Śledzenie na żywo na mapie będzie dostępne {
+                                        currentFlightDate.toLocaleString().slice(0,-3)
+                                    }.
+                                </p>
+                            </div>
                         :
                             <></>
                     }

@@ -54,7 +54,7 @@ function Navbar() {
                     placement="right"
                     closable={false}
                     onClose={onClose}
-                    visible={visible}
+                    open={visible}
                     width="300px"
                 >
                     <Anchor affix="true" offsetTop="0" onClick={handleClick}>
