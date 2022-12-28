@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect, useMemo} from 'react'
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Space } from 'antd';
 import "./FlightSwitch.css";
@@ -7,7 +7,7 @@ import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider"
 
 const FlightSwitch = () => {
   const {flights, currentFlight, switchCurrentFlight} = useContext(FlightsContext);
-  
+
   const items = flights.slice().reverse();
 
   // Ant design key name fix
@@ -32,7 +32,7 @@ const FlightSwitch = () => {
 
   return (
     <div className="switch-flights">
-        <span>
+        <span className="switch-flights-title">
             { !isNaN(currentFlight.key) ? currentFlight.title : null }
         </span>
         <Space wrap className="switch-flights-button-wrapper">

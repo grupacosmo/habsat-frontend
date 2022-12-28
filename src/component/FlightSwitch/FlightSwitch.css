@@ -65,9 +65,13 @@
     border-color: rgb(24, 144, 255, 0.2);
 }
 
-@media only screen and (max-width: 500px) {
-    .switch-flights > span {
-        display:none;
+.switch-flights-title {
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 650px) {
+    .switch-flights-title {
+        display: none;
     }
     .switch-flights {
         right:-30px;

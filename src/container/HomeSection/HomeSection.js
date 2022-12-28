@@ -16,8 +16,8 @@ function HomeSection(){
         document.getElementsByClassName("HomeSectionWrapper")[0].style.height = `${window.innerHeight - 48}px`
         window.addEventListener("resize", resize);
 
-        return window.removeEventListener("resize", resize);
-    })
+        return () => window.removeEventListener("resize", resize);
+    }, [])
     
     return(
         <div className="HomeSection">
