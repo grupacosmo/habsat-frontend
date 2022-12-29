@@ -45,6 +45,7 @@
     font-size:1.5em; 
     background-color: white;
     padding:8px;
+    border-bottom:4px solid #03224f;
 }
 .waiting-container p {
     font-size: 0.8em;

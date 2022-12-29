@@ -17,7 +17,12 @@ const scrollTop = () => {
 }
 
 const Post = ({item, isFull}) => (
-    <div  className="my-list-item">  
+    <div  className="my-list-item">
+         {
+             isFull ? 
+                <Link to="/posts" className="go-back-button">&lt; Aktualności</Link>
+             : null
+         }  
         <List.Item
             key={item.title}
         >

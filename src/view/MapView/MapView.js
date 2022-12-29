@@ -93,7 +93,7 @@ const MapView = () => {
 
     useEffect(() => {
         axios
-            .get(dataFramePath+currentFlight.date+"/flightData")
+            .get(dataFramePath+currentFlight.date?.slice(0,10))
             .then(resp => {
                 let points = resp.data.flightDataResponseList.reverse();
                 points = points.filter(point => {
@@ -110,6 +110,9 @@ const MapView = () => {
                 setSliderValue(1);
             })
             .catch(err => console.log(err))
+        return () => {
+            setGeoData([]);
+        }
     }, [dataFramePath, currentFlight])
 
     function onChange(value) {

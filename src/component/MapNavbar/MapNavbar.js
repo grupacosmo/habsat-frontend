@@ -8,7 +8,7 @@ function MapNavbar({mode = "default"}) {
         <div className="NavbarContainer">
             <div className="logo">
                     <img className="balloon-image" src={balloon} alt="balloon" style={{height:"4vh"}}/>
-                    <a href="/"><span>HABSat</span></a>
+                    <a className="logo-title" href="/"><span>HABSat</span></a>
                 </div>     
             {
                 (mode === "map") ? <MapHeader /> : null

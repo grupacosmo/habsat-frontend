@@ -9,7 +9,8 @@
 }
 
 .Members__photo img {
-    height: 25em;
+    max-height: 25em;
+    max-width: 100%;
 }
 
 .Members__content {

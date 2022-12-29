@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect, useMemo} from 'react'
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Space } from 'antd';
 import "./FlightSwitch.css";
@@ -7,16 +7,17 @@ import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider"
 
 const FlightSwitch = () => {
   const {flights, currentFlight, switchCurrentFlight} = useContext(FlightsContext);
-  
+
   const items = flights.slice().reverse();
-  //console.log("flightsswitch",items)
+
   // Ant design key name fix
   if (items.length > 0) {
-  items.forEach((flightObj, index) => {
-    flightObj['label'] = flightObj['date'].slice(0,10);
-    flightObj['key'] = items.length-1-index;
-  })
-}
+    items.forEach((flightObj, index) => {
+      flightObj['label'] = flightObj['date'].slice(0,10);
+      flightObj['key'] = items.length-1-index;
+    })
+  }
+
   const handleMenuClick = ( {key}) => {
     switchCurrentFlight(key);
   };
@@ -28,12 +29,11 @@ const FlightSwitch = () => {
         defaultSelectedKeys: [`${items.length-1}`],
         //defaultSelectedKeys: [`0`],
   };
-  
 
   return (
     <div className="switch-flights">
-        <span>
-            Lot nr. { !isNaN(currentFlight.key) ? currentFlight.key+1 : null }
+        <span className="switch-flights-title">
+            { !isNaN(currentFlight.key) ? currentFlight.title : null }
         </span>
         <Space wrap className="switch-flights-button-wrapper">
             <Dropdown 
@@ -42,7 +42,7 @@ const FlightSwitch = () => {
               getPopupContainer={() => document.querySelector('.switch-flights')}
               overlayClassName="switch-flights-dropdown"
             >
-                <Button>
+                <Button className="switch-button">
                     <Space>
                     {currentFlight.label}
                     <DownOutlined />

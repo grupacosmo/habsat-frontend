@@ -27,12 +27,12 @@ function AboutUs() {
                         <img
                             src={logo}
                             alt="logo"
-                            style={{position: "absolute", height: "90%", right: "10px", zIndex: 1, top: "5%", mixBlendMode: "color"}}
+                            style={{position: "absolute", height: "90%", right: "10px", zIndex: 1, top: "5%", mixBlendMode: "color", maxWidth:"100%"}}
                         />
                         <img
                             src={logo}
                             alt="logo"
-                            style={{position: "absolute", height: "90%", right: "10px", zIndex: 1, top: "5%", opacity: "0.5"}}
+                            style={{position: "absolute", height: "90%", right: "10px", zIndex: 1, top: "5%", opacity: "0.5", maxWidth:"100%"}}
                         />
                         <a href="https://cosmo.pk.edu.pl/"
                            target="_blank"

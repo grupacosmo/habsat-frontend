@@ -8,15 +8,8 @@ const months = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "l
 function MissionState() {
     const [date, updateDate] = useState(0)
     const [currentState, setCurrentState] = useState("")
-    const { currentFlight } = useContext(FlightsContext);
+    const { newest:currentFlight } = useContext(FlightsContext);
     const dDayDate = new Date(currentFlight.date)
-    const endDate = new Date(2024, 4, 7, 15, 30)
-
-    
-    useEffect(() =>{
-        console.log("MissionState: ", dDayDate);
-        console.log(currentFlight);
-    },[currentFlight]);
 
     const [month, day, year] = [
     dDayDate.getMonth(),
@@ -48,11 +41,11 @@ function MissionState() {
     }
 
     const getMissionState = () => {
+        if (currentFlight.flightStage === "FINISHED") return "ENDED";
         const todayDate = new Date()
-        let missionStatus = "WAITING"
-        if (todayDate >= dDayDate && todayDate <= endDate) missionStatus = "LIVE"
-        if (todayDate >= endDate) missionStatus = "ENDED"
-        console.log("getMissionState", currentFlight.date)
+        let missionStatus = "WAITING";
+        if (todayDate >= dDayDate) missionStatus = "LIVE"
+
         return missionStatus
     }
 
@@ -168,16 +161,12 @@ function MissionState() {
             secondsF: secondsF < 10 ? "0" + secondsF : secondsF
         }
     }
-    console.log("interval poza use", dDayDate, new Date(currentFlight.date));
     useEffect(() => {
         const interval = setInterval(() => {
             let state = getMissionState() 
             if (state !== currentState) setCurrentState(state)
-
-            console.log("interval", dDayDate);
             
             const diff = difference()
-            //currentState = getMissionState(dDayDate, endDate, interval)
             if (state === "WAITING") {
                 try {
                     updateDate(diff)
@@ -210,16 +199,13 @@ function MissionState() {
             }
         }, 1000);
         return () => {
-            console.log("unmount", interval);
-             clearInterval(interval);
+            clearInterval(interval);
         }
     }, []);
 
     return (
-        <div className="MissionStateWrapper">
-        {currentFlight.date ? ( 
-            <>
-                {console.log("cur",currentFlight.date)}
+        currentState ?
+            <div className="MissionStateWrapper">
                 <div className="MissionStateTitle">{messageTitle(currentState)}</div>
                 <div className="MisssionStateDescription">
                     {messageDescription(currentState)}
@@ -229,10 +215,8 @@ function MissionState() {
                     :
                     <a className="MissionStateLink" href="/map">{buttonText(currentState)}</a>
                 }
-            </>
-        ) : null
-        }
-        </div>
+            </div>
+         : null
     )
 }
 

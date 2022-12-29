@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 
 import MissionState from '../../component/MissionState/MissionState';
+import { FlightsContext } from '../FlightsProvider/FlightsProvider';
 import "./HomeSection.css"
 // import { WindowsFilled } from '@ant-design/icons';
 
@@ -9,12 +10,14 @@ const resize = () => {
 }
 
 function HomeSection(){
+    const {currentFlight} = useContext(FlightsContext)
+
     useEffect(() =>{
         document.getElementsByClassName("HomeSectionWrapper")[0].style.height = `${window.innerHeight - 48}px`
         window.addEventListener("resize", resize);
 
-        return window.removeEventListener("resize", resize);
-    })
+        return () => window.removeEventListener("resize", resize);
+    }, [])
     
     return(
         <div className="HomeSection">
@@ -24,7 +27,7 @@ function HomeSection(){
                     <div className="HomeSectionDescription">
                         HABSat - projekt sondy stratosferycznej Koła Naukowego COSMO
                     </div>
-                    <MissionState />
+                     { currentFlight.date ? <MissionState /> : null }
                 </div>
             </div>
             {/* <div className="clouds-background" style={{backgroundImage: `url(${clouds})`}}></div> */}
