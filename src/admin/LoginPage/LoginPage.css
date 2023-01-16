@@ -1,3 +1,32 @@
 /* * {
-    background-image: url(../../assets/images/login-page-background.jpg);
-} */
+    background-image: url(../../assets/images/login-background.jpg);
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat; 
+}    */
+
+
+.loginposition{
+    background-color: gray;
+    opacity: 0.9;
+    padding-top: 2%;
+    border-radius: 5%;
+}
+
+.buttonposition{
+    transform: translate(-15%,0%);
+}
+
+.checkboxposition{
+    transform: translate(-10%,0%);
+}
+
+.Background {
+    background-image: url(../../assets/images/login-background.jpg);
+    background-position: center center;
+    background-size: 100% 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}   
