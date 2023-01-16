@@ -17,6 +17,7 @@ ReactDOM.render(
               <Route exact path="/map" component={MapView}/>
               <Route exact path="/members" component={Members}/>
               <Route exact path="/admin" component={AdminPanel}/>
+              <Route exact path="/login" component={LoginPage}/>
           </Switch>
       </Router>
   </React.StrictMode>,
