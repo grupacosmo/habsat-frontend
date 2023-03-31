@@ -1,1 +1,2 @@
-export const geoDataApiPath = '/flight-service'
+export const geoDataApiPath = ''
+export const webSocketPath = '/ws'
