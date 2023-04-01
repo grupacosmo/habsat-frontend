@@ -5,9 +5,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("https://space.biz.pl/wp-content/uploads/2019/11/home-banner.jpg");
+    background: url("../../assets/images/space-banner.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size:cover;
     background-position: top;
+}
+.NumbersSection_mobile {
+    background-attachment: unset;
 }

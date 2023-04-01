@@ -67,12 +67,13 @@
 
 .switch-flights-title {
     white-space: nowrap;
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translate(-100%, -50%);
 }
 
 @media only screen and (max-width: 650px) {
-    .switch-flights-title {
-        display: none;
-    }
     .switch-flights {
         right:-30px;
     }

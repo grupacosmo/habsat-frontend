@@ -5,6 +5,7 @@ import Number from "../../component/Number/Number";
 
 import './NumbersSection.css';
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 function NumbersSection() {
     const numbersData =
@@ -48,7 +49,7 @@ function NumbersSection() {
         ]
 
     return (
-        <div className="NumbersSection">
+        <div className={`NumbersSection ${isMobile ? "NumbersSection_mobile" : null }`}>
             <Row justify="center">
                 {numbersData.map((element, id) => {
                     return (

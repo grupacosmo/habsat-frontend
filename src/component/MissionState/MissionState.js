@@ -127,8 +127,6 @@ function MissionState() {
         let nowDate = new Date()
         let nowDateF = new Date(nowDate.getTime() + 1000);
 
-        console.log("difference", dDayDate)
-
         const sDiff = (dDayDate.getTime() - nowDate.getTime()) / 1000
         let rest = 0
         const days = Math.floor(sDiff / (3600 * 24))

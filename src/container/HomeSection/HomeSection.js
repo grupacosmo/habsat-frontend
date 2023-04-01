@@ -30,7 +30,6 @@ function HomeSection(){
                      { currentFlight.date ? <MissionState /> : null }
                 </div>
             </div>
-            {/* <div className="clouds-background" style={{backgroundImage: `url(${clouds})`}}></div> */}
         </div>
     )
 }
