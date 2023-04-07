@@ -1,2 +1,1 @@
-export const geoDataApiPath = ''
-export const webSocketPath = '/ws'
+export const geoDataApiPath = '/api'
