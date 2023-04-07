@@ -1,34 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './assets/styles/global.css'
-import LandingPage from './view/LandingPage/LandingPage';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import MapView from "./view/MapView/MapView";
-import Members from "./view/Members/Members";
-import LoginPage from './admin/LoginPage/LoginPage';
-import AdminPanel from './admin/adminPanel/AdminPanel';
-import FlightsProvider from "./container/FlightsProvider/FlightsProvider"
-import PostsProvider from "./container/PostsProvider/PostsProvider"
 
-ReactDOM.render(
-  <React.StrictMode>
-    <PostsProvider>
-      <FlightsProvider>
-        <Router>
-            <Switch>
-                <Route exact path="/map" component={MapView}/>
-                <Route exact path="/members" component={Members}/>
-                <Route exact path="/admin" component={AdminPanel}/>
-                <Route strict path="/" component={LandingPage}/>
-            </Switch>
-        </Router>
-      </FlightsProvider>
-    </PostsProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

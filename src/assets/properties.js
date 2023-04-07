@@ -1,1 +1,1 @@
-export const geoDataApiPath = '/flight-service'
+export const geoDataApiPath = '/api'
