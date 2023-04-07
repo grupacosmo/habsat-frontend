@@ -8,6 +8,18 @@ body {
     background-color: #001221 !important;
 }
 
+.cursor{
+    cursor: url('../images/rocket2.png'), auto;
+}
+
+.cursorMove{
+    cursor: url('../images/moving_rocket2.png'), auto;
+}
+
+a:hover{
+    cursor: url('../images/pointer2.png'), auto;
+}
+
 #root {
     background-color: white;
 }

@@ -249,7 +249,6 @@ const MapView = () => {
       <SockJsClient
         url={`${geoDataApiPath}/ws`}
         topics={["/data/ws"]}
-        on
         onMessage={(dataFrame) => {
           if (currentFlight !== newest) {
             return;
