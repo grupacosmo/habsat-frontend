@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import { FC, useEffect, useContext, useState } from "react";
 import { Layout, Slider, Table, Row, Col } from "antd";
 import "./MapView.css";
 import Map from "../../component/Map/Map";
@@ -13,13 +13,13 @@ import { faMugHot } from "@fortawesome/free-solid-svg-icons";
 
 const { Content } = Layout;
 
-const formatDate = (dateString) => {
+const formatDate = (dateString: string | Date) => {
   const date = new Date(dateString);
-  let dd = date.getDate();
-  let mm = date.getMonth() + 1;
-  let yyyy = date.getFullYear();
-  let hh = date.getHours();
-  let mi = date.getMinutes();
+  let dd: string | number = date.getDate();
+  let mm: string | number = date.getMonth() + 1;
+  let yyyy: string | number = date.getFullYear();
+  let hh: string | number = date.getHours();
+  let mi: string | number = date.getMinutes();
   dd = dd < 10 ? `0` + dd : dd;
   mm = mm < 10 ? `0` + mm : mm;
   hh = hh < 10 ? `0` + hh : hh;
@@ -71,7 +71,7 @@ const columns = [
   },
 ];
 
-const MapView = () => {
+const MapView: FC = () => {
   const dataFramePath = `/flight/`;
   const [geoData, setGeoData] = useState([]);
   const [sliderValue, setSliderValue] = useState(0);

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import MapNavbarSection from '../../container/MapNavbarSection/MapNavbarSection'
 
 import TeamPhoto from "../../assets/images/team.jpg"
 
 import './Members.css'
 
-const Members = () => {
+const Members:FC = () => {
     return (
         <div className="Members">
             <MapNavbarSection />

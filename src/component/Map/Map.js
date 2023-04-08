@@ -8,7 +8,6 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import formatcoords from "formatcoords"
 
-
 const DefaultIcon = L.icon({
     iconUrl: icon,
     iconAnchor: [12.5, 41],

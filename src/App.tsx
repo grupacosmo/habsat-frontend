@@ -1,24 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import './assets/styles/global.css';
 import LandingPage from './view/LandingPage/LandingPage';
-import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MapView from './view/MapView/MapView';
 import Members from './view/Members/Members';
-import LoginPage from './admin/LoginPage/LoginPage';
 import AdminPanel from './admin/adminPanel/AdminPanel';
 import FlightsProvider from './container/FlightsProvider/FlightsProvider';
 import PostsProvider from './container/PostsProvider/PostsProvider';
-
+import { FC, MouseEvent } from 'react';
 import { useState, useEffect, useRef } from 'react';
 
-const App = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const root = useRef(null);
+interface ICoords {
+  x: number,
+  y: number
+}
 
-  const handleMoveMouse = e => {
+const App: FC = () => {
+  const [mousePosition, setMousePosition] = useState<ICoords>({ x: 0, y: 0 });
+  const root = useRef<HTMLDivElement>(null);
+
+  const handleMoveMouse = (e: MouseEvent<HTMLDivElement>) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
     root.current?.classList.remove('cursor');
     root.current?.classList.add('cursorMove');
