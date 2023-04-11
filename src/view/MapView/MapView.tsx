@@ -10,6 +10,9 @@ import ChartTile from "../../component/ChartTile/ChartTile";
 import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMugHot } from "@fortawesome/free-solid-svg-icons";
+import { IDataPoint, flight } from "typings/flights";
+import { ColumnsType } from "antd/lib/table";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const { Content } = Layout;
 
@@ -28,7 +31,14 @@ const formatDate = (dateString: string | Date) => {
   return `${dd}/${mm}/${yyyy} ${hh}:${mi}`;
 };
 
-const columns = [
+interface IColumns {
+  title: string,
+  dataIndex: string,
+  key: string,
+  render: (value: IDataPoint[keyof IDataPoint]) => void
+}
+
+const columns:ColumnsType<IDataPoint> = [
   {
     title: "Time",
     dataIndex: "time",
@@ -73,8 +83,8 @@ const columns = [
 
 const MapView: FC = () => {
   const dataFramePath = `/flight/`;
-  const [geoData, setGeoData] = useState([]);
-  const [sliderValue, setSliderValue] = useState(0);
+  const [geoData, setGeoData] = useState<IDataPoint[]>([]);
+  const [sliderValue, setSliderValue] = useState<number>(0);
   const [currentDate, setCurrentDate] = useState(new Date());
   const { currentFlight, newest } = useContext(FlightsContext);
   const currentFlightDate = new Date(currentFlight.date);
@@ -93,7 +103,7 @@ const MapView: FC = () => {
     axios
       .get(dataFramePath + currentFlight.date?.slice(0, 10))
       .then((resp) => {
-        let points = resp.data.flightDataResponseList.reverse();
+        let points:IDataPoint[] = resp.data.flightDataResponseList.reverse();
         points = points.filter((point) => {
           if (point.latitude === 0) {
             return false;
@@ -113,7 +123,7 @@ const MapView: FC = () => {
     };
   }, [dataFramePath, currentFlight]);
 
-  function onChange(value) {
+  function onChange(value: number) {
     setSliderValue(() => value);
   }
 
@@ -145,7 +155,7 @@ const MapView: FC = () => {
       <Content className="MapViewContainer">
         {currentDate < currentFlightDate ? (
           <div className="waiting-container">
-            <FontAwesomeIcon icon={faMugHot} className="wait-icon" />
+            <FontAwesomeIcon icon={faMugHot as IconProp} className="wait-icon" />
             Oczekiwanie
             <p>
               Śledzenie na żywo na mapie będzie dostępne{" "}
@@ -169,7 +179,7 @@ const MapView: FC = () => {
               max={geoData.length}
               onChange={onChange}
               onAfterChange={onAfterChange}
-              tipFormatter={(value) => `${formatDate(geoData[value - 1].time)}`}
+              tipFormatter={(value = 1) => `${formatDate(geoData[value - 1].time)}`}
               value={sliderValue}
             />
           ) : null}
@@ -249,7 +259,7 @@ const MapView: FC = () => {
       <SockJsClient
         url={`${geoDataApiPath}/ws`}
         topics={["/data/ws"]}
-        onMessage={(dataFrame) => {
+        onMessage={(dataFrame:IDataPoint) => {
           if (currentFlight !== newest) {
             return;
           }

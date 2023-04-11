@@ -1,13 +1,23 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { Card } from "antd";
-import { Chart } from 'react-charts';
+import { AxisOptions, AxisTimeOptions, Chart, ChartValue, UserSerie } from 'react-charts';
 import "./ChartTile.css";
 
+interface Props {
+  title: string,
+  label: string,
+  data: DataPoint[]
+}
 
-function ChartTile(props) {
+interface DataPoint {
+  date: Date | string;
+  value: number;
+}
+
+function ChartTile(props: Props) {
 
   const { title, label, data } = props;
-  const chartData = React.useMemo(() => [
+  const chartData = useMemo<UserSerie<DataPoint>[]>(() => [
     {
       label: label,
       data: data
@@ -15,12 +25,12 @@ function ChartTile(props) {
   ], [label, data]);
   //console.log(data);
 
-  const primaryAxis = React.useMemo(() => ({
-    getValue: data => data.date,
+  const primaryAxis = useMemo<AxisTimeOptions<DataPoint>>(() => ({
+    getValue: data => data.date as ChartValue<Date>,
     scaleType: 'localTime',
   }), []);
 
-  const secondaryAxes = React.useMemo(() => [{
+  const secondaryAxes = useMemo<AxisOptions<DataPoint>[]>(() => [{
     getValue: data => data.value,
   },], []);
 

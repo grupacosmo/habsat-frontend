@@ -63,6 +63,8 @@
     "@iconify-icons/feather": "^1.1.0",
     "@iconify/icons-tabler": "^1.2.14",
     "@iconify/react": "^1.1.4",
+    "@types/formatcoords": "^1.1.0",
+    "@types/leaflet": "^1.9.3",
     "@types/react-router-dom": "^5.3.3"
   }
 }

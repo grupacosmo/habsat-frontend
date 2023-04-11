@@ -1,4 +1,4 @@
-import React from "react"
+import { FC } from "react"
 import 'leaflet/dist/leaflet.css';
 import "./Map.css"
 import {MapContainer, Marker, Polyline, Popup, TileLayer} from "react-leaflet"
@@ -7,6 +7,7 @@ import balloonSharp from '../../assets/images/hot-air-balloon-sharp.svg';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import formatcoords from "formatcoords"
+import { IDataPoint } from "typings/flights";
 
 const DefaultIcon = L.icon({
     iconUrl: icon,
@@ -39,12 +40,17 @@ const BalloonIcon = L.icon({
  */
 // L.Marker.prototype.options.icon = BalloonIcon;
 // L.Marker.prototype.options.icon = DefaultIcon;
+interface Props {
+    geoData: IDataPoint[],
+    sliderValue: number,
+    pathLength: number,
+    formatDate: (dateString: string | Date) => string
+}
 
-
-const Map = (props) => {
+const Map: FC<Props> = (props) => {
 
     const polyline = () => {
-        const polylinePath = [];
+        const polylinePath:[number, number][] = [];
         props.geoData
             .slice(props.sliderValue, props.geoData.length)
             .forEach((position) => {
@@ -62,7 +68,7 @@ const Map = (props) => {
                     <Marker position={[position.latitude, position.longitude]}
                         // icon={DefaultIcon}
                             icon={index === 0 ? BalloonIcon : DefaultIcon}
-                            key={position.id}>
+                            key={position.time}>
                         <Popup>
                             <p>Time: {props.formatDate(position.time)}</p>
                             <p>Height: {position.altitude.toFixed(2)}m</p>
@@ -76,7 +82,7 @@ const Map = (props) => {
         )
     }
 
-    let startCoordinates = [50.343, 19.9932];
+    let startCoordinates:[number, number] = [50.343, 19.9932];
 
     return (
         <div className="map-container">
