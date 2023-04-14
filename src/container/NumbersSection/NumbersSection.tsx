@@ -1,14 +1,22 @@
-import React from 'react';
 import {Col, Row} from 'antd';
-import {faBullseye, faGlobeEurope, faUser, faWeight } from '@fortawesome/free-solid-svg-icons';
+import {IconDefinition, faBullseye, faGlobeEurope, faUser, faWeight } from '@fortawesome/free-solid-svg-icons';
 import Number from "../../component/Number/Number";
-
 import './NumbersSection.css';
+
+export interface INumbersDataItem {
+    id: number,
+    icon: IconDefinition,
+    backgroundColor: string,
+    number: number,
+    unit: JSX.Element | ""
+    mainText: string,
+    secondaryText?:string 
+}
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 function NumbersSection() {
-    const numbersData =
+    const numbersData:INumbersDataItem[] =
         [
             {
                 id: 0,

@@ -1,4 +1,3 @@
-import React from 'react'
 import {Button, Col, Divider, Input, Row} from 'antd';
 import './ContactSection.css'
 

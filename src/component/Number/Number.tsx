@@ -1,19 +1,19 @@
-import React from 'react';
 import './Number.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CountUp from "react-countup";
 import VisibilitySensor from 'react-visibility-sensor';
+import "../HabsatComponent/HabsatComponent";
+import { INumbersDataItem } from 'container/NumbersSection/NumbersSection';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import "../../component/HabsatComponent/HabsatComponent";
-
-const Number = (props) => {
+const Number = (props: INumbersDataItem) => {
     return (
         <div className="numberContainer" style={{width:"100%"  }}>
             <div className="numberContent">
                 <div className="numberHeader">
                     <div className="habIcon">
                         <div className="circleBackground" style={{ backgroundColor: "#1890ff" }}>
-                            <FontAwesomeIcon icon={props.icon} className="AwsomeIcon" />
+                            <FontAwesomeIcon icon={props.icon as IconProp} className="AwsomeIcon" />
                         </div>
                     </div>
                     <div className="NumberValue">

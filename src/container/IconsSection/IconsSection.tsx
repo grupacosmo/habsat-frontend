@@ -1,12 +1,16 @@
-import React from 'react';
 import {Col, Row} from 'antd';
-import {faChartPie, faLightbulb, faRocket, faSitemap} from '@fortawesome/free-solid-svg-icons';
+import {IconDefinition, faChartPie, faLightbulb, faRocket, faSitemap} from '@fortawesome/free-solid-svg-icons';
 
 import './IconsSection.css';
 import IconTile from "../../component/IconTile/IconTile";
 
+interface ITileDataItem {
+    icon: IconDefinition,
+    title: string,
+    description: string
+}
 
-const tileData = [
+const tileData:ITileDataItem[] = [
     {
         icon: faSitemap,
         title: "Architektura",

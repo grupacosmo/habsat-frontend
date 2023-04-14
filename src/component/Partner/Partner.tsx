@@ -1,6 +1,12 @@
 import './Partner.css'
 
-function Partner(props)
+interface Props {
+    imgPath: string,
+    altText: string,
+    partnerSite: string,
+}
+
+function Partner(props:Props)
 {
     return(
         <div className="PartnerElement">

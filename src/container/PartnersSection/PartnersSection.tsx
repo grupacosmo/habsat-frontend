@@ -13,7 +13,7 @@ import luxonis from "../../assets/images/partners/luxonis.jpeg"
 
 function PartnersSection() 
 {
-    const partnersInfo =
+    const partnersInfo:[string, string | any, string][] =
     [
         ["Politechnika Krakowska", pk, "https://www.pk.edu.pl/"],
         ["Katedra Informatyki", ki, "https://ii.pk.edu.pl/"],

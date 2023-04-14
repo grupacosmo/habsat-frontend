@@ -1,4 +1,3 @@
-import React from 'react';
 import {Icon} from '@iconify/react';
 import bxlFacebook from '@iconify-icons/bx/bxl-facebook';
 import bxlInstagram from '@iconify-icons/bx/bxl-instagram';
@@ -9,8 +8,9 @@ import {Link} from "react-router-dom"
 
 import './FooterSection.css';
 import Items from "../../component/Navbar/Items";
+import { FC } from 'react';
 
-const FooterSection = () => {
+const FooterSection: FC = () => {
 
     const handleClick = () => {
         window.scrollTo({
