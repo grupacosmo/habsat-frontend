@@ -8,44 +8,77 @@
     margin:auto;
     width:80%;
 }
+
 .map-header-wrapper #flight-info {
     color: white;
     height:50px;
     font-size: 30px;
 }
+
 .switch-flights {
     height:48px;
     display:flex;
     align-items: center;
-    position: absolute;
-    right:0;
-    top:0;
-    margin-right:10%;
+    justify-content: flex-end;
+    margin-right:5vw;
     color:white;
     font-size:24px;
+    position: relative;
 }
+
 .switch-flights-button-wrapper {
     position: relative;
     margin-left: 10px;
     top:-4px;
 }
+
 .switch-flights-button-wrapper button {
    color:black;
+   width:130px;
+   border-radius: 15px;
 }
+
 .switch-flights-dropdown {
     text-align: center;
+    top:40px !important;
+}
+
+.ant-dropdown-menu-item {
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 48%), 0 6px 16px 0 rgb(0 0 0 / 14%), 0 9px 28px 8px rgb(0 0 0 / 2%);
+    margin-bottom:3px;
+    border-radius:15px;
+    background-color: white;
 }
 
 .ant-dropdown-menu-item-selected, .ant-dropdown-menu-submenu-title-selected {
     color: #0056b3;
-    background-color: rgb(24, 144, 255, 0.2)
+    background-color: rgb(208 232 254);
 }
-.ant-btn:hover, .ant-btn:focus {
+
+.ant-dropdown-menu {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.switch-button:hover, .switch-button:focus, .switch-button:active {
     color: #0056b3;
     border-color: rgb(24, 144, 255, 0.2);
 }
-@media only screen and (max-width: 400px) {
-    .switch-flights > span {
-        display:none;
+
+.switch-flights-title {
+    white-space: nowrap;
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translate(-100%, -50%);
+}
+
+@media only screen and (max-width: 650px) {
+    .switch-flights-title {
+        display: none;
+    }
+
+    .switch-flights {
+        right:-30px;
     }
 }

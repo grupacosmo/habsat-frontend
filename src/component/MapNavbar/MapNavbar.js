@@ -1,7 +1,6 @@
 import '../Navbar/Navbar.css'
 import balloon from "../../assets/images/svg/weather-balloon-epa-cropped.svg";
-import MapHeader from "../FlightSwitch/FlightSwitch"
-import React from "react"
+import MapHeader from "../MapHeader/MapHeader"
 
 function MapNavbar({mode = "default"}) {
     return (
