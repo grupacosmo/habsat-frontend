@@ -65,6 +65,8 @@
     "@iconify/react": "^1.1.4",
     "@types/formatcoords": "^1.1.0",
     "@types/leaflet": "^1.9.3",
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-responsive": "^8.0.5",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/webpack-env": "^1.18.0"
   }
 }

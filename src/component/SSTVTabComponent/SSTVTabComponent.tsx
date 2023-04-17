@@ -1,11 +1,18 @@
 import { Carousel, Row, Col } from "antd"
 import { LeftOutlined, RightOutlined } from "@ant-design/icons"
-
+import { ISstvDataItem } from "container/SSTVSection/SSTVSection"
+import { FC } from "react"
 import "./SSTVTabComponent.css"
 
-const SSTVTabComponent = ({tag, images, description}) => {
+interface Props {
+    tag?: ISstvDataItem['tag'],
+    images: ISstvDataItem['images'],
+    description: ISstvDataItem['description']
+}
 
-    console.log(require.context)
+const SSTVTabComponent: FC<Props> = ({tag, images, description}) => {
+
+    console.log(images[0])
     //TODO 2137
     return (
         <div className="SSTVTabComponent">
@@ -25,9 +32,13 @@ const SSTVTabComponent = ({tag, images, description}) => {
                                 return (
                                     <div 
                                         className="SSTVTabComponent__image"
-                                        key={image.default}
+                                        // TODO fix the typings
+                                        // @ts-expect-error
+                                        key={image.default} 
                                     >
                                         <img 
+                                            // TODO fix the typings
+                                            // @ts-expect-error
                                             src={image.default} 
                                             alt="SSTV image" 
                                             className="SSTVTabComponent__image--image"

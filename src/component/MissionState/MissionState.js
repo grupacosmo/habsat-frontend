@@ -1,6 +1,6 @@
 import CompoundedSpace from "antd/lib/space";
 import React, {useContext, useEffect, useState} from "react"
-import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider";
+import { FlightsContext } from "../../Providers/FlightsProvider/FlightsProvider";
 import "./MissionState.css"
 
 const months = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];

@@ -5,15 +5,20 @@ import {
     faTowerBroadcast,
     faSdCard,
     faSatellite,
-    faTv
+    faTv,
+    IconDefinition
 
 } from '@fortawesome/free-solid-svg-icons';
 import "./HabsatComponentsSection.css";
 import HabsatComponent from "../../component/HabsatComponent/HabsatComponent";
 
-import React from 'react';
+export interface IHabsatDataItem {
+    title: string,
+    content: string,
+    icon: IconDefinition
+}
 
-const habsatData = [
+const habsatData:IHabsatDataItem[] = [
     {
         title: "Akcelerometr",
         content: "Urządzenie badające przyspieszenie w trzech osiach. Dzięki niemu wiemy w jakiej pozycji znajduje się sonda. Może być przekręcona pod różnymi kątami i nie jest to proste do zbadania, jeśli zamiast stać na stabilnym gruncie, coś unosi się 30 km nad powierzchnią Ziemi.",

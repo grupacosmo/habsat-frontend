@@ -10,12 +10,14 @@ export const PostsContext = React.createContext({
 const PostsProvider = ({ children }) => {
   const [posts, setPosts] = useState(PostsData);
 
-  useEffect(() => {
-    axios
-      .get("/api/posts")
-      .then(({ data }) => setPosts(data.posts))
-      .catch((err) => console.log(err));
-  }, []);
+  // Turned off until Posts Service works
+
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/posts")
+  //     .then(({ data }) => setPosts(data.posts))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   const handleWhatever = (props) => {
     console.log(props);

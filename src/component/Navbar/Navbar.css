@@ -65,6 +65,7 @@
 }
 
 .MobileShown > .HamburgerButton {
+  all:unset;
   margin: 0;
   position: absolute;
   top: 50%;

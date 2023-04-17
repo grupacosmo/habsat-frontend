@@ -1,4 +1,10 @@
-const Items = [
+interface IItemsItem {
+    key: string,
+    href: `#${string}`
+    title: string
+}
+
+const Items:IItemsItem[] = [
     { 
         key: "home", 
         href: "#Home", 

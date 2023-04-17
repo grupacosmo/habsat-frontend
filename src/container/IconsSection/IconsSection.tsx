@@ -4,7 +4,7 @@ import {IconDefinition, faChartPie, faLightbulb, faRocket, faSitemap} from '@for
 import './IconsSection.css';
 import IconTile from "../../component/IconTile/IconTile";
 
-interface ITileDataItem {
+export interface ITileDataItem {
     icon: IconDefinition,
     title: string,
     description: string

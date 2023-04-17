@@ -1,16 +1,22 @@
 import { Tabs, Typography } from 'antd'
 import SSTVTabComponent from '../../component/SSTVTabComponent/SSTVTabComponent'
-
 import "./SSTVSection.css"
 
 const { TabPane } = Tabs
 const { Title } = Typography
 
-const importAll = (r) => {
+const importAll = (r:__WebpackModuleApi.RequireContext):unknown[] => {
     return r.keys().map(r)
 }
 
-const sstvData = [
+export interface ISstvDataItem {
+    key: number,
+    tag: string,
+    images: unknown[],
+    description: JSX.Element
+}
+
+const sstvData:ISstvDataItem[] = [
     {
         key: 1,
         tag: "ha1dsl",

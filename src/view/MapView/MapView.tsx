@@ -7,7 +7,7 @@ import { geoDataApiPath } from "../../assets/properties";
 import SockJsClient from "react-stomp";
 import MapNavbarSection from "../../container/MapNavbarSection/MapNavbarSection";
 import ChartTile from "../../component/ChartTile/ChartTile";
-import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider";
+import { FlightsContext } from "../../Providers/FlightsProvider/FlightsProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMugHot } from "@fortawesome/free-solid-svg-icons";
 import { IDataPoint, flight } from "typings/flights";

@@ -2,7 +2,7 @@ import { useContext, FC } from 'react'
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, MenuProps, Space } from 'antd';
 import "./MapHeader.css";
-import { FlightsContext } from "../../container/FlightsProvider/FlightsProvider";
+import { FlightsContext } from "../../Providers/FlightsProvider/FlightsProvider";
 
 const MapHeader: FC = () => {
   const { flights, currentFlight, switchCurrentFlight } = useContext(FlightsContext);

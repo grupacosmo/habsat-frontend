@@ -1,4 +1,3 @@
-import React from "react";
 import './LandingPage.css';
 import { Layout } from "antd";
 import PartnersSection from '../../container/PartnersSection/PartnersSection';
@@ -28,29 +27,29 @@ function LandingPage() {
                 <Route exact path="/project">
                     <div className="scroll-to-element" id="Project" />
                     <div className="Content">
-                        <ProjectDescription id="Project" />
+                        <ProjectDescription data-id="Project" />
                         <div className="scroll-to-element" id="HabsatComponents" />
                         <HabsatComponentsSection />
-                        <SSTVSection id="SSTVSection" />
+                        <SSTVSection data-id="SSTVSection" />
                         <NumbersSection />
                     </div>
                 </Route>
                 <Route exact path="/about">
                     <div className="scroll-to-element" id="AboutUs" />
                     <div className="Content">
-                        <AboutUsSection id="AboutUs" />
+                        <AboutUsSection data-id="AboutUs" />
                     </div>
                 </Route>
                 <Route exact path="/posts/:slug?">
                     <div className="scroll-to-element" id="Posts" />
                     <div className="Content">
-                        <PostsSection />
+                        <PostsSection data-id = "Posts" />
                     </div>
                 </Route>
                 <Route exact path="/partners">
                     <div className="scroll-to-element" id="Partners" />
                     <div className="Content">
-                        <PartnersSection id="Partners" />
+                        <PartnersSection data-id="Partners" />
                     </div>
                 </Route>
 

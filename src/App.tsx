@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MapView from './view/MapView/MapView';
 import Members from './view/Members/Members';
 import AdminPanel from './admin/adminPanel/AdminPanel';
-import FlightsProvider from './container/FlightsProvider/FlightsProvider';
-import PostsProvider from './container/PostsProvider/PostsProvider';
+import FlightsProvider from './Providers/FlightsProvider/FlightsProvider';
+import PostsProvider from './Providers/PostsProvider/PostsProvider';
 import { FC, MouseEvent } from 'react';
 import { useState, useEffect, useRef } from 'react';
 

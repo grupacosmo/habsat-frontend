@@ -1,7 +1,7 @@
 import './Navbar.css'
 import balloon from "../../assets/images/svg/weather-balloon-epa-cropped.svg";
 
-import React, {useState} from "react"
+import {useState} from "react"
 import {Anchor, Drawer} from "antd"
 import Items from "./Items"
 import {useHistory} from 'react-router-dom'
@@ -18,7 +18,7 @@ function Navbar() {
     const onClose = () => {
         setVisible(false);
     };
-    const handleClick = (e, link) => {
+    const handleClick = (e:any) => {
         e.preventDefault();
         window.scrollTo({
             top:0,
@@ -33,7 +33,7 @@ function Navbar() {
                 <a href="/"><span>HABSat</span></a>
             </div>     
             <div className="MobileHidden">
-                <Anchor affix="true" offsetTop="0" onClick={handleClick}>
+                <Anchor affix={true} offsetTop={0} onClick={handleClick}>
                     {   
                         Items.map(item => (
                             <div className="data-link" id={item.key} key={item.key}>
@@ -44,11 +44,11 @@ function Navbar() {
                 </Anchor>
             </div>
             <div className="MobileShown">
-                <div className="HamburgerButton" type="primary" onClick={showDrawer}>
+                <button className="HamburgerButton" data-type="primary" onClick={showDrawer}>
                     <div/>
                     <div/>
                     <div/>
-                </div>
+                </button>
                 <Drawer
                     title="Menu"
                     placement="right"
@@ -57,7 +57,7 @@ function Navbar() {
                     open={visible}
                     width="300px"
                 >
-                    <Anchor affix="true" offsetTop="0" onClick={handleClick}>
+                    <Anchor affix={true} offsetTop={0} onClick={handleClick}>
                         {
                             Items.map(item =>
                                 <div className="data-link" id={item.key}  key={item.key} onClick={onClose}>

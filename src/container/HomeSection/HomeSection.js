@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 
 import MissionState from '../../component/MissionState/MissionState';
-import { FlightsContext } from '../FlightsProvider/FlightsProvider';
+import { FlightsContext } from '../../Providers/FlightsProvider/FlightsProvider';
 import "./HomeSection.css"
 // import { WindowsFilled } from '@ant-design/icons';
 

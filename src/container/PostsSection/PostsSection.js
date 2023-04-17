@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import "./PostsSection.css"
 import Post from "../../component/Post/Post"
-import { PostsContext } from '../PostsProvider/PostsProvider';
+import { PostsContext } from '../../Providers/PostsProvider/PostsProvider';
 
 const PostsSection = () => {
   const { slug } = useParams();
