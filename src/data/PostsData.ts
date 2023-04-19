@@ -1,4 +1,6 @@
-const PostsData = [
+import { IPost } from "typings/flights"
+
+const PostsData:IPost[] = [
     {
         id: 0,
         thumbnailId: 0,

@@ -1,32 +1,32 @@
 import React, {FC, ReactNode, useEffect, useState } from "react";
 import axios from "axios";
-import { emptyFlight, flight } from "typings/flights.d";
+import { EmptyFlight, Flight } from "typings/flights.d";
 
 interface IFlightContext {
-  flights: flight[],
-  currentFlight: flight,
+  flights: Flight[],
+  currentFlight: Flight,
   switchCurrentFlight: (id: number) => void,
-  newest: flight
+  newest: Flight
 }
 
 export const FlightsContext = React.createContext<IFlightContext>({
   flights: [],
-  currentFlight: emptyFlight,
+  currentFlight: EmptyFlight,
   switchCurrentFlight: () => {},
-  newest: emptyFlight,
+  newest: EmptyFlight,
 });
 
 // export const FlightsContext = React.createContext<IFlightContext | null>(null);
 
 const FlightsProvider: FC<{children: ReactNode}> = ({ children }) => {
-  const [flights, setFlights] = useState<flight[]>([]);
-  const [currentFlight, setCurrentFlight] = useState<flight>(emptyFlight);
-  const [newest, setNewest] = useState<flight>(emptyFlight);
-  const [finishedFlights, setFinishedFlights] = useState<flight[]>([]);
+  const [flights, setFlights] = useState<Flight[]>([]);
+  const [currentFlight, setCurrentFlight] = useState<Flight>(EmptyFlight);
+  const [newest, setNewest] = useState<Flight>(EmptyFlight);
+  const [finishedFlights, setFinishedFlights] = useState<Flight[]>([]);
 
   useEffect(() => {
     axios
-      .get<flight>(`/api/flight/newest`)
+      .get<Flight>(`/api/Flight/newest`)
       .then(({ data }) => {
         setNewest(data);
         setCurrentFlight(data);
@@ -36,7 +36,7 @@ const FlightsProvider: FC<{children: ReactNode}> = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get<flight[]>("api/flight/stage/FINISHED")
+      .get<Flight[]>("api/Flight/stage/FINISHED")
       .then(({ data }) => {
         setFinishedFlights(data);
       })

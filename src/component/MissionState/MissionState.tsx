@@ -1,13 +1,30 @@
 import CompoundedSpace from "antd/lib/space";
-import React, {useContext, useEffect, useState} from "react"
+import {useContext, useEffect, useState} from "react"
 import { FlightsContext } from "../../Providers/FlightsProvider/FlightsProvider";
 import "./MissionState.css"
 
-const months = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"];
+const months = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"] as const;
 
+type TMissionState = "WAITING" | "LIVE" | "ENDED"
+
+interface IMissionDescription {
+    title: string,
+    description: string,
+    buttonText: string,
+}
+
+interface IMissionMessages {
+    waiting: IMissionDescription
+    live: IMissionDescription
+    ended: IMissionDescription
+}
+
+type TDate = {
+    [key:string] : number | string
+}
 function MissionState() {
-    const [date, updateDate] = useState(0)
-    const [currentState, setCurrentState] = useState("")
+    const [date, updateDate] = useState<TDate | 0>(0)
+    const [currentState, setCurrentState] = useState<TMissionState | "">("")
     const { newest:currentFlight } = useContext(FlightsContext);
     const dDayDate = new Date(currentFlight.date)
 
@@ -22,7 +39,7 @@ function MissionState() {
     dDayDate.getSeconds() < 10 ? "0"+dDayDate.getSeconds() : dDayDate.getSeconds(),
     ];
 
-    const missionMessages = {
+    const missionMessages:IMissionMessages = {
         waiting: {
             title: "Termin potwierdzony!",
             description: `Start ${ day } ${ months[month] }, godzina ${ hour + ":" + minutes }. Do startu pozostało:`,
@@ -40,16 +57,16 @@ function MissionState() {
         },
     }
 
-    const getMissionState = () => {
+    const getMissionState = (): TMissionState => {
         if (currentFlight.flightStage === "FINISHED") return "ENDED";
         const todayDate = new Date()
-        let missionStatus = "WAITING";
+        let missionStatus:TMissionState = "WAITING";
         if (todayDate >= dDayDate) missionStatus = "LIVE"
 
         return missionStatus
     }
 
-    const messageTitle = (missionState) => {
+    const messageTitle = (missionState:TMissionState) => {
         switch (missionState) {
             case "WAITING":
                 return <>{missionMessages.waiting.title}</>
@@ -62,7 +79,7 @@ function MissionState() {
         }
     }
 
-    const buttonText = (missionState) => {
+    const buttonText = (missionState:TMissionState) => {
         switch (missionState) {
             case "WAITING":
                 return <>{missionMessages.waiting.buttonText}</>
@@ -75,9 +92,12 @@ function MissionState() {
         }
     }
 
-    const messageDescription = (missionState) => {
+    const messageDescription = (missionState:TMissionState) => {
         switch (missionState) {
             case "WAITING":
+                if (!date) return (
+                    <div>{missionMessages.waiting.description}</div>
+                )
                 return (
                     <>
                         <div>{missionMessages.waiting.description}</div>
@@ -169,11 +189,13 @@ function MissionState() {
                 try {
                     updateDate(diff)
                     const seconds = document.getElementById("counter-seconds")
+                    if (!seconds) return
                     seconds.classList.remove("counterAnimate")
                     void seconds.offsetWidth
                     seconds.classList.add("counterAnimate")
 
                     const minutes = document.getElementById("counter-minutes")
+                    if (!minutes) return
                     if (minutes.children[0].innerHTML !== minutes.children[1].innerHTML) {
                         minutes.classList.remove("counterAnimate")
                         void seconds.offsetWidth
@@ -183,6 +205,7 @@ function MissionState() {
                     }
 
                     const hours = document.getElementById("counter-hours")
+                    if (!hours) return
                     if (hours.children[0].innerHTML !== hours.children[1].innerHTML) {
                         hours.classList.remove("counterAnimate")
                         void seconds.offsetWidth

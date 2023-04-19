@@ -1,25 +1,30 @@
-import React, {useContext, useEffect} from 'react';
+import { useContext, useEffect } from 'react';
 
 import MissionState from '../../component/MissionState/MissionState';
 import { FlightsContext } from '../../Providers/FlightsProvider/FlightsProvider';
 import "./HomeSection.css"
-// import { WindowsFilled } from '@ant-design/icons';
 
 const resize = () => {
-    document.getElementsByClassName("HomeSectionWrapper")[0].style.height = `${window.innerHeight - 48}px`
+    const homeSectionWrapper = document.getElementsByClassName("HomeSectionWrapper")[0]
+    if (homeSectionWrapper instanceof HTMLElement) {
+        homeSectionWrapper.style.height = `${window.innerHeight - 48}px`
+    }
 }
 
-function HomeSection(){
-    const {currentFlight} = useContext(FlightsContext)
+function HomeSection() {
+    const { currentFlight } = useContext(FlightsContext)
 
-    useEffect(() =>{
-        document.getElementsByClassName("HomeSectionWrapper")[0].style.height = `${window.innerHeight - 48}px`
+    useEffect(() => {
+        const homeSectionWrapper = document.getElementsByClassName("HomeSectionWrapper")[0]
+        if (homeSectionWrapper instanceof HTMLElement) {
+            homeSectionWrapper.style.height = `${window.innerHeight - 48}px`
+        }
         window.addEventListener("resize", resize);
 
         return () => window.removeEventListener("resize", resize);
     }, [])
-    
-    return(
+
+    return (
         <div className="HomeSection">
             <div className="HomeSectionWrapper">
                 <div className="HomeSectionText">
@@ -27,7 +32,7 @@ function HomeSection(){
                     <div className="HomeSectionDescription">
                         HABSat - projekt sondy stratosferycznej Koła Naukowego COSMO
                     </div>
-                     { currentFlight.date ? <MissionState /> : null }
+                    {currentFlight.date ? <MissionState /> : null}
                 </div>
             </div>
         </div>

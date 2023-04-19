@@ -1,13 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { Button, Table, Modal, Select, Space } from "antd";
 import fakeData from "../fakeDataPost";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import PostsForm from "./Components/PostsForm";
+import { flightsData } from "data/FlightsData";
+import { IPost } from "typings/flights";
+import PostsData from "data/PostsData";
 
 const { Option } = Select;
 const defaultDate = "Wszystkie";
 
-const tableColumns = (onEditPostWindow, onDeletePost) => [
+const emptyPost:IPost = {
+  id: 0,
+  thumbnailId: 0,
+  title: "",
+  slug: "",
+  content: "",
+  emailOfAuthor: "",
+  publishedAt: "",
+  createdAt: "",
+  updatedAt: "",
+}
+
+export type onAction = (record:IPost) => void
+const tableColumns = (onEditPostWindow:onAction, onDeletePost:onAction) => [
   {
     key: "1",
     title: "Data lotu",
@@ -27,7 +43,7 @@ const tableColumns = (onEditPostWindow, onDeletePost) => [
     key: "4",
     title: "Obraz",
     dataIndex: "imageUrl",
-    render: (theImageUrl) => (
+    render: (theImageUrl: string) => (
       <img
         style={{ width: 120, height: 100, borderRadius: 5 }}
         alt="post"
@@ -38,7 +54,7 @@ const tableColumns = (onEditPostWindow, onDeletePost) => [
   {
     key: "5",
     title: "Działania",
-    render: (record) => {
+    render: (record:any) => {
       return (
         <>
           <EditOutlined
@@ -56,13 +72,13 @@ const tableColumns = (onEditPostWindow, onDeletePost) => [
 ];
 
 const AdminPosts = () => {
-  const [dataSource, setDataSource] = useState(fakeData);
+  const [dataSource, setDataSource] = useState(PostsData);
   const [filteredDataSource, setFilteredDataSource] = useState(dataSource);
   const [selectedDate, setSelectedDate] = useState(defaultDate);
-  const [newPost, setNewPost] = useState(null);
+  const [newPost, setNewPost] = useState<IPost>(emptyPost);
   const [whichWindowIsOpen, setWhichWindowIsOpen] = useState("NoWindow");
 
-  const onDeletePost = (record) => {
+  const onDeletePost = (record: IPost) => {
     Modal.confirm({
       title: `Czy na pewno chcesz usunąć post "${record.title}"?`,
       okText: "Tak",
@@ -75,15 +91,16 @@ const AdminPosts = () => {
       },
     });
   };
-  const onEditPostWindow = (record) => {
+
+  const onEditPostWindow = (record:IPost) => {
     setWhichWindowIsOpen("EditWindow");
     setNewPost({ ...record });
   };
   const resetWindow = () => {
     setWhichWindowIsOpen("NoWindow");
-    setNewPost(null);
+    setNewPost(emptyPost);
   };
-  const onChangePost = (event) => {
+  const onChangePost = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setNewPost((prePost) => {
       return {
@@ -93,14 +110,15 @@ const AdminPosts = () => {
     });
   };
   const getUniqueDates = () => {
-    return [...new Set(dataSource.map((item) => item.flightDate))];
+    //@ts-expect-error
+    return [...new Set( dataSource.map((item) => item.flightDate) )];
   };
   const changeTableBySelected = () => {
     if (selectedDate === defaultDate) {
       return dataSource;
     }
     return dataSource.filter((item) => {
-      return selectedDate === item.flightDate;
+      return selectedDate === item.createdAt;
     });
   };
 
@@ -126,9 +144,10 @@ const AdminPosts = () => {
           }}
           onChange={(value) => setSelectedDate(value)}
         >
-          <Option value={defaultDate}></Option>
+
+          <Option value={defaultDate}>{defaultDate}</Option>
           {getUniqueDates().map((item) => (
-            <Option value={item} key={item}></Option>
+            <Option value={item} key={item}>{item}</Option>
           ))}
         </Select>
       </Space>
@@ -165,6 +184,7 @@ const AdminPosts = () => {
           resetWindow();
         }}
         onOk={() => {
+          if (!newPost) return
           setDataSource((preData) => {
             return preData.map((post) => {
               return post.id === newPost.id ? newPost : post;

@@ -1,4 +1,4 @@
-export interface flight {
+export interface Flight {
     date: string,
     description: string,
     flightDataResponseList: IDataPoint[],
@@ -16,10 +16,22 @@ export interface IDataPoint {
     rssi: number
 }
 
-export const emptyFlight:flight = {
+export const EmptyFlight:Flight = {
     date: '',
     description: '',
     flightDataResponseList: [],
     flightStage: '',
     title: ''
+}
+
+export interface IPost {
+    id: number,
+    thumbnailId: number,
+    title: string,
+    slug: string,
+    content: string,
+    emailOfAuthor: string
+    publishedAt: string,
+    createdAt:string,
+    updatedAt?:string,
 }

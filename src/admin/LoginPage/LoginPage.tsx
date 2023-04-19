@@ -2,6 +2,7 @@ import { Button, Checkbox, Form, Input } from "antd";
 import React, { useRef, useState } from "react";
 import AdminPanel from "../adminPanel/AdminPanel";
 import "../adminPanel/AdminPanel.css";
+import { Rule } from "antd/lib/form";
 
 
 const LoginPage = () => {
@@ -15,12 +16,13 @@ const LoginPage = () => {
             onFinish={() => console.log("finishlogin") }
             onFinishFailed={() => console.log("WYPIERDALAJ") }
             autoComplete="off"
+            // @ts-expect-error
             style={{ position: 'absolute', top: '5vw', screenLeft: '15em'}}
         >
             <Form.Item
                 label={<label style={{ color: "white" }}>Email</label>}
                 name="email"
-                rules={[{ requires: true, message: 'KURWO WPISZ TO'}]}
+                rules={[{ requires: true, message: 'KURWO WPISZ TO'} as Rule]}
             >
                 <Input />
 
@@ -29,7 +31,7 @@ const LoginPage = () => {
             <Form.Item
                 label={<label style={{ color: "white" }}>Password</label>}
                 name="password"
-                rules={[{ requires: true, message: 'KURWO WPISZ TO'}]}
+                rules={[{ requires: true, message: 'KURWO WPISZ TO'} as Rule]}
             >
                 <Input.Password />
 
@@ -44,6 +46,7 @@ const LoginPage = () => {
 
             </Form.Item>
             
+            {/* @ts-expect-error */}
             <Form.Item wrapperCol={{ labelCol: { span: 8 },
                 wrapperCol: { span: 16 }, offset: 8 }}>
                 <Button type="primary" htmlType="submit">

@@ -1,12 +1,12 @@
-import React from "react";
+import { FC } from "react";
 import { useState } from "react";
 import LoginPage from "../LoginPage/LoginPage";
 import { Tabs } from "antd";
 import AdminPosts from "./TabComponents/AdminPosts";
 
-const AdminPanel = () => {
-  const [isLoggedIn, setLoggedIn] = useState(true);
-  const [activeKey, setActiveKey] = useState("tab1");
+const AdminPanel:FC = () => {
+  const [isLoggedIn, setLoggedIn] = useState<boolean>(true);
+  const [activeKey, setActiveKey] = useState<string>("tab1");
 
   if (!isLoggedIn) {
     return <LoginPage />;

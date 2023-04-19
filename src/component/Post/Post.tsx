@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import { EditOutlined } from '@ant-design/icons';
 import cosmo from "../../assets/images/svg/Logo2.svg";
 import defaultImage from "../../assets/images/post-default.png";
+import { IPost } from "typings/flights";
+import { FC } from "react";
 
-const cutContent = (text) => {
+const cutContent = (text: string) => {
     return text.substr(0,230)+"...";
   }
 
@@ -16,7 +18,12 @@ const scrollTop = () => {
     })
 }
 
-const Post = ({item, isFull}) => (
+interface Props {
+    item: IPost,
+    isFull?: boolean | "true" | "false"
+}
+
+const Post:FC<Props> = ({item, isFull}) => (
     <div  className="my-list-item">
          {
              isFull ? 

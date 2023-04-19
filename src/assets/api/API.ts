@@ -1,6 +1,6 @@
 import axios from "axios";
 
-loginUser = async (obj) => {
+const loginUser = async (obj:unknown) => {
   axios.post("http://localhost:8080/user", obj);
 };
 

@@ -10,7 +10,7 @@ import ChartTile from "../../component/ChartTile/ChartTile";
 import { FlightsContext } from "../../Providers/FlightsProvider/FlightsProvider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMugHot } from "@fortawesome/free-solid-svg-icons";
-import { IDataPoint, flight } from "typings/flights";
+import { IDataPoint, Flight } from "typings/flights";
 import { ColumnsType } from "antd/lib/table";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 

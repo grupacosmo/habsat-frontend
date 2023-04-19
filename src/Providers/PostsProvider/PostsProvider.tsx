@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC, ReactNode } from "react";
 import PostsData from "../../data/PostsData";
 import axios from "axios";
+import { IPost } from "typings/flights";
 
-export const PostsContext = React.createContext({
+interface IPostsContext {
+  posts: IPost[],
+  handleWhatever: (props:any) => void
+}
+
+export const PostsContext = React.createContext<IPostsContext>({
   posts: [],
   handleWhatever: () => {},
 });
 
-const PostsProvider = ({ children }) => {
+const PostsProvider:FC<{children: ReactNode}> = ({ children }) => {
   const [posts, setPosts] = useState(PostsData);
 
   // Turned off until Posts Service works
@@ -19,7 +25,7 @@ const PostsProvider = ({ children }) => {
   //     .catch((err) => console.log(err));
   // }, []);
 
-  const handleWhatever = (props) => {
+  const handleWhatever = (props:any) => {
     console.log(props);
   };
 
