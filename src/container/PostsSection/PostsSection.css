@@ -1,0 +1,54 @@
+.my-list-item {
+    background-color: white;
+    margin-bottom:30px;
+    padding:35px 35px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myListElement.ant-list-item {
+    border-bottom: none;  
+    padding-bottom: 0;
+
+}
+
+.my-list-item .ant-list-item {
+    padding:0;
+}
+
+.post-title {
+    font-size: 26px;
+}
+
+.post-title > a {
+   color:#03254c;
+}
+
+.post-content {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-top:4px solid #03254c;
+    padding-top:20px;
+}
+
+.post-content img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.post-content .post-author {
+    color: rgba(0, 0, 0, 0.45);
+    align-self: flex-end;
+}
+
+.post-author span {
+    position: relative;
+    top:-3px;
+}
+
+.go-back-button, .go-back-button:hover, .go-back-button:active, .go-back-button:visited  {
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.45);
+}

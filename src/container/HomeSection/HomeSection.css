@@ -1,6 +1,8 @@
 .HomeSection {
+    background: url("../../assets/images/habsat-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .HomeSectionWrapper {
@@ -34,6 +36,7 @@
     mask-image: linear-gradient(360deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(9,9,121,0) 58%, rgba(0,212,255,0) 100%);
     mask-origin: content;
     mask-position: center bottom;
+    min-height: 72%;
 }
 
 @keyframes gradientIn {
@@ -58,15 +61,16 @@
 }
 
 .balloon-image {
-    animation: subtle-balloon-move 20s 1 ease-in-out;
+    animation: subtle-balloon-move 15s 1 ease-in-out;
     animation-iteration-count: infinite;
-    width: 200px;
-    position: absolute;
-    top: 25vh;
-    left: 10%;
+    width:30px;
+    margin-right:5px;
+    display: block;
+    min-height: 25px;
+    width:calc(25px + 0.5vh);;
 }
 
-@media only screen and (max-width: 1200px) {
+/* @media only screen and (max-width: 1200px) {
     .balloon-image {
         left: 0;
     }
@@ -78,7 +82,7 @@
         width: 100px;
         top: 80vh;
     }
-}
+} */
 
 @media only screen and (min-width: 1800px) {
     .HomeSectionDescription, .MissionStateWrapper, .MisssionStateDescription {
@@ -88,13 +92,13 @@
 
 @keyframes subtle-balloon-move {
     0% {
-        transform: translate(0, 0) rotate(2deg);
+        transform: translate(0, 0) rotate(4deg);
     }
     50% {
-        transform: translate(20%, 0) rotate(-2deg);
+        transform: translate(20%, 0) rotate(-4deg);
     }
     100% {
-        transform: translate(0, 0) rotate(2deg);
+        transform: translate(0, 0) rotate(4deg);
     }
 }
 
