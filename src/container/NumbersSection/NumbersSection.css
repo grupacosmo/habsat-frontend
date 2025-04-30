@@ -1,4 +1,16 @@
 .NumbersSection {
-    background-color: white;
+    background-color: #03234f;
     text-align: center;
+    padding:20px 50px 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../../assets/images/space-banner.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top;
+}
+.NumbersSection_mobile {
+    background-attachment: unset;
 }
